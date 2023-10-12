@@ -15,7 +15,14 @@ import Link from "next/link";
 const SideMenu = () => {
   return (
     <Box
-      sx={{ width: "80%", maxWidth: 260, position: "fixed" }}
+      sx={{ 
+        width: "80%", 
+        maxWidth: 260, 
+        position: "fixed",
+        display: "flex",
+        flexDirection: "column",
+        gap: "19px"
+      }}
     >
       <div className="menu-logo">
         <h2 className="logo-name">Materio</h2>
@@ -32,7 +39,7 @@ const SideMenu = () => {
           <ManageAccounts className="menu-icon" />
           <span className="title">Account Setting</span>
         </div>
-        <Link href="/pages/login">
+        <Link href="/login">
           <div className="menu-item">
             <LoginIcon className="menu-icon" />
             <span className="title">Login</span>

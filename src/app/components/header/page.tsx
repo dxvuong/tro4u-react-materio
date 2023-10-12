@@ -38,7 +38,10 @@ const HeaderComponent = () => {
             height={30}
             onClick={handleOpen}
           />
-          <ModalSubUser open={isOpen} close={handleClose} />
+          
+            <ModalSubUser  open={isOpen} close={handleClose} />
+          
+          
         </div>
       </div>
     </div>

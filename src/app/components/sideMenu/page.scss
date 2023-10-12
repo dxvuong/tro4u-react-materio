@@ -1,7 +1,12 @@
+.menu-logo {
+  .logo-name {
+    color: #9155fd;
+  }
+}
 .menu-list {
   display: flex;
   flex-direction: column;
-  
+  gap: 10px;
   .menu-item {
     display: flex;
     gap: 10px;

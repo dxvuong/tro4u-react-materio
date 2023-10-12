@@ -2,8 +2,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import SideMenu from "./components/sideMenu/page";
-import HeaderComponent from "./components/header/page";
+
+import Login from "./login/page";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,16 +22,7 @@ export default function RootLayout({
 
       <html lang="en">
         <body className={inter.className}>
-          <div className="container">
-            <div className="menu">
-              <SideMenu />
-            </div>
-            
-            <div className="main">
-              <HeaderComponent />
               {children}
-            </div>
-          </div>
         </body>
       </html>
   );
