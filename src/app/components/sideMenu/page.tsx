@@ -45,7 +45,7 @@ const SideMenu = () => {
             <span className="title">Login</span>
           </div>
         </Link>
-        <Link href="/pages/register">
+        <Link href="/register">
           <div className="menu-item">
             <PersonAddIcon className="menu-icon" />
             <span className="title">Register</span>

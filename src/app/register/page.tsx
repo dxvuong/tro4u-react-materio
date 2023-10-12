@@ -13,21 +13,14 @@ const Register = () => {
             <span>Make your app management easy and fun!</span>
           </div>
           <FormControl fullWidth className="form-control">
-          <TextField
-              id="outlined-basic"
-              label="Username"
-              variant="outlined" />
+          
             <TextField
               id="outlined-basic"
               label="Phone Number"
               variant="outlined"
-              type="number"
+              
               />
-            <TextField
-              id="outlined-basic"
-              label="Password"
-              variant="outlined"
-              type="password" />
+          
           </FormControl>
           <Button variant="contained" className="btn-register">
             SIGN UP

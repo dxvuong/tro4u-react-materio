@@ -19,7 +19,7 @@ const Login = () => {
               id="outlined-basic"
               label="Phone Number"
               variant="outlined"
-              type="numberz"
+              
             />
             <TextField
               id="outlined-basic"
