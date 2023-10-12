@@ -15,7 +15,7 @@ import Link from "next/link";
 const SideMenu = () => {
   return (
     <Box
-      sx={{ width: "80%", maxWidth: 350, padding: "20px", position: "fixed" }}
+      sx={{ width: "80%", maxWidth: 260, position: "fixed" }}
     >
       <div className="menu-logo">
         <h2 className="logo-name">Materio</h2>

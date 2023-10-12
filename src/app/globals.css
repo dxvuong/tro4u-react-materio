@@ -33,8 +33,9 @@ body {
 }
 .container {
   display: flex;
-  
+  background-color: #f4f5fa;
   min-height: 100vh;
+  padding: 20px;
 }
 .menu {
   flex: 1;
@@ -42,7 +43,7 @@ body {
 }
 .main {
   flex: 4;
-  padding: 20px;
+ 
 }
 
 a {
