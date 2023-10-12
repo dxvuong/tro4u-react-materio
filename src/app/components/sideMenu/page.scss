@@ -1,0 +1,33 @@
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  
+  .menu-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px; /* Thêm padding để tăng diện tích cho việc hover */
+    transition: all 0.3s ease; /* Thêm hiệu ứng transition cho việc smooth chuyển động */
+  
+    &:hover {
+      background-color: rgb(130 124 137 / 12%); /* Màu nền khi hover */
+      border-top-right-radius: 10px; /* Bo tròn góc bên phải trên */
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+    }
+    .menu-icon {
+      font-size: 21px;
+    }
+    .title {
+      font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    color: rgba(58, 53, 65, 0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+  }
+}
+

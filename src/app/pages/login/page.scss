@@ -1,0 +1,41 @@
+.login-container {
+  background-color: #fff;
+  padding: 20px 10px;
+  position: relative;
+  margin: 10% auto;
+  width: 30%;
+  min-height: 92vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+
+  .title {
+    font-size: 26px;
+    text-align: center;
+  }
+  .content {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    .greeting {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h2 {
+        font-size: 21px;
+        color: rgba(58, 53, 65, 0.87);
+      }
+      span {
+        font-size: 15px;
+        color: rgba(58, 53, 65, 0.68);
+      }
+    }
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
