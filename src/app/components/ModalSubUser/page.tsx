@@ -34,11 +34,11 @@ interface ModalSubUserProp {
 
 const style = {
   position: "absolute" as "absolute",
-  top: "28%",
-  left: "88%",
+  top: "22%",
+  left: "85%",
   transform: "translate(-50%, -50%)",
   width: 230,
-  bgcolor: "background.paper",
+  
   border: "none",
   boxShadow: 24,
 };

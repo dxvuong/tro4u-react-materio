@@ -1,6 +1,6 @@
 import React from "react";
 import "./page.scss";
-import { Button, Grid, css } from "@mui/material";
+import { Button, Divider, Grid, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, css } from "@mui/material";
 import Image from "next/image";
 import trophy from "../../../../public/assets/img/trophy.png";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
@@ -21,7 +21,9 @@ import github from "../../../../public/assets/img/github.png";
 import slack from "../../../../public/assets/img/slack.png";
 import digital from "../../../../public/assets/img/digital-ocean.png";
 import aws from "../../../../public/assets/img/aws.png";
-const Dashboard = () => {
+import UserTable from "../UserTable/page";
+const Dashboard = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <div className="home-container">
       <div className="box box1">
@@ -291,189 +293,233 @@ const Dashboard = () => {
       </div>
       <div className="box box10">
         <Grid container spacing={2}>
-          <Grid item xs={6} className="same">
-          <div className="top">
-          <div className="left">
-            <span className="title">Deposit</span>
-          </div>
-          <div className="right">
-            <span className="action">View all</span>
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-            <Image style={{marginRight: "5px"}} src={gumroad} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Gumroad Account </span>
+          <Grid item xs={12} xl={6} lg={6} className="same">
+            <div className="top">
+              <div className="left">
+                <span className="title">Deposit</span>
               </div>
-              <div className="country">Sell UI Kit</div>
+              <div className="right">
+                <span className="action">View all</span>
+              </div>
             </div>
-          </div>
-          <div className="right">
-            <span className="result green">+$4,650</span>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={gumroad}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Gumroad Account </span>
+                  </div>
+                  <div className="country">Sell UI Kit</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result green">+$4,650</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={mastercard}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">MasterCard </span>
+                  </div>
+                  <div className="country">Waller deposit</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result green">+$92,705</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={striple}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Striple Account </span>
+                  </div>
+                  <div className="country">IOS Application</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result green">+$957</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={american}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">American Bank </span>
+                  </div>
+                  <div className="country">Bank Tranfer</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result green">+$6,837</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={citi}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Bank Account </span>
+                  </div>
+                  <div className="country">Wallet deposit</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result green">+$446</span>
+              </div>
+            </div>
             
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={mastercard} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">MasterCard </span>
-                
-              </div>
-              <div className="country">Waller deposit</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result green">+$92,705</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={striple} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Striple Account </span>
-                
-              </div>
-              <div className="country">IOS Application</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result green">+$957</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={american} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">American Bank </span>
-                
-              </div>
-              <div className="country">Bank Tranfer</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result green">+$6,837</span>
-           
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={citi} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Bank Account </span>
-                
-              </div>
-              <div className="country">Wallet deposit</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result green">+$446</span>
-            
-          </div>
-        </div>
           </Grid>
           
-          <Grid item xs={6} className="same">
-          <div className="top">
-          <div className="left">
-            <span className="title">Withdraw</span>
-          </div>
-          <div className="right">
-            <span className="action">View all</span>
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={google} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Google Adsense</span>
-                
+          <Grid item xs={12} xl={6} lg={6} className="same">
+            <div className="top">
+              <div className="left">
+                <span className="title">Withdraw</span>
               </div>
-              <div className="country">Paypal deposit</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result red">-$145</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={github} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Github Enterprise </span>
-                
+              <div className="right">
+                <span className="action">View all</span>
               </div>
-              <div className="country">Security & compliance</div>
             </div>
-          </div>
-          <div className="right">
-            <span className="result red">-$1870</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={slack} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">$Upgrade Slack Plan </span>
-                
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={google}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Google Adsense</span>
+                  </div>
+                  <div className="country">Paypal deposit</div>
+                </div>
               </div>
-              <div className="country">Debit card deposit</div>
-            </div>
-          </div>
-          <div className="right">
-            <span className="result red">-$450</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={digital} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">Digital Ocean </span>
-                
+              <div className="right">
+                <span className="result red">-$145</span>
               </div>
-              <div className="country">Cloud Hosting</div>
             </div>
-          </div>
-          <div className="right">
-            <span className="result red">-$540</span>
-            
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="left">
-          <Image style={{marginRight: "5px"}} src={aws} alt="img" width={20} height={20}/>
-            <div className="content">
-              <div className="amount">
-                <span className="price">AWS Account </span>
-                
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={github}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Github Enterprise </span>
+                  </div>
+                  <div className="country">Security & compliance</div>
+                </div>
               </div>
-              <div className="country">Choosing a Cloud Plaform</div>
+              <div className="right">
+                <span className="result red">-$1870</span>
+              </div>
             </div>
-          </div>
-          <div className="right">
-            <span className="result red">-$21</span>
-            
-          </div>
-        </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={slack}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">$Upgrade Slack Plan </span>
+                  </div>
+                  <div className="country">Debit card deposit</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result red">-$450</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={digital}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">Digital Ocean </span>
+                  </div>
+                  <div className="country">Cloud Hosting</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result red">-$540</span>
+              </div>
+            </div>
+            <div className="bottom">
+              <div className="left">
+                <Image
+                  style={{ marginRight: "5px" }}
+                  src={aws}
+                  alt="img"
+                  width={20}
+                  height={20}
+                />
+                <div className="content">
+                  <div className="amount">
+                    <span className="price">AWS Account </span>
+                  </div>
+                  <div className="country">Choosing a Cloud Plaform</div>
+                </div>
+              </div>
+              <div className="right">
+                <span className="result red">-$21</span>
+              </div>
+            </div>
           </Grid>
         </Grid>
       </div>
-      <div className="box box11"></div>
+      <div className="box box11">
+      <UserTable/>
+      </div>
     </div>
   );
 };

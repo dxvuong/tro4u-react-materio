@@ -1,0 +1,66 @@
+.account-container {
+  .img-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    .avatar {
+    }
+    .actions {
+      .top {
+        display: flex;
+        gap: 15px;
+      }
+    }
+  }
+  .form-info {
+    .form-left {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+    .form-right {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+  }
+  .btn-action {
+    display: flex;
+    gap: 15px;
+  }
+}
+.security-container {
+  display: flex;
+  flex-direction: column;
+  .top {
+    margin-bottom: 15px;
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-right: 20px;
+      gap: 20px;
+    }
+    .right {
+        text-align: center;
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+    .access {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .content {
+        text-align: center;
+    }
+    .actions {
+        display: flex;
+        gap: 15px;
+    }
+  }
+}

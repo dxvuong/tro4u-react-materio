@@ -40,10 +40,12 @@ body {
 .menu {
   flex: 1;
   display: block;
+  max-width: 260px;
+  margin-right: 40px;
 }
 .main {
   flex: 4;
- 
+  max-width: 1440px;
 }
 
 a {

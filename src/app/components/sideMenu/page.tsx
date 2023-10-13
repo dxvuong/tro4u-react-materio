@@ -15,13 +15,13 @@ import Link from "next/link";
 const SideMenu = () => {
   return (
     <Box
-      sx={{ 
-        width: "80%", 
-        maxWidth: 260, 
+      sx={{
+        width: "80%",
+        maxWidth: 260,
         position: "fixed",
         display: "flex",
         flexDirection: "column",
-        gap: "19px"
+        gap: "19px",
       }}
     >
       <div className="menu-logo">
@@ -34,11 +34,12 @@ const SideMenu = () => {
             <span className="title">Dashboard</span>
           </div>
         </Link>
-
-        <div className="menu-item">
-          <ManageAccounts className="menu-icon" />
-          <span className="title">Account Setting</span>
-        </div>
+        <Link href="/pages/account">
+          <div className="menu-item">
+            <ManageAccounts className="menu-icon" />
+            <span className="title">Account Setting</span>
+          </div>
+        </Link>
         <Link href="/login">
           <div className="menu-item">
             <LoginIcon className="menu-icon" />
