@@ -30,12 +30,11 @@ const HeaderComponent = () => {
 
   return (
     <div className="header-container">
-      
       <div className="left">
-      <IconButton onClick={handleOpenMenu} className="icon-menu">
-        <MenuIcon />
-      </IconButton>
-      {<MenuMobile open={openMenu} close={handleMenuClose}/> }
+        <IconButton onClick={handleOpenMenu} className="icon-menu">
+          <MenuIcon />
+        </IconButton>
+        <MenuMobile open={openMenu} close={handleMenuClose} />
         <input className="search-field" type="text" />
         <SearchIcon className="search-icon" />
       </div>

@@ -27,7 +27,8 @@ import {
 } from "@mui/icons-material";
 import Image from "next/image";
 import "./page.scss"
-import ModalProps from "@/app/data";
+import { ModalProps } from "@/app/data";
+
 
 
 const style = {
@@ -107,4 +108,4 @@ const ModalSubUser = ({open, close} : ModalProps) => {
   );
 }
 
-export default ModalSubUser
+export default ModalSubUser;

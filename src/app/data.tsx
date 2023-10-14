@@ -1,4 +1,4 @@
-export default interface ModalProps {
+export interface ModalProps {
     open: boolean,
     close: () => void;
 }
