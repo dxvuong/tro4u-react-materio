@@ -21,7 +21,7 @@ const style = {
   padding: "10px"
 };
 
-export default function MenuMobile({ open, close }: MenuMobileProps) {
+const MenuMobile = ({open, close} : MenuMobileProps) => {
   return (
     <div>
       <Modal
@@ -37,3 +37,6 @@ export default function MenuMobile({ open, close }: MenuMobileProps) {
     </div>
   );
 }
+
+export default MenuMobile
+

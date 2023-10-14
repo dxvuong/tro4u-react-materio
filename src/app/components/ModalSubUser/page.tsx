@@ -42,7 +42,7 @@ const style = {
   boxShadow: 24,
 };
 
-export default function ModalSubUser({ open, close }: ModalSubUserProp) {
+const ModalSubUser = ({open, close} : ModalSubUserProp) => {
   return (
     <div>
       <Modal
@@ -108,3 +108,5 @@ export default function ModalSubUser({ open, close }: ModalSubUserProp) {
     </div>
   );
 }
+
+export default ModalSubUser
