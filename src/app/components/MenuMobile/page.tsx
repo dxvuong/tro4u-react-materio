@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./page.scss";
 import SideMenu from "../sideMenu/page";
+
 interface ModalSubUserProp {
-  open: any;
+  open: boolean;
   close: () => void;
+  
 }
 
 const style = {
