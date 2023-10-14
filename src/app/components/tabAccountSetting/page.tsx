@@ -81,9 +81,12 @@ const TabAccountSetting = () => {
                       style={{
                         backgroundColor: "#804BDF",
                         color: "#fff",
-                        width: "195px",
+                        
+                        
                         height: "36px",
+                        
                       }}
+                      className="btn-reponsive"
                       variant="contained"
                     >
                       Upload new photo

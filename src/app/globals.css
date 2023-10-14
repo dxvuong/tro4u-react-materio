@@ -63,6 +63,7 @@ a {
   .main {
     flex: 1;
     display: block;
+   
   }
   .menu {
     display: none;

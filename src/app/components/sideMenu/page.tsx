@@ -1,6 +1,6 @@
 import React from "react";
 import "./page.scss";
-import { Box } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import Home from "@mui/icons-material/Home";
 import ManageAccounts from "@mui/icons-material/ManageAccounts";
@@ -12,17 +12,22 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import BackupTableIcon from "@mui/icons-material/BackupTable";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import Link from "next/link";
+
 const SideMenu = () => {
   return (
     <Box
+    
       sx={{
-        width: "80%",
+        width: "100%",
         maxWidth: 260,
         position: "fixed",
         display: "flex",
         flexDirection: "column",
-        gap: "19px",
+        gap: "30px",
+        backgroundColor: "#f4f5fa",
+        padding: "10px"
       }}
+      
     >
       <div className="menu-logo">
         <h2 className="logo-name">Materio</h2>
@@ -40,6 +45,18 @@ const SideMenu = () => {
             <span className="title">Account Setting</span>
           </div>
         </Link>
+        <Divider textAlign="left">
+          <Typography
+            sx={{
+              fontSize: "14px",
+              color: "rgba(58, 53, 65, 0.38);",
+              fontWeight: 500,
+              textTransform: "uppercase",
+            }}
+          >
+            Pages
+          </Typography>
+        </Divider>
         <Link href="/login">
           <div className="menu-item">
             <LoginIcon className="menu-icon" />
@@ -52,7 +69,18 @@ const SideMenu = () => {
             <span className="title">Register</span>
           </div>
         </Link>
-
+        <Divider textAlign="left">
+          <Typography
+            sx={{
+              fontSize: "14px",
+              color: "rgba(58, 53, 65, 0.38);",
+              fontWeight: 500,
+              textTransform: "uppercase",
+            }}
+          >
+            User Interface
+          </Typography>
+        </Divider>
         <div className="menu-item">
           <ErrorOutlineIcon className="menu-icon" />
           <span className="title">Errors</span>

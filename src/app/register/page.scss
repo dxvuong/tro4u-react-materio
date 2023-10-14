@@ -30,6 +30,7 @@
         gap: 6px;
         h2 {
           font-size: 20px;
+          color: rgba(58, 53, 65, 0.87);
         }
         span {
           font-size: 16px;
@@ -44,7 +45,18 @@
       .form-control {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+      
+        .custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+          border-color: #9155FD;
+        }
+        
+        .custom-textfield .MuiOutlinedInput-input {
+          color: #000000; /* Màu văn bản khi không focus */
+        }
+        
+        .custom-textfield .MuiInputLabel-outlined.Mui-focused {
+          color: #9155FD;
+        }
       }
       .btn-register {
         background-color: #9155fd;

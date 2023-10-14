@@ -1,5 +1,5 @@
 "use client";
-import { Box, Modal, TextField, Typography } from "@mui/material";
+import { IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -8,9 +8,9 @@ import "./page.scss";
 import { useState } from "react";
 import React from "react";
 import ModalSubUser from "../ModalSubUser/page";
-
+import MenuIcon from "@mui/icons-material/Menu";
+import ModalMenu from "../MenuMobile/page";
 const HeaderComponent = () => {
-  
   const rootRef = React.useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleOpen = () => {
@@ -19,11 +19,23 @@ const HeaderComponent = () => {
   const handleClose = () => {
     setIsOpen(false);
   };
-  console.log("isopen:", isOpen);
+  const [openMenu, setOepnMenu] = useState<boolean>(false);
+
+  const handleOpenMenu = () => {
+    setOepnMenu(!openMenu);
+  };
+  const handleMenuClose = () => {
+    setOepnMenu(false);
+  };
 
   return (
     <div className="header-container">
+      
       <div className="left">
+      <IconButton onClick={handleOpenMenu} className="icon-menu">
+        <MenuIcon />
+      </IconButton>
+      <ModalMenu open={openMenu} close={handleMenuClose}/>
         <input className="search-field" type="text" />
         <SearchIcon className="search-icon" />
       </div>
@@ -38,10 +50,8 @@ const HeaderComponent = () => {
             height={30}
             onClick={handleOpen}
           />
-          
-            <ModalSubUser  open={isOpen} close={handleClose} />
-          
-          
+
+          <ModalSubUser open={isOpen} close={handleClose} />
         </div>
       </div>
     </div>
