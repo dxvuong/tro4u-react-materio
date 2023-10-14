@@ -16,7 +16,6 @@ import Link from "next/link";
 const SideMenu = () => {
   return (
     <Box
-    
       sx={{
         width: "100%",
         maxWidth: 260,
@@ -25,9 +24,8 @@ const SideMenu = () => {
         flexDirection: "column",
         gap: "30px",
         backgroundColor: "#f4f5fa",
-        padding: "10px"
+        padding: "10px",
       }}
-      
     >
       <div className="menu-logo">
         <h2 className="logo-name">Materio</h2>
@@ -81,26 +79,42 @@ const SideMenu = () => {
             User Interface
           </Typography>
         </Divider>
-        <div className="menu-item">
-          <ErrorOutlineIcon className="menu-icon" />
-          <span className="title">Errors</span>
-        </div>
-        <div className="menu-item">
-          <TypeSpecimenIcon className="menu-icon" />
-          <span className="title">Typography</span>
-        </div>
-        <div className="menu-item">
-          <MoodIcon className="menu-icon" />
-          <span className="title">Icons</span>
-        </div>
-        <div className="menu-item">
-          <CreditCardIcon className="menu-icon" />
-          <span className="title">Cards</span>
-        </div>
-        <div className="menu-item">
-          <BackupTableIcon className="menu-icon" />
-          <span className="title">Table</span>
-        </div>
+        <Link href="/errors">
+          <div className="menu-item">
+            <ErrorOutlineIcon className="menu-icon" />
+            <span className="title">Errors</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <TypeSpecimenIcon className="menu-icon" />
+            <span className="title">Typography</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <MoodIcon className="menu-icon" />
+            <span className="title">Icons</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CreditCardIcon className="menu-icon" />
+            <span className="title">Cards</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <BackupTableIcon className="menu-icon" />
+            <span className="title">Table</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
         <div className="menu-item">
           <CropSquareIcon className="menu-icon" />
           <span className="title">Form Layout</span>
