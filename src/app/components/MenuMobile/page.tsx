@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import "./page.scss";
 import SideMenu from "../sideMenu/page";
 
-interface ModalSubUserProp {
+interface ModalMenuProps {
   open: boolean;
   close: () => void;
   
@@ -21,7 +21,7 @@ const style = {
   padding: "10px"
 };
 
-export default function ModalMenu({ open, close }: ModalSubUserProp) {
+export default function ModalMenu({ open, close }: ModalMenuProps) {
   return (
     <div>
       <Modal
