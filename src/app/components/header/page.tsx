@@ -9,7 +9,7 @@ import { useState } from "react";
 import React from "react";
 import ModalSubUser from "../ModalSubUser/page";
 import MenuIcon from "@mui/icons-material/Menu";
- import ModalMenu from "../MenuMobile/page";
+import MenuMobile from "../MenuMobile/page";
 const HeaderComponent = () => {
   const rootRef = React.useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -35,7 +35,7 @@ const HeaderComponent = () => {
       <IconButton onClick={handleOpenMenu} className="icon-menu">
         <MenuIcon />
       </IconButton>
-      {<ModalMenu open={openMenu} close={handleMenuClose}/> }
+      {<MenuMobile open={openMenu} close={handleMenuClose}/> }
         <input className="search-field" type="text" />
         <SearchIcon className="search-icon" />
       </div>
