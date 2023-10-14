@@ -27,10 +27,8 @@ import {
 } from "@mui/icons-material";
 import Image from "next/image";
 import "./page.scss"
-interface ModalSubUserProp {
-  open: boolean;
-  close: () => void;
-}
+import ModalProps from "@/app/data";
+
 
 const style = {
   position: "absolute" as "absolute",
@@ -42,7 +40,7 @@ const style = {
   boxShadow: 24,
 };
 
-const ModalSubUser = ({open, close} : ModalSubUserProp) => {
+const ModalSubUser = ({open, close} : ModalProps) => {
   return (
     <div>
       <Modal

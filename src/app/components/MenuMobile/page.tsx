@@ -3,12 +3,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./page.scss";
 import SideMenu from "../sideMenu/page";
+import ModalProps from "@/app/data";
 
-interface MenuMobileProps {
-  open: boolean;
-  close: () => void;
-  
-}
+
 
 const style = {
   position: "absolute" as "absolute",
@@ -21,7 +18,7 @@ const style = {
   padding: "10px"
 };
 
-const MenuMobile = ({open, close} : MenuMobileProps) => {
+const MenuMobile = ({open, close} : ModalProps) => {
   return (
     <div>
       <Modal
