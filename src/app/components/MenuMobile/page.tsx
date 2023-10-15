@@ -3,10 +3,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./page.scss";
 import SideMenu from "../sideMenu/page";
-import { ModalProps } from "@/app/data";
-
-
-
+import { ModalProps } from "../../../../model/data";
 
 const style = {
   position: "absolute" as "absolute",
@@ -19,7 +16,7 @@ const style = {
   padding: "10px"
 };
 
-const MenuMobile = ({open, close} : ModalProps) => {
+export default function MenuMobile ({open, close} : ModalProps)  {
   return (
     <div>
       <Modal
@@ -36,5 +33,4 @@ const MenuMobile = ({open, close} : ModalProps) => {
   );
 }
 
-export default MenuMobile
 
