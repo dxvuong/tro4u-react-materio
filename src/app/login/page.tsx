@@ -12,6 +12,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CheckboxCustom from "../components/CheckboxCustom/page";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import { CheckBox } from "@mui/icons-material";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -78,8 +79,8 @@ const Login = () => {
                   alignItems: "center",
                 }}
               >
-                {/* <Checkbox color="secondary" sx={{paddingLeft: 0}} /> */}
                 <CheckboxCustom />
+                
                 <span>Nhớ mật khẩu</span>
               </div>
               <span
