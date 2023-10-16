@@ -8,8 +8,8 @@ import Link from "next/link";
 import tree from "../../../public/assets/img/tree.png";
 import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import CheckboxCustom from "../components/CheckboxCustom/page";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import { CheckBox } from "@mui/icons-material";
@@ -25,7 +25,7 @@ const Login = () => {
         <h1 className="title">4U</h1>
         <div className="content">
           <div className="greeting">
-            <h2>Chào mừng đến với phòng trọ 4U 👋🏻</h2>
+            <h5>Chào mừng đến với phòng trọ 4U 👋🏻</h5>
             <span>Vui lòng đăng nhập tài khoản của bạn!</span>
           </div>
           <FormControl fullWidth className="form-container">
@@ -35,6 +35,7 @@ const Login = () => {
                 label="Số Điện Thoại"
                 variant="outlined"
                 className="custom-textfield"
+                sx={{ borderRadius: "6px", color: "red" }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment sx={{ cursor: "pointer" }} position="end">
@@ -57,9 +58,9 @@ const Login = () => {
                       onClick={handleIconClick}
                     >
                       {showPassword ? (
-                        <RemoveRedEyeIcon />
+                        <RemoveRedEyeOutlinedIcon />
                       ) : (
-                        <VisibilityOffIcon />
+                        <VisibilityOffOutlinedIcon />
                       )}
                     </InputAdornment>
                   ),
@@ -79,9 +80,7 @@ const Login = () => {
                   alignItems: "center",
                 }}
               >
-                <CheckboxCustom />
                 
-                <span>Nhớ mật khẩu</span>
               </div>
               <span
                 style={{
@@ -98,12 +97,12 @@ const Login = () => {
           <Button variant="contained" className="btn-login">
             ĐĂNG NHẬP
           </Button>
-          <span>
-            Bạn là người mới?
+          <div className="bot">
+            <p>Bạn là người mới?</p>
             <Link href="/register" className="link">
               Tạo tài khoản
             </Link>
-          </span>
+          </div>
         </div>
       </div>
       <Image src={tree} className="tree" alt="tree" />

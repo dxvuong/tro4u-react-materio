@@ -20,11 +20,36 @@ const SideMenu = () => {
         width: "100%",
         maxWidth: 260,
         position: "fixed",
+        maxHeight: "87vh" /* Đặt chiều cao tối đa của menu */,
+        overflowY: "hidden",
         display: "flex",
         flexDirection: "column",
-        gap: "30px",
+        gap: "10px",
         backgroundColor: "#f4f5fa",
-        padding: "10px",
+
+        transition: "overflow-y 0.6s ease", // Add transition for smooth effect
+        "&:hover": {
+          overflowY: "auto", // Show scrollbar on hover
+        },
+        scrollbarWidth: "thin", // For Firefox
+        scrollbarColor: "#888 #f4f5fa", // For Firefox
+        "&::-webkit-scrollbar": {
+          width: "8px",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: "#888",
+          borderRadius: "4px",
+          transition: "background-color 0.3s ease",
+          "&:hover": {
+            backgroundColor: "#555",
+          },
+        },
+        "@media screen and (max-width: 850px)": {
+          overflowY: "auto",
+          maxHeight:
+            "100vh" /* Max-height set to 100vh on screens up to 768px width */,
+            padding: "10px",
+        },
       }}
     >
       <div className="menu-logo">
@@ -115,10 +140,42 @@ const SideMenu = () => {
             <span className="title">Form Layout</span>
           </div>
         </Link>
-        <div className="menu-item">
-          <CropSquareIcon className="menu-icon" />
-          <span className="title">Form Layout</span>
-        </div>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
+        <Link href="/errors">
+          <div className="menu-item">
+            <CropSquareIcon className="menu-icon" />
+            <span className="title">Form Layout</span>
+          </div>
+        </Link>
       </div>
     </Box>
   );

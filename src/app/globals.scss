@@ -7,9 +7,6 @@
   
  
 }
-
-
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -63,9 +60,10 @@ a {
   .main {
     flex: 1;
     display: block;
-   
+    
   }
   .menu {
+    z-index: 1;
     display: none;
   }
 }

@@ -9,7 +9,7 @@ const CheckboxCustom = () => {
   }
   return (
     <Checkbox  value={checked} onClick={handleCheck}
-    style={checked? {color: "#9155fd", paddingLeft: 0} : {color: "#333", paddingLeft: 0}}  />
+    style={checked? {color: "#9155fd"} : {color: "rgba(58, 53, 65, 0.68)"}}  />
   )
 }
 

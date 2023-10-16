@@ -7,13 +7,13 @@ import { ModalProps } from "../../../../model/data";
 
 const style = {
   position: "absolute" as "absolute",
-  top: 0,
-  left: "28%",
+  left: "47%",
   transform: "translate(-50%, -50%)",
-  width: 230,
+  width: "100%",
   border: "none",
   boxShadow: 24,
-  padding: "10px"
+  padding: "10px",
+  animation: "slideIn 0.2s ease-in-out",
 };
 
 export default function MenuMobile ({open, close} : ModalProps)  {

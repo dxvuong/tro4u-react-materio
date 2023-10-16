@@ -12,14 +12,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuMobile from "../MenuMobile/page";
 const HeaderComponent = () => {
   const rootRef = React.useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
   const handleClose = () => {
     setIsOpen(false);
   };
-  const [openMenu, setOepnMenu] = useState<boolean>(false);
+  const [openMenu, setOepnMenu] = useState(false);
 
   const handleOpenMenu = () => {
     setOepnMenu(!openMenu);
@@ -34,7 +34,7 @@ const HeaderComponent = () => {
         <IconButton onClick={handleOpenMenu} className="icon-menu">
           <MenuIcon />
         </IconButton>
-        <MenuMobile open={openMenu} close={handleMenuClose} />
+        <MenuMobile open={openMenu} close={handleMenuClose}  />
         <input className="search-field" type="text" />
         <SearchIcon className="search-icon" />
       </div>

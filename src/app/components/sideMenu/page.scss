@@ -11,7 +11,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    padding: 10px; /* Thêm padding để tăng diện tích cho việc hover */
+    padding: 10px 0px; /* Thêm padding để tăng diện tích cho việc hover */
     transition: all 0.3s ease; /* Thêm hiệu ứng transition cho việc smooth chuyển động */
   
     &:hover {
@@ -35,4 +35,11 @@
     }
   }
 }
+// @media (max-width: 768px) {
+//   .menu-list {
+//     .menu-item {
+
+//     }
+//   }
+// }
 

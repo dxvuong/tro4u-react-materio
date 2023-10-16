@@ -8,7 +8,7 @@
   background-color: #f4f5fa;
   .wrapper {
     padding: 40px;
-    width: 450px;
+    width: 448px;
     background-color: #fff;
     border-radius: 5px;
     display: flex;
@@ -28,19 +28,41 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
-        h2 {
-          font-size: 20px;
+        h5 {
+          font-size: 1.4993rem;
           color: rgba(58, 53, 65, 0.87);
+          line-height: 1.334;
+          font-weight: 600;
         }
         span {
-          font-size: 16px;
+          font-size: 0.875rem;
           font-weight: 400;
           line-height: 1.5;
           letter-spacing: 0.15px;
           color: rgba(58, 53, 65, 0.68);
           text-align: start;
         }
+        
       }
+      .bot {
+        display: flex;
+        justify-content: center;
+        p {
+          text-align: center;
+          font-weight: 400;
+          font-size: 0.875rem;
+          line-height: 1.5;
+          letter-spacing: 0.15px;
+          color: rgba(58, 53, 65, 0.68);
+          margin-right: 0.5rem;
+        }
+        .link {
+          font-size: 0.875rem;
+          text-decoration: none;
+          color: #9155FD;
+        }
+      }
+      
       .form-container {
         display: flex;
         flex-direction: column;
@@ -49,6 +71,15 @@
           display: flex;
           flex-direction: column;
           gap: 20px;
+        
+          // .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.MuiInputBase-adornedEnd.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+          //   letter-spacing: 1.4375em;
+          //   border-radius: 6px;
+          //   color: rgba(58, 53, 65, 0.87);
+          // }
+          label {
+            color: rgba(58, 53, 65, 0.68);
+          }
           .custom-textfield
             .MuiOutlinedInput-root.Mui-focused
             .MuiOutlinedInput-notchedOutline {
@@ -56,11 +87,14 @@
           }
 
           .custom-textfield .MuiOutlinedInput-input {
-            color: #000000; /* Màu văn bản khi không focus */
+            color: rgba(58, 53, 65, 0.87);
           }
 
           .custom-textfield .MuiInputLabel-outlined.Mui-focused {
             color: #9155fd;
+          }
+          .css-dnfb4d-MuiInputAdornment-root  {
+            color :rgba(58, 53, 65, 0.54);
           }
         }
       }
@@ -101,7 +135,7 @@
       .content {
         .greeting {
           h2 {
-            font-size: 15px;
+            font-size: 1.3118rem;
           }
           span {
             font-size: 14px;
