@@ -85,7 +85,7 @@ const Login = () => {
               <span
                 style={{
                   color: "#9155FD",
-                  fontSize: "14px",
+                  fontSize: "0.875rem",
                   cursor: "pointer",
                 }}
               >
