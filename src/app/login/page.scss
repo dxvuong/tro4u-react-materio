@@ -5,7 +5,15 @@
   justify-content: center;
   position: relative;
   min-height: 100vh;
-  background-color: #f4f5fa;
+  @media (min-width: 900px) {
+    background: linear-gradient(177deg, #f5f4fa 78%, #eff0f5 22%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 768px) {
+    background-color: #f5f4fa !important;
+  }
   .wrapper {
     padding: 40px;
     width: 448px;
@@ -106,9 +114,11 @@
         font-weight: 500;
         border-radius: 5px;
         line-height: 1.71;
-        color: #FFF;
+        color: #fff;
         box-shadow: 0px 4px 8px -4px rgba(58, 53, 65, 0.42);
-        font-family: Inter,sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         &:hover {
           background-color: #804bdf;
           box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);

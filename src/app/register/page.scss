@@ -5,7 +5,16 @@
   justify-content: center;
   position: relative;
   min-height: 100vh;
-  background-color: #f4f5fa;
+  @media (min-width: 900px) {
+    background: linear-gradient(177deg, #f5f4fa 78%, #eff0f5 22%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 768px) {
+    background-color: #f5f4fa !important;
+    padding: 0.875rem;
+  }
   .wrapper {
     padding: 40px;
     background-color: #fff;
@@ -52,17 +61,13 @@
       .form-control {
         display: flex;
         flex-direction: column;
+        gap: 20px;
         label {
           color: rgba(58, 53, 65, 0.68);
         }
-        .custom-textfield
-          .MuiOutlinedInput-root.Mui-focused
-          .MuiOutlinedInput-notchedOutline {
-          border-color: #9155fd;
-        }
 
         .custom-textfield .MuiOutlinedInput-input {
-          color: #000000; /* Màu văn bản khi không focus */
+          color: "rgba(58, 53, 65, 0.54)"; /* Màu văn bản khi không focus */
         }
 
         .custom-textfield .MuiInputLabel-outlined.Mui-focused {

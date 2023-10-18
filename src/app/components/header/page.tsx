@@ -29,7 +29,7 @@ import avatar from "../../../../public/assets/img/1.png";
 
 import SideMenu from "../sideMenu/page";
 const HeaderComponent = () => {
-  const rootRef = React.useRef<HTMLDivElement>(null);
+  
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     console.log("open menu user");

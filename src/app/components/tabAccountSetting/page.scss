@@ -10,7 +10,11 @@
         display: flex;
         gap: 15px;
         .btn-reponsive {
-          width: 195px
+          width: 195px span {
+            text-decoration: none;
+            background-color: rgb(128, 75, 223);
+            box-shadow: rgba(58, 53, 65, 0.56) 0px 6px 18px -8px;
+          }
         }
       }
     }
@@ -45,10 +49,8 @@
             font-size: 10px;
           }
         }
-        
       }
     }
-    
   }
 }
 .security-container {

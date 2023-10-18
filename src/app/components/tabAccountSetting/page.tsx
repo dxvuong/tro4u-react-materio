@@ -21,7 +21,7 @@ import avatar from "../../../../public/assets/img/1.png";
 import React from "react";
 import Image from "next/image";
 import "./page.scss";
-import { TextFields } from "@mui/icons-material";
+
 import pose from "../../../../public/assets/img/pose.png";
 import VpnKeyOutlinedIcon from "@mui/icons-material/VpnKeyOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
@@ -48,18 +48,25 @@ const TabAccountSetting = () => {
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <TabList onChange={handleChange} aria-label="lab API tabs example" sx={{
+                '& .MuiTabs-indicator': {
+                    backgroundColor: 'rgb(128, 75, 223)',
+                },
+            }} >
               <Tab
                 label="ACCOUNT"
                 value="1"
+                
                 icon={<PersonOutlineOutlinedIcon />}
                 iconPosition="start"
+                style={{color: "rgb(128, 75, 223)"}}
               />
               <Tab
                 label="SECURITY"
                 value="2"
                 icon={<LockOpenOutlinedIcon />}
                 iconPosition="start"
+                style={{color: "rgb(128, 75, 223)"}}
               />
             </TabList>
           </Box>
@@ -89,7 +96,8 @@ const TabAccountSetting = () => {
                       className="btn-reponsive"
                       variant="contained"
                     >
-                      Upload new photo
+                      <span> Upload new photo</span>
+                     
                     </Button>
                     <Button
                       style={{

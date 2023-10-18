@@ -1,6 +1,6 @@
 import React from "react";
 import "./page.scss";
-import { Button, Divider, Grid, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, css } from "@mui/material";
+import { Button, Grid} from "@mui/material";
 import Image from "next/image";
 import trophy from "../../../../public/assets/img/trophy.png";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
