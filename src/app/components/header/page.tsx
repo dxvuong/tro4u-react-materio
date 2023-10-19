@@ -26,10 +26,19 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import avatar from "../../../../public/assets/img/1.png";
-
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import Diversity3OutlinedIcon from "@mui/icons-material/Diversity3Outlined";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
+import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
 import SideMenu from "../sideMenu/page";
+import logo from "../../../../public/assets/img/logo.jpg";
+import Link from "next/link";
+import CloseIcon from "@mui/icons-material/Close";
 const HeaderComponent = () => {
-  
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     console.log("open menu user");
@@ -45,6 +54,19 @@ const HeaderComponent = () => {
   };
   const handleMenuClose = () => {
     setOpenMenu(false);
+  };
+
+  const [iconSwitch, setIconSwitch] = useState(false);
+
+  const handleSwitch = () => {
+    setIconSwitch(!iconSwitch);
+    setOpenMenu(!openMenu);
+    console.log("trang thai menu: ", openMenu);
+  };
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+  const toggleSubMenu = () => {
+    setIsSubMenuOpen(!isSubMenuOpen);
   };
   const style = {
     position: "absolute" as "absolute",
@@ -84,15 +106,13 @@ const HeaderComponent = () => {
     fontSize: "17px",
     fontWeight: 600,
   };
-  const roleStyle = {
-    fontSize: "12px",
-    color: "#b4b3b3",
-  };
 
   return (
     <div className="header-container">
-      <div className="left">
-        <IconButton onClick={handleOpenMenu} className="icon-menu">
+      <div className="top">
+        <div className="left">
+          {/* Modal menu mobile */}
+          {/* <IconButton onClick={handleOpenMenu} className="icon-menu">
           <MenuIcon />
         </IconButton>
         <Modal
@@ -104,82 +124,115 @@ const HeaderComponent = () => {
           <Box sx={style}>
             <SideMenu />
           </Box>
-        </Modal>
-        <input className="search-field" type="text" />
-        <SearchIcon className="search-icon" />
-      </div>
-      <div className="right">
-        <DarkModeIcon className="icon" />
-        <NotificationsIcon className="icon" />
-        <div className="user-info">
-          <Image
-            src="https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg"
-            alt="user"
-            width={30}
-            height={30}
-            onClick={handleOpen}
-          />
-
-          <Modal
-            open={isOpen}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Paper sx={styleSubmenu}>
-              <div style={infoStyle}>
-                <div className="left">
-                  <Image src={avatar} alt="avatar" style={avatarStyle} />
-                </div>
-                <div className="right">
-                  <span style={nameStyle}>John Doe</span>
-                  <div style={roleStyle}>Admin</div>
-                </div>
-              </div>
-              <Divider />
-              <MenuList>
-                <MenuItem>
-                  <ListItemIcon>
-                    <PermIdentityIcon />
-                  </ListItemIcon>
-                  <ListItemText>Profile</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <MailOutlineIcon />
-                  </ListItemIcon>
-                  <ListItemText>Inbox</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <ChatBubbleOutlineIcon />
-                  </ListItemIcon>
-                  <ListItemText>Chat</ListItemText>
-                </MenuItem>
-                <Divider />
-                <MenuItem>
-                  <ListItemIcon>
-                    <SettingsIcon />
-                  </ListItemIcon>
-                  <ListItemText>Setting</ListItemText>
-                </MenuItem>
-
-                <MenuItem>
-                  <ListItemIcon>
-                    <AttachMoneyIcon />
-                  </ListItemIcon>
-                  <ListItemText>Pricing</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <HelpOutlineIcon />
-                  </ListItemIcon>
-                  <ListItemText>Help</ListItemText>
-                </MenuItem>
-              </MenuList>
-            </Paper>
-          </Modal>
+        </Modal> */}
+          {/* Modal menu mobile */}
+          <div style={{ width: 100, height: 50 }} className="logo-container">
+            <Image src={logo} alt="logo" width={160} height={80} />
+          </div>
         </div>
+        <div className="menu-container">
+          <div className="menu-list">
+            <div className="menu-items">
+              <HomeOutlinedIcon />
+              <Link className="menu__item-link" href="#">
+                home
+              </Link>
+            </div>
+            <div className="menu-items">
+              <PeopleAltOutlinedIcon />
+              <Link className="menu__item-link" href="#">
+                khách
+              </Link>
+            </div>
+            <div className="menu-items">
+              <AttachMoneyOutlinedIcon />
+              <Link className="menu__item-link" href="#">
+                tiền
+              </Link>
+            </div>
+            <div className="menu-items">
+              <AssignmentOutlinedIcon />
+              <Link className="menu__item-link" href="#">
+                quản lý
+              </Link>
+            </div>
+            <div className="menu-items">
+              <InsertChartOutlinedIcon />
+              <Link className="menu__item-link" href="/register">
+                đăng ký
+              </Link>
+            </div>
+            <div className="menu-items">
+              <LocalPhoneOutlinedIcon />
+              <Link className="menu__item-link" href="/login">
+                đăng nhập
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="right-container">
+          <div className="right-items">
+            <SearchIcon sx={{ fontSize: "25px" }} />
+            <PersonOutlineOutlinedIcon sx={{ fontSize: "25px" }} />
+            {!iconSwitch ? (
+              <MenuIcon onClick={handleSwitch} className="menuIcon" />
+            ) : (
+              <CloseIcon onClick={handleSwitch} />
+            )}
+          </div>
+        </div>
+      </div>
+      <div
+        className="sub-menuContainer"
+        style={
+          openMenu
+            ? { display: "block", transform: "translateY(0)", opacity: 1, transition: "transform 0.3s ease" }
+            : { display: "none", transform: "translateY(-116%)", opacity: 0.6  }
+        }
+      >
+        <nav className="sub-menuList">
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              home
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              khách
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              tiền
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              quản lý - sự cố
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              quản lý - hợp đồng
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="#" className="sub-menuItem">
+              báo cáo
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="/register" className="sub-menuItem">
+              đăng ký
+            </Link>
+          </div>
+          <div className="sub-menuItems">
+            <Link href="/login" className="sub-menuItem">
+              đăng nhập
+            </Link>
+          </div>
+        </nav>
       </div>
     </div>
   );

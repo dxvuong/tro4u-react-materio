@@ -31,8 +31,11 @@ body {
 .container {
   display: flex;
   background-color: #f4f5fa;
+  flex-direction: column;
   min-height: 100vh;
-  padding: 20px;
+  padding: 0 20px 20px;
+  justify-content: center;
+  align-items: center;
 }
 .menu {
   flex: 1;
@@ -42,7 +45,7 @@ body {
 }
 .main {
   flex: 4;
-  max-width: 1440px;
+  min-width: 1440px;
 }
 
 a {
@@ -60,7 +63,8 @@ a {
   .main {
     flex: 1;
     display: block;
-    
+    max-width: 390px;
+    min-width: 0 !important;
   }
   .menu {
     z-index: 1;

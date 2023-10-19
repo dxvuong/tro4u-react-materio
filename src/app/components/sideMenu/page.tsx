@@ -140,42 +140,7 @@ const SideMenu = () => {
             <span className="title">Form Layout</span>
           </div>
         </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
-        <Link href="/errors">
-          <div className="menu-item">
-            <CropSquareIcon className="menu-icon" />
-            <span className="title">Form Layout</span>
-          </div>
-        </Link>
+        
       </div>
     </Box>
   );
