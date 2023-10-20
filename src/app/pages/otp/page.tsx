@@ -11,15 +11,16 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import OtpInput from "react-otp-input";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import React, { useState } from "react";
-import { redirect } from "next/navigation";
+
 const Otp = () => {
   const [otp, setOtp] = useState("");
+
   const handleSubmit = () => {
     if (otp.length < 6) {
       alert("Mã OTP không hợp lệ");
     } else {
       alert("Mã OTP hợp lệ");
-      redirect("/pages/resetPassword");
+      window.location.href = "/pages/resetPassword";
     }
   };
   return (
@@ -47,10 +48,12 @@ const Otp = () => {
               borderRadius: "5px",
             }}
           />
+          
           <Button
             variant="contained"
             className="btn-otp"
             onClick={handleSubmit}
+            
           >
             Xác thực
           </Button>

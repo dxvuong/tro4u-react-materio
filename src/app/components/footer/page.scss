@@ -1,25 +1,28 @@
 .footer-container {
   border: 1px solid #333;
-  border-radius: 5px;
   margin-top: 10px;
+  width: 100%;
   .footer-wrapp {
     .footer-top {
       display: flex;
-      padding: 100px;
+      padding: 100px 264px;
       background-color: #111111;
       @media (max-width: 785px) {
         padding: 50px 20px;
         flex-direction: column;
-        gap: 50px;
+        gap: 30px;
       }
       .footer-top__items1 {
         flex-grow: 6;
         width: min-content;
-        gap: 10px;
+        gap: 25px;
         display: flex;
         flex-direction: column;
         @media (max-width: 785px) {
           width: fit-content;
+        }
+        h2 {
+          margin-bottom: 0 !important;
         }
         .footer-title {
           color: #fff;
@@ -31,7 +34,9 @@
         .footer-text {
           color: #a4a4a4;
           font-size: 16px;
-          line-height: 22px;
+          line-height: 40px;
+          max-width: 390px;
+          width: fit-content;
         }
         .footer-social {
         }
@@ -44,6 +49,7 @@
         flex-direction: column;
         @media (max-width: 785px) {
           width: fit-content;
+          margin-top: -30px;
         }
         .footer-title {
           color: #fff;
@@ -69,8 +75,10 @@
         gap: 25px;
         display: flex;
         flex-direction: column;
+        align-items: end;
         @media (max-width: 785px) {
           width: fit-content;
+          align-items: baseline;
         }
         .footer-title {
           color: #fff;

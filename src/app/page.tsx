@@ -14,9 +14,9 @@ export default function Home() {
       <div className="main">
         <HeaderComponent />
         <Dashboard />
-        <Footer/>
-      </div>
         
+      </div>
+      <Footer/>
 
     </div>
   );

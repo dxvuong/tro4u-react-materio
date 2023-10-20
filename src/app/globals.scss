@@ -33,7 +33,7 @@ body {
   background-color: #f4f5fa;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0 20px 20px;
+  
   justify-content: center;
   align-items: center;
 }
@@ -46,6 +46,7 @@ body {
 .main {
   flex: 4;
   min-width: 1440px;
+  padding: 0 20px 20px;
 }
 
 a {

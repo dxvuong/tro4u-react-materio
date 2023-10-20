@@ -8,8 +8,8 @@ const Footer = () => {
           <div className="footer-top__items1">
             <h2 className="footer-title">Giới thiệu</h2>
             <p className="footer-text">
-              Dựa trên việc đã quản lý hơn 1.000 phòng trọ, chúng tôi muốn <br/> chia
-              sẽ phần mềm quản lý phòng trọ hoàn toàn miễn phí cho <br/> những ai có
+              Dựa trên việc đã quản lý hơn 1.000 phòng trọ, chúng tôi muốn  chia
+              sẽ phần mềm quản lý phòng trọ hoàn toàn miễn phí cho  những ai có
               nhu cầu
             </p>
             <div className="footer-social"></div>

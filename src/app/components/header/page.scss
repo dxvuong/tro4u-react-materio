@@ -4,9 +4,12 @@
   .top {
     display: flex;
     justify-content: space-between;
-    
+
     max-height: 80px;
     width: 100%;
+    @media (max-width: 768px) {
+      padding: 10px 0;
+    }
     .left {
       display: flex;
       justify-content: center;
@@ -14,9 +17,10 @@
       .logo-container {
         display: flex;
         align-items: center;
+        cursor: pointer;
         @media (max-width: 768px) {
           Img {
-            width: 107px;
+            width: 55px;
             height: 31px;
           }
         }
@@ -84,16 +88,23 @@
       }
     }
   }
-  .sub-menuContainer {
+  .mobile-menuContainer {
     display: none;
     width: 100%;
     background-color: #0c1923;
-    .sub-menuList {
+    margin-bottom: 10px;
+    @media (max-width: 758px) {
+      animation-name: animationOpenMenu;
+      animation-duration: 0.4s;
+      animation-direction: normal;
+    }
+
+    .mobile-menuList {
       display: flex;
       flex-direction: column;
-      max-height: 321px;
+      max-height: 278px;
       overflow-y: auto;
-      .sub-menuItems {
+      .mobile-menuItems {
         font-size: 14px;
         padding: 14px 16.75px;
         color: #fff;
@@ -102,9 +113,60 @@
         &:hover {
           background: rgba(255, 255, 255, 0.1);
         }
-        .sub-menuItem {
+        .mobile-menuItem {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          justify-content: space-between;
+          .left {
+            gap: 5px;
+          }
         }
+        
       }
+      .subMobileMenu-container {
+        display: flex;
+        flex-direction: column;
+        animation-name: animationSubMenu;
+        animation-duration: 0.6s;
+        .subMobileMenu-items {
+          padding: 14px 0px 14px 31px;
+          
+          
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          span {
+            text-transform: uppercase;
+            color: #fff;
+            opacity: 0.75;
+            font-size: 14px;
+          }
+        }
+        // .subMobileMenu-items:last-child {
+        //   border-bottom: none !important;
+        // }
+      }
+    }
+  }
+  .active {
+    display: block;
+  }
+  @keyframes animationOpenMenu {
+    from {
+      height: 0;
+    }
+    to {
+      height: 278px;
+    }
+  }
+  @keyframes animationSubMenu {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 300px;
+      opacity: 1;
+      
     }
   }
 }
