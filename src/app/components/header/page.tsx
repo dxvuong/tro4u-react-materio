@@ -34,8 +34,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import SubMenu from "../subMenu/page";
+import { dataMenu, dataMenu2 } from "../../../../DataMenu/data";
 const HeaderComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [iconSwitch, setIconSwitch] = useState(false);
@@ -123,37 +125,92 @@ const HeaderComponent = () => {
         <div className="menu-container">
           <div className="menu-list">
             <div className="menu-items">
-              <HomeOutlinedIcon />
+              <HomeOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 home
               </Link>
             </div>
             <div className="menu-items">
-              <PeopleAltOutlinedIcon />
+              <PeopleAltOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 khách
               </Link>
             </div>
             <div className="menu-items">
-              <AttachMoneyOutlinedIcon />
+              <AttachMoneyOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 tiền
               </Link>
             </div>
             <div className="menu-items">
-              <AssignmentOutlinedIcon />
+              <AssignmentOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 quản lý
               </Link>
+              <div className="pcMenuSub-container">
+                <div className="pcMenuSub-list">
+                  <div className="pcMenuSub-items">
+                    <h2 className="pcMenuSub-title">sự cố</h2>
+                    <Link href="#">
+                      <span>Máy lạnh, tủ lạnh</span>
+                    </Link>
+                    <Link href="#">
+                      <span>Khóa cửa</span>
+                    </Link>
+                    <Link href="#">
+                      <span>Khác</span>
+                    </Link>
+                  </div>
+                  <div className="pcMenuSub-items">
+                    <h2 className="pcMenuSub-title">hợp đồng</h2>
+                    <Link href="#">
+                      <span>Máy lạnh, tủ lạnh</span>
+                    </Link>
+                    <Link href="#">
+                      <span>Khóa cửa</span>
+                    </Link>
+                    <Link href="#">
+                      <span>khác</span>
+                    </Link>
+                  </div>
+                  <div className="pcMenuSub-items">
+                    <h2 className="pcMenuSub-title">thiết lập</h2>
+                    <Link href="#">
+                      <span>Máy lạnh, tủ lạnh</span>
+                    </Link>
+                    <Link href="#">
+                      <span>Khóa cửa</span>
+                    </Link>
+                    <Link href="#">
+                      <span>Khác</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="menu-items">
-              <InsertChartOutlinedIcon />
+              <AssignmentOutlinedIcon className="icon" />
+              <Link className="menu__item-link" href="#">
+                báo cáo
+              </Link>
+              <SubMenu dataMenu={dataMenu}  />
+            </div>
+
+            <div className="menu-items">
+              <AssignmentOutlinedIcon className="icon" />
+              <Link className="menu__item-link" href="#">
+                liên kết
+              </Link>
+              <SubMenu dataMenu={dataMenu2}  />
+            </div>
+            <div className="menu-items">
+              <InsertChartOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="/register">
                 đăng ký
               </Link>
             </div>
             <div className="menu-items">
-              <LocalPhoneOutlinedIcon />
+              <LocalPhoneOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="/login">
                 đăng nhập
               </Link>
@@ -163,8 +220,10 @@ const HeaderComponent = () => {
 
         <div className="right-container">
           <div className="right-items">
-            <SearchIcon sx={{ fontSize: "25px" }} />
-            <PersonOutlineOutlinedIcon sx={{ fontSize: "25px" }} />
+            <SearchIcon sx={{ fontSize: "25px", color: "#333" }} />
+            <PersonOutlineOutlinedIcon
+              sx={{ fontSize: "25px", color: "#333" }}
+            />
             {!iconSwitch ? (
               <MenuIcon onClick={handleSwitch} className="menuIcon" />
             ) : (
@@ -223,13 +282,15 @@ const HeaderComponent = () => {
                 <InsertChartOutlinedIcon />
                 <span className="mobile-menuItem__title">báo cáo</span>
               </div>
-
-              {openSubmenu ? (
-                <RemoveOutlinedIcon onClick={handleOpenSubmenu} />
-              ) : (
-                <AddOutlinedIcon onClick={handleOpenSubmenu} />
-              )}
             </Link>
+            {openSubmenu ? (
+              <RemoveOutlinedIcon
+                onClick={handleOpenSubmenu}
+                sx={{ zIndex: 2 }}
+              />
+            ) : (
+              <AddOutlinedIcon onClick={handleOpenSubmenu} sx={{ zIndex: 2 }} />
+            )}
           </div>
 
           {/* SUB MENU MOBILE */}
@@ -263,13 +324,18 @@ const HeaderComponent = () => {
                 <SettingsOutlinedIcon />
                 <span className="mobile-menuItem__title">thiết lập</span>
               </div>
-
-              {openSubmenu2 ? (
-                <RemoveOutlinedIcon onClick={handleOpenSubmenu2} />
-              ) : (
-                <AddOutlinedIcon onClick={handleOpenSubmenu2} />
-              )}
             </Link>
+            {openSubmenu2 ? (
+              <RemoveOutlinedIcon
+                onClick={handleOpenSubmenu2}
+                sx={{ zIndex: 2 }}
+              />
+            ) : (
+              <AddOutlinedIcon
+                onClick={handleOpenSubmenu2}
+                sx={{ zIndex: 2 }}
+              />
+            )}
           </div>
 
           {/* SUB MENU MOBILE */}
@@ -312,7 +378,7 @@ const HeaderComponent = () => {
           <div className="mobile-menuItems">
             <Link href="/register" className="mobile-menuItem">
               <div className="left">
-                <LogoutOutlinedIcon/>
+                <LogoutOutlinedIcon />
                 <span className="mobile-menuItem__title">đăng ký</span>
               </div>
             </Link>
@@ -320,7 +386,7 @@ const HeaderComponent = () => {
           <div className="mobile-menuItems">
             <Link href="/login" className="mobile-menuItem">
               <div className="left">
-                <LoginOutlinedIcon/>
+                <LoginOutlinedIcon />
                 <span className="mobile-menuItem__title">đăng nhập</span>
               </div>
             </Link>

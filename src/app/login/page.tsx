@@ -32,6 +32,7 @@ const Login = () => {
               <TextField
                 id="outlined-basic"
                 label="Số Điện Thoại"
+                type="tel"
                 variant="outlined"
                 className="custom-textfield"
                 sx={{ borderRadius: "6px", color: "red" }}

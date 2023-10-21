@@ -64,6 +64,7 @@ const Register = () => {
               <TextField
                 id="outlined-basic"
                 label="Số điện thoại"
+                type="tel"
                 variant="outlined"
                 sx={{
                   "&:hover .MuiOutlinedInput-notchedOutline": {

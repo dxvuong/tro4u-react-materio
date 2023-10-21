@@ -1,6 +1,7 @@
 .header-container {
   width: auto;
   flex-direction: column;
+  z-index: 1;
   .top {
     display: flex;
     justify-content: space-between;
@@ -30,16 +31,24 @@
       }
     }
     .menu-container {
-      min-width: 780px;
+      min-width: 1092px;
       margin-right: 0;
       @media (max-width: 768px) {
         display: none;
       }
       .menu-list {
         display: flex;
-        gap: 5px;
         width: 100%;
         height: 100%;
+        position: relative;
+        .menu-items::after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          /* background-color: #0c1923; */
+          height: 35px;
+          width: 106px;
+        }
         .menu-items {
           width: 100%;
           height: 100%;
@@ -47,16 +56,94 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 3px;
+          gap: 5px;
           transition: all 0.3s ease-out 0s;
+          position: relative;
+          .pcMenuSub-container {
+            display: none;
+
+            box-shadow: rgba(58, 53, 65, 0.56) 0px 6px 18px -8px;
+            width: 650px;
+            height: 367px;
+            background-color: #e9e9ec;
+            position: absolute;
+            top: 83px;
+            z-index: 1;
+            padding: 30px;
+
+            cursor: auto;
+            .pcMenuSub-list {
+              display: flex;
+              justify-content: space-between;
+              .pcMenuSub-items {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .pcMenuSub-title {
+                  font-size: 20px;
+                  margin-bottom: 10px;
+                  border-bottom: 2px solid #333;
+                  width: fit-content;
+                  text-transform: uppercase;
+                }
+                span {
+                  color: #333;
+                  font-size: 15px;
+                  font-weight: 400;
+                  text-align: left;
+                  font-family: Arial, Helvetica, sans-serif;
+                  transition: all 0.3s;
+                  &:hover {
+                    color: #9155fd;
+                    .pcMenuSub-title {
+                      color: #9155fd;
+                    }
+                  }
+                }
+              }
+            }
+          }
           &:hover {
-            color: #9155fd;
-            cursor: pointer;
-            font-weight: 600;
+            .icon {
+              color: #9155fd;
+              cursor: pointer;
+              font-weight: 600;
+            }
+
             .menu__item-link {
               color: #9155fd;
               cursor: pointer;
               font-weight: 600;
+            }
+            .pcMenuSub-container {
+              display: inline-block;
+              animation-name: menuAnimationPc;
+              animation-duration: 0.4s;
+            }
+            @keyframes menuAnimationPc {
+              from {
+                opacity: 0;
+                transform: translateY(10%);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            .subMenu-container {
+              display: inline-block;
+              animation: subMenuAnimationPc;
+              animation-duration: 0.4s;
+            }
+            @keyframes subMenuAnimationPc {
+              from {
+                opacity: 0;
+                transform: translateY(10%);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
             }
           }
           .menu__item-link {
@@ -82,6 +169,7 @@
         .menuIcon {
           display: none;
           @media (max-width: 785px) {
+            color: #333;
             display: block;
           }
         }
@@ -105,6 +193,8 @@
       max-height: 278px;
       overflow-y: auto;
       .mobile-menuItems {
+        display: flex;
+        justify-content: space-between;
         font-size: 14px;
         padding: 14px 16.75px;
         color: #fff;
@@ -122,7 +212,6 @@
             gap: 5px;
           }
         }
-        
       }
       .subMobileMenu-container {
         display: flex;
@@ -131,8 +220,7 @@
         animation-duration: 0.6s;
         .subMobileMenu-items {
           padding: 14px 0px 14px 31px;
-          
-          
+
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
           span {
             text-transform: uppercase;
@@ -166,7 +254,6 @@
     to {
       height: 300px;
       opacity: 1;
-      
     }
   }
 }
