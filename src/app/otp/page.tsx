@@ -4,8 +4,8 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { Button, InputAdornment, styled } from "@mui/material";
 import Link from "next/link";
-import tree from "../../../../public/assets/img/tree.png";
-import leaf from "../../../../public/assets/img/leaf.png";
+import tree from "../../../public/assets/img/tree.png";
+import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import OtpInput from "react-otp-input";
@@ -20,7 +20,7 @@ const Otp = () => {
       alert("Mã OTP không hợp lệ");
     } else {
       alert("Mã OTP hợp lệ");
-      window.location.href = "/pages/resetPassword";
+      window.location.href = "./resetPassword";
     }
   };
   return (
@@ -33,6 +33,7 @@ const Otp = () => {
           <OtpInput
             shouldAutoFocus
             value={otp}
+            inputType="tel"
             onChange={setOtp}
             numInputs={6}
             renderSeparator={"-"}

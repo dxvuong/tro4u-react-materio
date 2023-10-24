@@ -5,13 +5,23 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { Button, InputAdornment } from "@mui/material";
 import Link from "next/link";
-import tree from "../../../../public/assets/img/tree.png";
-import leaf from "../../../../public/assets/img/leaf.png";
+import tree from "../../../public/assets/img/tree.png";
+import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 const ForgotPassword = () => {
+  const textfield = {
+    ".MuiOutlinedInput-root" : {
+      borderRadius: "6px",
+    },
+    "& .MuiOutlinedInput-root:hover" : {
+      "& fieldset": {
+        borderColor: "#9155fd"
+      }
+    }
+  }
   return (
     <div className="forget-container">
       <div className="wrapper">
@@ -27,7 +37,7 @@ const ForgotPassword = () => {
                 type="tel"
                 variant="outlined"
                 className="custom-textfield"
-                sx={{ borderRadius: "6px", color: "red" }}
+                sx={textfield}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment sx={{ cursor: "pointer" }} position="end">
@@ -52,7 +62,7 @@ const ForgotPassword = () => {
               ></div>
             </div>
           </FormControl>
-          <Link href="/pages/otp">
+          <Link href="./otp">
             <Button fullWidth variant="contained" className="btn-forget">
               Tiếp tục <ArrowRightAltIcon sx={{ marginLeft: "5px" }} />
             </Button>

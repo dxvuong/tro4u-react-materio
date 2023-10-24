@@ -5,12 +5,36 @@
   .footer-wrapp {
     .footer-top {
       display: flex;
-      padding: 100px 264px;
+      padding: 100px 67px;
       background-color: #111111;
       @media (max-width: 785px) {
         padding: 50px 20px;
         flex-direction: column;
         gap: 30px;
+      }
+      @media only screen and (min-width: 786px) and (max-width: 1121px) {
+        padding: 100px 24px;
+      }
+      @media only screen and (min-width: 1122px) and (max-width: 1153px) {
+        padding: 100px 37px;
+      }
+      @media only screen and (min-width: 1154px) and (max-width: 1281px) {
+        padding: 100px 20px;
+      }
+      @media only screen and (min-width: 1282px) and (max-width: 1366px) {
+        padding: 100px 67px;
+      }
+      @media only screen and (min-width: 1367px) and (max-width: 1441px) {
+        padding: 100px 185px;
+      }
+      @media only screen and (min-width: 1442px) and (max-width: 1536px) {
+        padding: 100px 62px;
+      }
+      @media only screen and (min-width: 1537px) and (max-width: 1600px) {
+        padding: 100px 95px;
+      }
+      @media only screen and (min-width: 1601px) and (max-width: 1921px) {
+        padding: 100px 255px;
       }
       .footer-top__items1 {
         flex-grow: 6;

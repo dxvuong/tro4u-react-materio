@@ -35,7 +35,7 @@ const UserTable = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.email}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell className="fixed-cell" component="th" scope="row">

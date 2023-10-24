@@ -1,11 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  
- 
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 * {
   box-sizing: border-box;
@@ -33,7 +31,7 @@ body {
   background-color: #f4f5fa;
   flex-direction: column;
   min-height: 100vh;
-  
+
   justify-content: center;
   align-items: center;
 }
@@ -47,6 +45,21 @@ body {
   flex: 4;
   min-width: 1440px;
   padding: 0 20px 20px;
+  @media only screen and (max-width: 1024px) {
+    min-width: 1000px;
+  }
+  @media only screen and (min-width: 1025px) and (max-width: 1153px) {
+    min-width: 1122px;
+  }
+  @media only screen and (min-width: 1154px) and (max-width: 1366px) {
+    min-width: 1263px;
+  }
+  @media only screen and (max-width: 805px) {
+    min-width: 813px;
+  }
+  @media only screen and (min-width: 1367px) and (max-width: 1460px) {
+    min-width: 1102px;
+  }
 }
 
 a {
@@ -60,7 +73,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 550px) {
   .main {
     flex: 1;
     display: block;

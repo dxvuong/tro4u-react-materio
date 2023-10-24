@@ -5,14 +5,24 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { Button, InputAdornment } from "@mui/material";
 import Link from "next/link";
-import tree from "../../../../public/assets/img/tree.png";
-import leaf from "../../../../public/assets/img/leaf.png";
+import tree from "../../../public/assets/img/tree.png";
+import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 const ResetPassword = () => {
+  const textfield = {
+    ".MuiOutlinedInput-root" : {
+      borderRadius: "6px",
+    },
+    "& .MuiOutlinedInput-root:hover" : {
+      "& fieldset": {
+        borderColor: "#9155fd"
+      }
+    }
+  }
   const [showPassword, setShowPassword] = useState(false);
   const handleIconClick = () => {
     setShowPassword(!showPassword);
@@ -37,7 +47,7 @@ const ResetPassword = () => {
                 type={showPassword? "password" : "text"}
                 variant="outlined"
                 className="custom-textfield"
-                sx={{ borderRadius: "6px", color: "red" }}
+                sx={textfield}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment

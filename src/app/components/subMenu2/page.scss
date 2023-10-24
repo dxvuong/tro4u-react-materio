@@ -1,14 +1,11 @@
 .subMenu-container {
-  display: none;
+    display: none;
   position: absolute;
   top: 83px;
   left: 19px;
   min-width: 220px;
   background-color: #e9e9ec;
   .subMenu-list {
-    box-shadow: 0 5px 5px -3px rgba(58, 53, 65, 0.2),
-      0 8px 10px 1px rgba(58, 53, 65, 0.14),
-      0 3px 14px 2px rgba(58, 53, 65, 0.12);
     .subMenu-items {
       display: flex;
       flex-direction: column;
@@ -22,8 +19,8 @@
         font-family: Arial, Helvetica, sans-serif;
         transition: all 0.3s ease-in-out;
         &:hover {
-          cursor: pointer;
-          color: #9155fd;
+            cursor: pointer;
+            color: #9155fd;
         }
       }
     }

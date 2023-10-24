@@ -4,8 +4,8 @@ const nextConfig = {
     domains: ["i.pinimg.com"],
     unoptimized: true,
   },
-  // output: 'export',
-  // trailingSlash: true,
+   output: 'export',
+   trailingSlash: true,
 };
 
 module.exports = nextConfig;

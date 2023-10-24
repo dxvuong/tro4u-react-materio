@@ -38,7 +38,12 @@ import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SubMenu from "../subMenu/page";
 import { dataMenu, dataMenu2 } from "../../../../DataMenu/data";
+import SubMenu2 from "../subMenu2/page";
+import { signIn, useSession } from "next-auth/react";
+import { redirect, usePathname } from "next/navigation";
+
 const HeaderComponent = () => {
+  const pathname = usePathname()
   const [openMenu, setOpenMenu] = useState(false);
   const [iconSwitch, setIconSwitch] = useState(false);
 
@@ -60,43 +65,23 @@ const HeaderComponent = () => {
     setOpenSubmenu2(!openSubmenu2);
   };
 
-  const style = {
-    position: "absolute" as "absolute",
-    left: "47%",
-    transform: "translate(-50%, -50%)",
-    width: "100%",
-    border: "none",
-    boxShadow: 24,
-    padding: "10px",
-    animation: "slideIn 0.2s ease-in-out",
-  };
-  const styleSubmenu = {
-    position: "absolute" as "absolute",
-    top: "22%",
-    left: "85%",
-    transform: "translate(-50%, -50%)",
-    width: 230,
-    border: "none",
-    boxShadow: 24,
-    "@media screen and (max-width: 850px)": {
-      top: "37%",
-      left: "58%",
-    },
-  };
-  const infoStyle = {
-    display: "flex",
-    padding: "12px 16px",
-    alignItems: "center",
-    gap: "15px",
-  };
-  const avatarStyle = {
-    width: "40px",
-    borderRadius: "30px",
-    height: "40px",
-  };
-  const nameStyle = {
-    fontSize: "17px",
-    fontWeight: 600,
+  let user = null; // Declare user variable outside of the conditional block
+
+  if (typeof window !== "undefined") {
+    const userDataString = sessionStorage.getItem("user");
+    console.log(userDataString);
+    
+    if (userDataString) {
+      user = JSON.parse(userDataString);
+      console.log(user);
+    }
+  }
+  const handleLogout = () => {
+    // Clear session storage
+    sessionStorage.clear();
+    redirect("/");
+    // Redirect to the home page or any other desired page after logout
+    // Example: window.location.href = "/";
   };
 
   return (
@@ -124,9 +109,9 @@ const HeaderComponent = () => {
         </div>
         <div className="menu-container">
           <div className="menu-list">
-            <div className="menu-items">
+            <div className={`menu-items ${pathname === '/' ? 'active' : ''}`}>
               <HomeOutlinedIcon className="icon" />
-              <Link className="menu__item-link" href="#">
+              <Link className={`menu__item-link ${pathname === '/' ? 'active' : ''}`} href="#">
                 home
               </Link>
             </div>
@@ -142,7 +127,7 @@ const HeaderComponent = () => {
                 tiền
               </Link>
             </div>
-            <div className="menu-items">
+            {/* <div className="menu-items">
               <AssignmentOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 quản lý
@@ -187,43 +172,63 @@ const HeaderComponent = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="menu-items">
               <AssignmentOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 báo cáo
               </Link>
-              <SubMenu dataMenu={dataMenu}  />
+              <SubMenu />
             </div>
 
             <div className="menu-items">
               <AssignmentOutlinedIcon className="icon" />
               <Link className="menu__item-link" href="#">
-                liên kết
+                quản lý
               </Link>
-              <SubMenu dataMenu={dataMenu2}  />
+              <SubMenu2 />
             </div>
-            <div className="menu-items">
-              <InsertChartOutlinedIcon className="icon" />
-              <Link className="menu__item-link" href="/register">
-                đăng ký
-              </Link>
-            </div>
-            <div className="menu-items">
-              <LocalPhoneOutlinedIcon className="icon" />
-              <Link className="menu__item-link" href="/login">
-                đăng nhập
-              </Link>
-            </div>
+            {user ? (
+              <div className="menu-items">
+                <InsertChartOutlinedIcon className="icon" />
+                <Link
+                  className="menu__item-link"
+                  href="/"
+                  onClick={handleLogout}
+                >
+                  đăng xuất
+                </Link>
+              </div>
+            ) : (
+              <>
+                <div className="menu-items">
+                  <InsertChartOutlinedIcon className="icon" />
+                  <Link className="menu__item-link" href="/register">
+                    đăng ký
+                  </Link>
+                </div>
+                <div className="menu-items">
+                  <LocalPhoneOutlinedIcon className="icon" />
+                  <Link className="menu__item-link" href="/login">
+                    đăng nhập
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         <div className="right-container">
           <div className="right-items">
             <SearchIcon sx={{ fontSize: "25px", color: "#333" }} />
-            <PersonOutlineOutlinedIcon
-              sx={{ fontSize: "25px", color: "#333" }}
-            />
+            {user ? (
+              user.user.name
+            ) : (
+              <PersonOutlineOutlinedIcon
+                sx={{ fontSize: "25px", color: "#333" }}
+              />
+            )}
+
             {!iconSwitch ? (
               <MenuIcon onClick={handleSwitch} className="menuIcon" />
             ) : (
@@ -235,7 +240,7 @@ const HeaderComponent = () => {
       <div className={`mobile-menuContainer ${openMenu ? "active" : ""}`}>
         <nav className="mobile-menuList">
           <div className="mobile-menuItems">
-            <Link href="#" className="mobile-menuItem">
+            <Link href="#" className={`mobile-menuItem ${pathname === '/' ? 'active' : ''}`}>
               <div className="left">
                 <HomeOutlinedIcon />
                 <span className="mobile-menuItem__title">home</span>
@@ -375,22 +380,35 @@ const HeaderComponent = () => {
             </Link>
           </div>
 
-          <div className="mobile-menuItems">
-            <Link href="/register" className="mobile-menuItem">
-              <div className="left">
-                <LogoutOutlinedIcon />
-                <span className="mobile-menuItem__title">đăng ký</span>
+          {user ? (
+            <div className="mobile-menuItems">
+              <Link href="/" className="mobile-menuItem" onClick={handleLogout}>
+                <div className="left">
+                  <LogoutOutlinedIcon />
+                  <span className="mobile-menuItem__title">đăng xuất</span>
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className="mobile-menuItems">
+                <Link href="/register" className="mobile-menuItem">
+                  <div className="left">
+                    <LogoutOutlinedIcon />
+                    <span className="mobile-menuItem__title">đăng ký</span>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </div>
-          <div className="mobile-menuItems">
-            <Link href="/login" className="mobile-menuItem">
-              <div className="left">
-                <LoginOutlinedIcon />
-                <span className="mobile-menuItem__title">đăng nhập</span>
+              <div className="mobile-menuItems">
+                <Link href="/login" className="mobile-menuItem">
+                  <div className="left">
+                    <LoginOutlinedIcon />
+                    <span className="mobile-menuItem__title">đăng nhập</span>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </div>
+            </>
+          )}
         </nav>
       </div>
     </div>
