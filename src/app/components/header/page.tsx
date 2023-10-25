@@ -1,62 +1,103 @@
 "use client";
 import {
+  Avatar,
   Box,
+  ClickAwayListener,
   Divider,
+  Grow,
   IconButton,
   ListItemIcon,
   ListItemText,
+  Menu,
   MenuItem,
   MenuList,
   Modal,
   Paper,
+  Popper,
+  Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Image from "next/image";
 import "./page.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
-
+import LoginIcon from "@mui/icons-material/Login";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import Diversity3OutlinedIcon from "@mui/icons-material/Diversity3Outlined";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import SideMenu from "../sideMenu/page";
+
 import logo from "../../../../public/assets/img/logo4u.png";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
+import GroupsIcon from "@mui/icons-material/Groups";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import HomeIcon from "@mui/icons-material/Home";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import BarChartIcon from "@mui/icons-material/BarChart";
 import SubMenu from "../subMenu/page";
-import { dataMenu, dataMenu2 } from "../../../../DataMenu/data";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SubMenu2 from "../subMenu2/page";
-import { signIn, useSession } from "next-auth/react";
 import { redirect, usePathname } from "next/navigation";
+import avatar from "../../../../public/assets/img/1.png";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginOutlined from "@mui/icons-material/LoginOutlined";
+
+type ApiProps = {
+  user_token: string;
+  user: {
+    avatar: string;
+    email: string;
+    full_name: string;
+    id: number;
+    id_nhom_user: number;
+    phone: string;
+  };
+};
 
 const HeaderComponent = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
   const [iconSwitch, setIconSwitch] = useState(false);
-
+  const [openMenuUser, setOpenMenuUser] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleSwitch = () => {
     setIconSwitch(!iconSwitch);
     setOpenMenu(!openMenu);
     console.log("trang thai menu: ", openMenu);
+  };
+  const anchorRef = React.useRef<HTMLButtonElement>(null);
+  function handleListKeyDown(event: React.KeyboardEvent) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpenMenuUser(false);
+    } else if (event.key === "Escape") {
+      setOpenMenuUser(false);
+    }
+  }
+
+  const handleUserMenu = () => {
+    setOpenMenuUser(!openMenuUser);
   };
 
   const [openSubmenu, setOpenSubmenu] = useState(false);
 
   const handleOpenSubmenu = () => {
     setOpenSubmenu(!openSubmenu);
+  };
+  const handleCloseUserMenu = () => {
+    setOpenMenuUser(false);
   };
 
   const [openSubmenu2, setOpenSubmenu2] = useState(false);
@@ -65,17 +106,26 @@ const HeaderComponent = () => {
     setOpenSubmenu2(!openSubmenu2);
   };
 
-  let user = null; // Declare user variable outside of the conditional block
+  const [apiLoginData, setApiLoginData] = useState<ApiProps>();
 
-  if (typeof window !== "undefined") {
-    const userDataString = sessionStorage.getItem("user");
-    console.log(userDataString);
-    
-    if (userDataString) {
-      user = JSON.parse(userDataString);
-      console.log(user);
-    }
-  }
+  useEffect(() => {
+    // Example: Fetch user data here
+    const fetchData = async () => {
+      if (typeof window !== "undefined") {
+        const userDataString = sessionStorage.getItem("user");
+        if (userDataString) {
+          const user = JSON.parse(userDataString);
+          setApiLoginData(user);
+          console.log("data login12", user);
+        }
+      }
+    };
+
+    fetchData(); // Call the function to fetch data
+
+    // You can add more side effects here if needed
+  }, []);
+  console.log("state", apiLoginData);
   const handleLogout = () => {
     // Clear session storage
     sessionStorage.clear();
@@ -109,20 +159,25 @@ const HeaderComponent = () => {
         </div>
         <div className="menu-container">
           <div className="menu-list">
-            <div className={`menu-items ${pathname === '/' ? 'active' : ''}`}>
-              <HomeOutlinedIcon className="icon" />
-              <Link className={`menu__item-link ${pathname === '/' ? 'active' : ''}`} href="#">
+            <div className={`menu-items ${pathname === "/" ? "active" : ""}`}>
+              <HomeIcon className="icon" />
+              <Link
+                className={`menu__item-link ${
+                  pathname === "/" ? "active" : ""
+                }`}
+                href="#"
+              >
                 home
               </Link>
             </div>
             <div className="menu-items">
-              <PeopleAltOutlinedIcon className="icon" />
+              <GroupsIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 khách
               </Link>
             </div>
             <div className="menu-items">
-              <AttachMoneyOutlinedIcon className="icon" />
+              <MonetizationOnIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 tiền
               </Link>
@@ -174,10 +229,11 @@ const HeaderComponent = () => {
               </div>
             </div> */}
             <div className="menu-items">
-              <AssignmentOutlinedIcon className="icon" />
+              <BarChartIcon className="icon" />
               <Link className="menu__item-link" href="#">
                 báo cáo
               </Link>
+              <ArrowDropDownIcon />
               <SubMenu />
             </div>
 
@@ -186,9 +242,10 @@ const HeaderComponent = () => {
               <Link className="menu__item-link" href="#">
                 quản lý
               </Link>
+              <ArrowDropDownIcon />
               <SubMenu2 />
             </div>
-            {user ? (
+            {/* {user ? (
               <div className="menu-items">
                 <InsertChartOutlinedIcon className="icon" />
                 <Link
@@ -214,33 +271,185 @@ const HeaderComponent = () => {
                   </Link>
                 </div>
               </>
-            )}
+            )} */}
           </div>
         </div>
 
         <div className="right-container">
           <div className="right-items">
             <SearchIcon sx={{ fontSize: "25px", color: "#333" }} />
-            {user ? (
-              user.user.name
+
+            {apiLoginData ? (
+              <div className="menu-user">
+                <Image
+                  src={avatar}
+                  alt="avatar "
+                  width={40}
+                  height={40}
+                  style={{ borderRadius: "50%", cursor: "pointer" }}
+                  onClick={handleUserMenu}
+                />
+                <Popper
+                  open={openMenuUser}
+                  anchorEl={anchorRef.current}
+                  role={undefined}
+                  placement="bottom-start"
+                  transition
+                  disablePortal
+                >
+                  {({ TransitionProps, placement }) => (
+                    <Grow
+                      {...TransitionProps}
+                      style={{
+                        transformOrigin:
+                          placement === "bottom-start"
+                            ? "left top"
+                            : "left bottom",
+                      }}
+                    >
+                      <Paper>
+                        <ClickAwayListener onClickAway={handleCloseUserMenu}>
+                          <MenuList
+                            autoFocusItem={openMenuUser}
+                            id="composition-menu"
+                            aria-labelledby="composition-button"
+                            onKeyDown={handleListKeyDown}
+                          >
+                            <MenuItem onClick={handleCloseUserMenu}>
+                              <div className="profile-container">
+                                <div className="avatar">
+                                  <Avatar>H</Avatar>
+                                </div>
+                                <div className="info">
+                                  <h5 className="name">
+                                    {apiLoginData.user.full_name}
+                                  </h5>
+                                  <span className="role">Admin</span>
+                                </div>
+                              </div>
+                            </MenuItem>
+                            <Divider />
+                            <MenuItem
+                              onClick={handleCloseUserMenu}
+                              className="menu-items"
+                            >
+                              <PersonOutlineIcon className="icon" />
+                              <span
+                                style={{
+                                  color: "rgba(58, 53, 65, 0.68)",
+                                }}
+                              >
+                                Thông tin tài khoản
+                              </span>
+                            </MenuItem>
+                            <MenuItem
+                              onClick={handleCloseUserMenu}
+                              className="menu-items"
+                            >
+                              <LogoutIcon className="icon" />
+                              <Link href="/" onClick={handleLogout}>
+                                <span
+                                  style={{
+                                    color: "rgba(58, 53, 65, 0.68)",
+                                  }}
+                                >
+                                  Đăng xuất
+                                </span>
+                              </Link>
+                            </MenuItem>
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  )}
+                </Popper>
+              </div>
             ) : (
-              <PersonOutlineOutlinedIcon
-                sx={{ fontSize: "25px", color: "#333" }}
-              />
+              <div>
+                <PersonOutlineOutlinedIcon
+                  sx={{ fontSize: "25px", color: "#333", cursor: "pointer" }}
+                  onClick={handleUserMenu}
+                />
+                <Popper
+                  open={openMenuUser}
+                  anchorEl={anchorRef.current}
+                  role={undefined}
+                  placement="bottom-start"
+                  transition
+                  disablePortal
+                >
+                  {({ TransitionProps, placement }) => (
+                    <Grow
+                      {...TransitionProps}
+                      style={{
+                        transformOrigin:
+                          placement === "bottom-start"
+                            ? "left top"
+                            : "left bottom",
+                      }}
+                    >
+                      <Paper>
+                        <ClickAwayListener onClickAway={handleCloseUserMenu}>
+                          <MenuList
+                            autoFocusItem={openMenuUser}
+                            id="composition-menu"
+                            aria-labelledby="composition-button"
+                            onKeyDown={handleListKeyDown}
+                          >
+                            <MenuItem
+                              onClick={handleCloseUserMenu}
+                              className="menu-items bg-hover"
+                            >
+                              <LoginIcon className="icon" />
+                              <Link href="/login">
+                                <span
+                                  style={{
+                                    color: "rgba(58, 53, 65, 0.68)",
+                                  }}
+                                >
+                                  Đăng nhập
+                                </span>
+                              </Link>
+                            </MenuItem>
+                            <MenuItem
+                              onClick={handleCloseUserMenu}
+                              className="menu-items bg-hover"
+                            >
+                              <LogoutIcon className="icon" />
+                              <Link href="/register">
+                                <span
+                                  style={{
+                                    color: "rgba(58, 53, 65, 0.68)",
+                                  }}
+                                >
+                                  Đăng ký
+                                </span>
+                              </Link>
+                            </MenuItem>
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  )}
+                </Popper>
+              </div>
             )}
 
-            {!iconSwitch ? (
+            {/* {!iconSwitch ? (
               <MenuIcon onClick={handleSwitch} className="menuIcon" />
             ) : (
               <CloseIcon onClick={handleSwitch} />
-            )}
+            )} */}
           </div>
         </div>
       </div>
       <div className={`mobile-menuContainer ${openMenu ? "active" : ""}`}>
         <nav className="mobile-menuList">
           <div className="mobile-menuItems">
-            <Link href="#" className={`mobile-menuItem ${pathname === '/' ? 'active' : ''}`}>
+            <Link
+              href="#"
+              className={`mobile-menuItem ${pathname === "/" ? "active" : ""}`}
+            >
               <div className="left">
                 <HomeOutlinedIcon />
                 <span className="mobile-menuItem__title">home</span>
@@ -380,7 +589,7 @@ const HeaderComponent = () => {
             </Link>
           </div>
 
-          {user ? (
+          {apiLoginData ? (
             <div className="mobile-menuItems">
               <Link href="/" className="mobile-menuItem" onClick={handleLogout}>
                 <div className="left">
@@ -410,6 +619,31 @@ const HeaderComponent = () => {
             </>
           )}
         </nav>
+      </div>
+
+      <div className="menuMobile-container">
+        <div className="menuMobile-list">
+          <Link href="#" className={`menuMobile-items ${pathname === "/" ? "activeMobieMenu" : ""} `}>
+            <HomeIcon/>
+            <span>Home</span>
+          </Link>
+          <Link href="#" className={`menuMobile-items ${pathname === "/khach" ? "activeMobieMenu" : ""} `}>
+            <GroupsIcon/>
+            <span>Khách</span>
+          </Link>
+          <Link href="#" className={`menuMobile-items ${pathname === "/tien" ? "activeMobieMenu" : ""} `}>
+            <MonetizationOnIcon/>
+            <span>Tiền</span>
+          </Link>
+          <Link href="#"className={`menuMobile-items ${pathname === "/baocao" ? "activeMobieMenu" : ""} `}>
+            <BarChartIcon/>
+            <span>Báo cáo</span>
+          </Link>
+          <Link href="#" className={`menuMobile-items ${pathname === "/quanly" ? "activeMobieMenu" : ""} `}>
+            <AssignmentOutlinedIcon/>
+            <span>Quản lý</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

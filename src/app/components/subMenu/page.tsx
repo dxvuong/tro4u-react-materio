@@ -8,10 +8,10 @@ const SubMenu = () => {
       <div className="subMenu-list">
         <div className="subMenu-items">
           <Link className="subMenu-item" href="#" >
-            <span>Khách Hàng</span>
+            Khách Hàng
           </Link>
           <Link className="subMenu-item" href="#" >
-            <span>Thu chi</span>
+            Thu chi
           </Link>
           
         </div>

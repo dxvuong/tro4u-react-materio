@@ -1,10 +1,10 @@
 .subMenu-container {
     display: none;
   position: absolute;
-  top: 83px;
-  left: 19px;
-  min-width: 220px;
-  background-color: #e9e9ec;
+  top: 36px;
+  left: 0px;
+  width: max-content !important;
+  background-color: #fff;
   .subMenu-list {
     .subMenu-items {
       display: flex;
@@ -17,10 +17,9 @@
         font-weight: 400;
         color: #333;
         font-family: Arial, Helvetica, sans-serif;
-        transition: all 0.3s ease-in-out;
         &:hover {
             cursor: pointer;
-            color: #9155fd;
+            background-color: rgba(58,53,65,.04);
         }
       }
     }

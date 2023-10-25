@@ -3,31 +3,30 @@ import {
   Button,
   Checkbox,
   FormControl,
-  FormControlLabel,
   FormLabel,
   InputAdornment,
   InputLabel,
   MenuItem,
   Radio,
-  RadioGroup,
   Select,
   SelectChangeEvent,
   TextField,
   ThemeProvider,
+
 } from "@mui/material";
+
 import Link from "next/link";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./page.scss";
 import tree from "../../../public/assets/img/tree.png";
 import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
-import CheckboxCustom from "../components/CheckboxCustom/page";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { themes } from "../components/themes/theme";
-import { pink, purple, red } from "@mui/material/colors";
+import {themes } from "../components/themes/theme";
+import { purple } from "@mui/material/colors";
 
 const Register = () => {
   const textfield = {
