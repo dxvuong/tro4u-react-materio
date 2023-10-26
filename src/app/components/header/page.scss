@@ -218,7 +218,6 @@
             border-radius: 6px;
             .menu__item-link {
               color: #fff;
-
             }
             .icon {
               color: #fff;
@@ -268,7 +267,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 20px;
+        .search-icon {
+          font-size: 25px;
+          color: #333;
+          cursor: pointer;
+        }
         .menuIcon {
           display: none;
           @media (max-width: 785px) {
@@ -278,6 +282,18 @@
         }
         .menu-user {
           position: relative;
+          cursor: pointer;
+          &:hover {
+            .popperMenu {
+              display: block;
+            }
+          }
+          .popperMenu {
+            display: none;
+            &:hover {
+              display: block;
+            }
+          }
           .profile-container {
             display: flex;
             gap: 10px;
@@ -319,17 +335,19 @@
             }
             &:hover {
               background: rgba(58, 53, 65, 0.04) !important;
-              
             }
           }
         }
-        // .css-advny6-MuiPopper-root.MuiPopper-root {
-        //   // top: 56px !important;
-        //   // left: unset !important;
-        //   right: 4%;
-        //   width: 230px;
-        //   position: absolute !important;
-        // }
+        .menu-user::after {
+          content: "";
+          position: absolute;
+          top: 3px;
+          right: 2px;
+          width: 40px;
+          height: 62px;
+          // background-color: #9155fd;
+        }
+
         .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
           background-color: #fff;
           display: flex;

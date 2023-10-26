@@ -1,19 +1,21 @@
 import Link from "next/link";
 import React from "react";
 import "./page.scss";
-
+import GroupIcon from "@mui/icons-material/Group";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 const SubMenu = () => {
   return (
     <div className="subMenu-container">
       <div className="subMenu-list">
         <div className="subMenu-items">
-          <Link className="subMenu-item" href="#" >
+          <Link className="subMenu-item" href="#">
+            <GroupIcon />
             Khách Hàng
           </Link>
-          <Link className="subMenu-item" href="#" >
+          <Link className="subMenu-item" href="#">
+            <AutoStoriesIcon />
             Thu chi
           </Link>
-          
         </div>
       </div>
     </div>

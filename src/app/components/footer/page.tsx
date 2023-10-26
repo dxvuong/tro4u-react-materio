@@ -1,5 +1,9 @@
 import React from "react";
-import "./page.scss"
+import "./page.scss";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LanguageIcon from "@mui/icons-material/Language";
+import PhoneIcon from "@mui/icons-material/Phone";
+import HomeIcon from "@mui/icons-material/Home";
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -8,8 +12,8 @@ const Footer = () => {
           <div className="footer-top__items1">
             <h2 className="footer-title">Giới thiệu</h2>
             <p className="footer-text">
-              Dựa trên việc đã quản lý hơn 1.000 phòng trọ, chúng tôi muốn  chia
-              sẽ phần mềm quản lý phòng trọ hoàn toàn miễn phí cho  những ai có
+              Dựa trên việc đã quản lý hơn 1.000 phòng trọ, chúng tôi muốn chia
+              sẽ phần mềm quản lý phòng trọ hoàn toàn miễn phí cho những ai có
               nhu cầu
             </p>
             <div className="footer-social"></div>
@@ -19,21 +23,33 @@ const Footer = () => {
             <span>Giới thiệu</span>
             <span>Hợp đồng mẫu</span>
             <span>Quy trình vận hành</span>
-            
           </div>
           <div className="footer-top__items3">
             <h2 className="footer-title">liên hệ</h2>
-            <span>Hotline: 0907.771.881</span>
-            <span>Cho thuê phòng</span>
-            <span>Web: https://tro4u.com</span>
-            <span>Web: Facebook </span>
-            
+            <div className="info">
+              <PhoneIcon className="icon" />
+              <span>Hotline: 0907.771.881 </span>
+            </div>
+            <div className="info">
+              <HomeIcon className="icon" />
+              <span>Cho thuê phòng </span>
+            </div>
+            <div className="info">
+              <LanguageIcon className="icon" />
+              <span>Web: https://tro4u.com </span>
+            </div>
+            <div className="info">
+              <FacebookIcon className="icon" />
+              <span>Web: Facebook </span>
+            </div>
           </div>
-
         </div>
         <div className="footer-bottom">
-            <span>Copyright© 2023 <span style={{color:"#9155fd", cursor: "pointer"}}>Tro4u</span></span>
-            <span>Website: Https://Tro4u.Com</span>
+          <span>
+            Copyright© 2023{" "}
+            <span style={{ color: "#9155fd", cursor: "pointer" }}>Tro4u</span>
+          </span>
+          <span>Website: Https://Tro4u.Com</span>
         </div>
       </div>
     </div>

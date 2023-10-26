@@ -61,35 +61,35 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.custom-textfield.css-u7m2fl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:hover {
-          border-left: 0.2px solid #9155fd;
-          border-right: 0.2px solid #9155fd;
-          border-bottom: 0.2px solid #b795f6;
-          border-top: 0.2px solid #b795f6;
-        }
-        .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.custom-textfield.css-u7m2fl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
-          border-radius: 6px;
-          max-height: 56px;
-        }
-        .Mui-focused .MuiOutlinedInput-notchedOutline {
-          border-color: "#9155fd";
-        }
-        .MuiOutlinedInput-notchedOutline:hover {
-          border-color: "rgba(58, 53, 65, 0.54)";
-        }
+        // .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.custom-textfield.css-u7m2fl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:hover {
+        //   border-left: 0.2px solid #9155fd;
+        //   border-right: 0.2px solid #9155fd;
+        //   border-bottom: 0.2px solid #b795f6;
+        //   border-top: 0.2px solid #b795f6;
+        // }
+        // .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.custom-textfield.css-u7m2fl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+        //   border-radius: 6px;
+        //   max-height: 56px;
+        // }
+        // .Mui-focused .MuiOutlinedInput-notchedOutline {
+        //   border-color: "#9155fd";
+        // }
+        // .MuiOutlinedInput-notchedOutline:hover {
+        //   border-color: "rgba(58, 53, 65, 0.54)";
+        // }
         label {
           color: rgba(58, 53, 65, 0.68);
         }
 
-        .custom-textfield
-          .MuiOutlinedInput-root.Mui-focused
-          .MuiOutlinedInput-notchedOutline {
-          border-color: #9155fd;
-        }
+        // .custom-textfield
+        //   .MuiOutlinedInput-root.Mui-focused
+        //   .MuiOutlinedInput-notchedOutline {
+        //   border-color: #9155fd;
+        // }
 
-        .custom-textfield .MuiOutlinedInput-input {
-          color: rgba(58, 53, 65, 0.87);
-        }
+        // .custom-textfield .MuiOutlinedInput-input {
+        //   color: rgba(58, 53, 65, 0.87);
+        // }
 
         .custom-textfield .MuiInputLabel-outlined.Mui-focused {
           color: #9155fd;

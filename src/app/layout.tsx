@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
 import { SessionProvider } from "./components/SessionProvider";
+import HeaderComponent from "./components/header/page";
+import Footer from "./components/footer/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,16 @@ export default function RootLayout({ children, session }: Iprops) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider session={session}>{children}</SessionProvider>
+        <SessionProvider session={session}>
+          <div className="container">
+            <HeaderComponent/>
+            <div className="main">
+            {children}
+            </div>
+            <Footer/>
+          </div>
+          
+          </SessionProvider>
       </body>
     </html>
   );

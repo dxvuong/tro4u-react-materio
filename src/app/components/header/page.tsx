@@ -2,6 +2,7 @@
 import {
   Avatar,
   Box,
+  Button,
   ClickAwayListener,
   Divider,
   Grow,
@@ -53,6 +54,7 @@ import avatar from "../../../../public/assets/img/1.png";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginOutlined from "@mui/icons-material/LoginOutlined";
+import TextFieldCustom from "../TextfiledCustom/page";
 
 type ApiProps = {
   user_token: string;
@@ -71,7 +73,15 @@ const HeaderComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [iconSwitch, setIconSwitch] = useState(false);
   const [openMenuUser, setOpenMenuUser] = useState(false);
+  const [openSearchInput, setOpenSearchInput] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleOpenSearchInput = () => {
+    setOpenSearchInput(!openSearchInput);
+  };
+  const handleCloseSearchInput = () => {
+    setOpenSearchInput(false);
+  };
   const handleSwitch = () => {
     setIconSwitch(!iconSwitch);
     setOpenMenu(!openMenu);
@@ -133,6 +143,20 @@ const HeaderComponent = () => {
     // Redirect to the home page or any other desired page after logout
     // Example: window.location.href = "/";
   };
+  const styleInputSearch = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 500,
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+    borderRadius: "6px",
+    "@media (max-width: 767px)": {
+      width: 330,
+    },
+  };
 
   return (
     <div className="header-container">
@@ -165,20 +189,27 @@ const HeaderComponent = () => {
                 className={`menu__item-link ${
                   pathname === "/" ? "active" : ""
                 }`}
-                href="#"
+                href="/"
               >
                 home
               </Link>
             </div>
-            <div className="menu-items">
+            <div className={`menu-items ${pathname === "/guest/" ? "active" : ""}`}>
               <GroupsIcon className="icon" />
-              <Link className="menu__item-link" href="#">
+              <Link
+                className={`menu__item-link ${
+                  pathname === "/guest/" ? "active" : ""
+                }`}
+                href="/guest"
+              >
                 khách
               </Link>
             </div>
-            <div className="menu-items">
+            <div className={`menu-items ${pathname === "/money/" ? "active" : ""}`}>
               <MonetizationOnIcon className="icon" />
-              <Link className="menu__item-link" href="#">
+              <Link className={`menu__item-link ${
+                  pathname === "/money/" ? "active" : ""
+                }`} href="/money">
                 tiền
               </Link>
             </div>
@@ -228,18 +259,22 @@ const HeaderComponent = () => {
                 </div>
               </div>
             </div> */}
-            <div className="menu-items">
+            <div className={`menu-items ${pathname === "/reportPage/" ? "active" : ""}`}>
               <BarChartIcon className="icon" />
-              <Link className="menu__item-link" href="#">
+              <Link className={`menu__item-link ${
+                  pathname === "/reportPage/" ? "active" : ""
+                }`} href="/reportPage">
                 báo cáo
               </Link>
               <ArrowDropDownIcon className="arrow" />
               <SubMenu />
             </div>
 
-            <div className="menu-items">
+            <div className={`menu-items ${pathname === "/manage/" ? "active" : ""}`}>
               <AssignmentOutlinedIcon className="icon" />
-              <Link className="menu__item-link" href="#">
+              <Link className={`menu__item-link ${
+                  pathname === "/manage/" ? "active" : ""
+                }`} href="/manage">
                 quản lý
               </Link>
               <ArrowDropDownIcon className="arrow" />
@@ -277,8 +312,32 @@ const HeaderComponent = () => {
 
         <div className="right-container">
           <div className="right-items">
-            <SearchIcon sx={{ fontSize: "25px", color: "#333" }} />
-
+            <SearchIcon
+              className="search-icon"
+              onClick={handleOpenSearchInput}
+            />
+            <Modal
+              open={openSearchInput}
+              onClose={handleCloseSearchInput}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={styleInputSearch}>
+                <TextFieldCustom />
+                <IconButton
+                  aria-label="delete"
+                  size="small"
+                  sx={{
+                    position: "absolute",
+                    fontSize: "30px",
+                    top: "40px",
+                    right: "35px",
+                  }}
+                >
+                  <SearchIcon fontSize="inherit" />
+                </IconButton>
+              </Box>
+            </Modal>
             {apiLoginData ? (
               <div className="menu-user">
                 <Image
@@ -287,11 +346,11 @@ const HeaderComponent = () => {
                   width={40}
                   height={40}
                   style={{ borderRadius: "50%", cursor: "pointer" }}
-                  onClick={handleUserMenu}
+                  // onClick={handleUserMenu}
                 />
                 <Popper
                   className="popperMenu"
-                  open={openMenuUser}
+                  open={true}
                   anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
@@ -322,7 +381,10 @@ const HeaderComponent = () => {
                             aria-labelledby="composition-button"
                             onKeyDown={handleListKeyDown}
                           >
-                            <MenuItem onClick={handleCloseUserMenu} className="menu-items">
+                            <MenuItem
+                              onClick={handleCloseUserMenu}
+                              className="menu-items"
+                            >
                               <div className="profile-container">
                                 <div className="avatar">
                                   <Avatar>H</Avatar>
@@ -375,11 +437,11 @@ const HeaderComponent = () => {
               <div className="menu-user">
                 <PersonOutlineOutlinedIcon
                   sx={{ fontSize: "25px", color: "#333", cursor: "pointer" }}
-                  onClick={handleUserMenu}
+                  // onClick={handleUserMenu}
                 />
                 <Popper
                   className="popperMenu"
-                  open={openMenuUser}
+                  open={true}
                   anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
@@ -408,7 +470,7 @@ const HeaderComponent = () => {
                               className="menu-items bg-hover"
                             >
                               <LoginIcon className="icon" />
-                              <Link href="/login">
+                              <Link href="login">
                                 <span
                                   style={{
                                     color: "rgba(58, 53, 65, 0.68)",
@@ -631,7 +693,7 @@ const HeaderComponent = () => {
       <div className="menuMobile-container">
         <div className="menuMobile-list">
           <Link
-            href="#"
+            href="/"
             className={`menuMobile-items ${
               pathname === "/" ? "activeMobieMenu" : ""
             } `}
@@ -640,34 +702,34 @@ const HeaderComponent = () => {
             <span>Home</span>
           </Link>
           <Link
-            href="#"
+            href="/guest"
             className={`menuMobile-items ${
-              pathname === "/khach" ? "activeMobieMenu" : ""
+              pathname === "/guest" ? "activeMobieMenu" : ""
             } `}
           >
             <GroupsIcon />
             <span>Khách</span>
           </Link>
           <Link
-            href="#"
+            href="/money"
             className={`menuMobile-items ${
-              pathname === "/tien" ? "activeMobieMenu" : ""
+              pathname === "/money" ? "activeMobieMenu" : ""
             } `}
           >
             <MonetizationOnIcon />
             <span>Tiền</span>
           </Link>
           <Link
-            href="#"
+            href="/report"
             className={`menuMobile-items ${
-              pathname === "/baocao" ? "activeMobieMenu" : ""
+              pathname === "/report" ? "activeMobieMenu" : ""
             } `}
           >
             <BarChartIcon />
             <span>Báo cáo</span>
           </Link>
           <Link
-            href="#"
+            href="/manage"
             className={`menuMobile-items ${
               pathname === "/quanly" ? "activeMobieMenu" : ""
             } `}

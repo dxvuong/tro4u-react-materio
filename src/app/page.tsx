@@ -6,12 +6,8 @@ import Footer from "./components/footer/page";
 
 export default function Home() {
   return (
-    <div className="container">
-      <HeaderComponent />
-      <div className="main">
+    
         <Dashboard />
-      </div>
-      <Footer />
-    </div>
+      
   );
 }
