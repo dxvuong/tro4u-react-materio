@@ -233,7 +233,7 @@ const HeaderComponent = () => {
               <Link className="menu__item-link" href="#">
                 báo cáo
               </Link>
-              <ArrowDropDownIcon />
+              <ArrowDropDownIcon className="arrow" />
               <SubMenu />
             </div>
 
@@ -242,7 +242,7 @@ const HeaderComponent = () => {
               <Link className="menu__item-link" href="#">
                 quản lý
               </Link>
-              <ArrowDropDownIcon />
+              <ArrowDropDownIcon className="arrow" />
               <SubMenu2 />
             </div>
             {/* {user ? (
@@ -290,12 +290,19 @@ const HeaderComponent = () => {
                   onClick={handleUserMenu}
                 />
                 <Popper
+                  className="popperMenu"
                   open={openMenuUser}
                   anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
                   transition
                   disablePortal
+                  style={{
+                    position: "absolute",
+                    top: "58px",
+                    left: "-192px",
+                    width: "230px",
+                  }}
                 >
                   {({ TransitionProps, placement }) => (
                     <Grow
@@ -315,7 +322,7 @@ const HeaderComponent = () => {
                             aria-labelledby="composition-button"
                             onKeyDown={handleListKeyDown}
                           >
-                            <MenuItem onClick={handleCloseUserMenu}>
+                            <MenuItem onClick={handleCloseUserMenu} className="menu-items">
                               <div className="profile-container">
                                 <div className="avatar">
                                   <Avatar>H</Avatar>
@@ -331,7 +338,7 @@ const HeaderComponent = () => {
                             <Divider />
                             <MenuItem
                               onClick={handleCloseUserMenu}
-                              className="menu-items"
+                              className="menu-items bg"
                             >
                               <PersonOutlineIcon className="icon" />
                               <span
@@ -365,29 +372,29 @@ const HeaderComponent = () => {
                 </Popper>
               </div>
             ) : (
-              <div>
+              <div className="menu-user">
                 <PersonOutlineOutlinedIcon
                   sx={{ fontSize: "25px", color: "#333", cursor: "pointer" }}
                   onClick={handleUserMenu}
                 />
                 <Popper
+                  className="popperMenu"
                   open={openMenuUser}
                   anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
                   transition
                   disablePortal
+                  style={{
+                    position: "absolute",
+                    top: "50px",
+                    right: 0,
+                    width: "200px",
+                    left: "unset",
+                  }}
                 >
                   {({ TransitionProps, placement }) => (
-                    <Grow
-                      {...TransitionProps}
-                      style={{
-                        transformOrigin:
-                          placement === "bottom-start"
-                            ? "left top"
-                            : "left bottom",
-                      }}
-                    >
+                    <Grow {...TransitionProps}>
                       <Paper>
                         <ClickAwayListener onClickAway={handleCloseUserMenu}>
                           <MenuList
@@ -623,24 +630,49 @@ const HeaderComponent = () => {
 
       <div className="menuMobile-container">
         <div className="menuMobile-list">
-          <Link href="#" className={`menuMobile-items ${pathname === "/" ? "activeMobieMenu" : ""} `}>
-            <HomeIcon/>
+          <Link
+            href="#"
+            className={`menuMobile-items ${
+              pathname === "/" ? "activeMobieMenu" : ""
+            } `}
+          >
+            <HomeIcon />
             <span>Home</span>
           </Link>
-          <Link href="#" className={`menuMobile-items ${pathname === "/khach" ? "activeMobieMenu" : ""} `}>
-            <GroupsIcon/>
+          <Link
+            href="#"
+            className={`menuMobile-items ${
+              pathname === "/khach" ? "activeMobieMenu" : ""
+            } `}
+          >
+            <GroupsIcon />
             <span>Khách</span>
           </Link>
-          <Link href="#" className={`menuMobile-items ${pathname === "/tien" ? "activeMobieMenu" : ""} `}>
-            <MonetizationOnIcon/>
+          <Link
+            href="#"
+            className={`menuMobile-items ${
+              pathname === "/tien" ? "activeMobieMenu" : ""
+            } `}
+          >
+            <MonetizationOnIcon />
             <span>Tiền</span>
           </Link>
-          <Link href="#"className={`menuMobile-items ${pathname === "/baocao" ? "activeMobieMenu" : ""} `}>
-            <BarChartIcon/>
+          <Link
+            href="#"
+            className={`menuMobile-items ${
+              pathname === "/baocao" ? "activeMobieMenu" : ""
+            } `}
+          >
+            <BarChartIcon />
             <span>Báo cáo</span>
           </Link>
-          <Link href="#" className={`menuMobile-items ${pathname === "/quanly" ? "activeMobieMenu" : ""} `}>
-            <AssignmentOutlinedIcon/>
+          <Link
+            href="#"
+            className={`menuMobile-items ${
+              pathname === "/quanly" ? "activeMobieMenu" : ""
+            } `}
+          >
+            <AssignmentOutlinedIcon />
             <span>Quản lý</span>
           </Link>
         </div>

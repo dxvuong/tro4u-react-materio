@@ -31,7 +31,6 @@ body {
   background-color: #f4f5fa;
   flex-direction: column;
   min-height: 100vh;
-
   justify-content: center;
   align-items: center;
 }
@@ -45,6 +44,7 @@ body {
   flex: 4;
   min-width: 1440px;
   padding: 0 20px 20px;
+  margin-top: 70px;
   @media only screen and (max-width: 1024px) {
     min-width: 1000px;
   }
@@ -79,6 +79,7 @@ a {
     display: block;
     max-width: 390px;
     min-width: 0 !important;
+    margin-top: 70px;
   }
   .menu {
     z-index: 1;
