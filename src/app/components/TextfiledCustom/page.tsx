@@ -1,11 +1,10 @@
+"use client"
 import { TextField, styled } from "@mui/material";
 import React from "react";
-import { themes } from "../themes/theme";
+
 import "./page.scss"
 
-// const StyledTextField = styled(Te)
-
-const TextFieldCustom = () => {
+export default function TextFieldCustom() {
   const textfield = {
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderColor: "#9155fd",
@@ -32,6 +31,7 @@ const TextFieldCustom = () => {
       id="outlined-basic"
       label="Tìm kiếm"
       variant="outlined"
+
       className="textField-container"
       sx={textfield}
       onChange={handleOnchangeInputSearch}
@@ -41,4 +41,14 @@ const TextFieldCustom = () => {
   );
 };
 
-export default TextFieldCustom;
+
+
+// import React from 'react'
+
+// const page = () => {
+//   return (
+//     <div>page</div>
+//   )
+// }
+
+// export default page

@@ -33,6 +33,12 @@ const Login = () => {
       "& fieldset": {
         borderColor: "#9155fd"
       }
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#9155fd",
+    },
+    "& .MuiInputLabel-outlined.Mui-focused": {
+      color: "#9155fd",
     }
   }
 
@@ -74,7 +80,8 @@ const Login = () => {
           // Store user data in sessionStorage
           sessionStorage.setItem("user", JSON.stringify(data.data));
           // Redirect to another page if needed
-          window.location.href = "/";
+          alert("Dang nhap thanh cong")
+          // window.location.href = "/";
         } else {
           // Handle error response from the server
 

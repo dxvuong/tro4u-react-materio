@@ -1,13 +1,13 @@
 import React from 'react'
 import Footer from '../components/footer/page'
 import HeaderComponent from '../components/header/page'
-import "../../app/globals.scss"
-const Guest = () => {
+
+const Income = () => {
   return (
     <div className="container">
       <HeaderComponent />
       <div className="main">
-        Khách
+        Thu chi
         
       </div>
       <Footer />
@@ -15,4 +15,4 @@ const Guest = () => {
   )
 }
 
-export default Guest
+export default Income

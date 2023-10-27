@@ -7,9 +7,7 @@ import SideMenu from "@/app/components/sideMenu/page";
 const AccountSetting = () => {
   return (
     <div className="container"> {/**dynamic */}
-      <div className="menu"> {/**dynamic */}
-        <SideMenu /> {/**dynamic */}
-      </div>
+      
 
       <div className="main"> {/**dynamic */}
         <HeaderComponent />  {/**dynamic */}

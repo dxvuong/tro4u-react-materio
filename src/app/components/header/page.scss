@@ -1,3 +1,20 @@
+.textField-container
+          .MuiOutlinedInput-root.Mui-focused
+          .MuiOutlinedInput-notchedOutline {
+          border-color: #9155fd;
+        }
+
+        .textField-container .MuiOutlinedInput-input {
+          color: rgba(58, 53, 65, 0.87);
+          border-radius: 6px 0px 0px 6px;
+          position: relative;
+        }
+        .textField-container .MuiInputLabel-outlined.Mui-focused {
+          color: #9155fd;
+        }
+        .textField-container .MuiOutlinedInput-root:hover {
+          border-color: #9155fd;
+        }
 .header-container {
   width: 100%;
   flex-direction: column;
@@ -37,13 +54,13 @@
         }
       }
     }
-    @media only screen and (min-width: 802px) and (max-width: 1025px) {
+    @media only screen and (min-width: 802px) and (max-width: 1070px) {
       min-width: auto;
       .menu-container {
         min-width: 792px !important;
       }
     }
-    @media only screen and (min-width: 1026px) and (max-width: 1153px) {
+    @media only screen and (min-width: 1071px) and (max-width: 1153px) {
       min-width: auto;
       .menu-container {
         min-width: 916px !important;
@@ -273,6 +290,7 @@
           color: #333;
           cursor: pointer;
         }
+        
         .menuIcon {
           display: none;
           @media (max-width: 785px) {
@@ -370,6 +388,7 @@
 
         // }
       }
+      
     }
   }
   .mobile-menuContainer {

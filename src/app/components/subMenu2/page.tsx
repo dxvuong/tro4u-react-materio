@@ -8,11 +8,11 @@ const SubMenu2 = () => {
     <div className="subMenu-container">
       <div className="subMenu-list">
         <div className="subMenu-items">
-          <Link className="subMenu-item" href="#">
+          <Link className="subMenu-item" href="/guestManage">
             <Groups2Icon/>
             Quản lý khách
           </Link>
-          <Link className="subMenu-item" href="#">
+          <Link className="subMenu-item" href="/incomeManage">
             <ImportContactsIcon/>
             Quản lý thu chi
           </Link>

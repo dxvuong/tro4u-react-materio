@@ -4,6 +4,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LanguageIcon from "@mui/icons-material/Language";
 import PhoneIcon from "@mui/icons-material/Phone";
 import HomeIcon from "@mui/icons-material/Home";
+import SettingsIcon from "@mui/icons-material/Settings";
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -20,9 +23,18 @@ const Footer = () => {
           </div>
           <div className="footer-top__items2">
             <h2 className="footer-title">thông tin</h2>
-            <span>Giới thiệu</span>
-            <span>Hợp đồng mẫu</span>
-            <span>Quy trình vận hành</span>
+            <div className="info">
+              <BorderColorIcon className="icon" />
+              <span>Giới thiệu</span>
+            </div>
+            <div className="info">
+              <LocalLibraryIcon className="icon" />
+              <span>Hợp đồng mẫu</span>
+            </div>
+            <div className="info">
+              <SettingsIcon className="icon" />
+              <span>Quy trình vận hành</span>
+            </div>
           </div>
           <div className="footer-top__items3">
             <h2 className="footer-title">liên hệ</h2>

@@ -34,7 +34,7 @@
         padding: 100px 95px;
       }
       @media only screen and (min-width: 1601px) and (max-width: 1921px) {
-        padding: 100px 255px;
+        padding: 50px 255px;
       }
       .footer-top__items1 {
         flex-grow: 6;
@@ -65,41 +65,13 @@
         .footer-social {
         }
       }
-      .footer-top__items2 {
+      .footer-top__items2  {
         flex-grow: 2;
-        width: min-content;
-        gap: 25px;
-        display: flex;
-        flex-direction: column;
-        @media (max-width: 785px) {
-          width: fit-content;
-          margin-top: -30px;
-        }
-        .footer-title {
-          color: #fff;
-          font-size: 15px;
-          font-weight: 500;
-
-          text-transform: uppercase;
-        }
-        span {
-          color: #a4a4a4;
-          font-size: 16px;
-          transition: all 0.4s ease 0s;
-          &:hover {
-            cursor: pointer;
-            color: #9155fd;
-          }
-        }
-      }
-      .footer-top__items3 {
-        
-        flex-grow: 2;
-        width: min-content;
+        width: 77px;
         gap: 15px;
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: baseline;
         @media (max-width: 785px) {
           width: 100%;
           align-items: baseline;
@@ -114,14 +86,14 @@
           color: #fff;
           font-size: 15px;
           font-weight: 500;
-          text-align: center;
+          text-align: justify;
           text-transform: uppercase;
           width: 100%;
         }
-        
+
         .info {
           display: flex;
-          width: 57%;
+          
           gap: 16px;
           &:hover {
             .icon {
@@ -136,7 +108,58 @@
             font-size: 16px;
             width: 100%;
             transition: all 0.4s ease 0s;
-  
+
+            &:hover {
+              cursor: pointer;
+              color: #9155fd;
+            }
+          }
+        }
+      }
+      .footer-top__items3  {
+        flex-grow: 2;
+        width: 77px;
+        gap: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: self-end;
+        @media (max-width: 785px) {
+          width: 100%;
+          align-items: baseline;
+          .footer-title {
+            text-align: left !important;
+          }
+          .info {
+            width: 100% !important;
+          }
+        }
+        .footer-title {
+          color: #fff;
+          font-size: 15px;
+          font-weight: 500;
+          text-align: end;
+          text-transform: uppercase;
+          width: 100%;
+        }
+
+        .info {
+          display: flex;
+          
+          gap: 16px;
+          &:hover {
+            .icon {
+              color: #9155fd;
+            }
+          }
+          .icon {
+            color: #a4a4a4;
+          }
+          span {
+            color: #a4a4a4;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.4s ease 0s;
+
             &:hover {
               cursor: pointer;
               color: #9155fd;

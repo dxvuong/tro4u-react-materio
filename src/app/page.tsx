@@ -1,13 +1,144 @@
+"use client";
 import SideMenu from "./components/sideMenu/page";
 import Dashboard from "./components/dashboard/page";
 import HeaderComponent from "./components/header/page";
 import "./globals.scss";
 import Footer from "./components/footer/page";
-
+import AddHomeWorkIcon from "@mui/icons-material/AddHomeWork";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+import "./page.scss";
+import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
+import { useState } from "react";
+import ModalCustom from "./components/ModalCustom/page";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  DialogTitle,
+  IconButton,
+  DialogContent,
+  Typography,
+  DialogActions,
+  Button,
+  Dialog,
+  styled,
+} from "@mui/material";
 export default function Home() {
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
+
+  const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    "& .MuiDialogContent-root": {
+      padding: theme.spacing(3),
+    },
+    "& .MuiDialogActions-root": {
+      padding: theme.spacing(2),
+    },
+  }));
+
   return (
-    
-        <Dashboard />
-      
+    <div className="container">
+      <HeaderComponent />
+      <div className="main">
+        <div className="home-container">
+          <div className="top">
+            <div
+              className="info"
+              onClick={handleOpenModal}
+              style={{ cursor: "pointer" }}
+            >
+              <span className="home-info">
+                quang trung <ArrowDropDown sx={{ color: "#9155fd" }} />{" "}
+              </span>
+              <span className="address">
+                315/272/26 Phạm Văn Chiêu, Phường 9, Gò vấp
+              </span>
+            </div>
+            <div className="actions">
+              <Button
+                onClick={handleOpenModal}
+                variant="outlined"
+                className="btn-actions1"
+              >
+                {" "}
+                <GridViewOutlinedIcon className="icon" /> <span>hiển thị</span>
+              </Button>
+              <Button
+                onClick={handleOpenModal}
+                variant="contained"
+                className="btn-actions2"
+              >
+                {" "}
+                <AddHomeWorkIcon className="icon" /> <span>thêm nhà</span>{" "}
+              </Button>
+            </div>
+          </div>
+          <div className="bottom"></div>
+        </div>
+      </div>
+      <Footer />
+
+
+
+
+
+
+      {/* this is modal section */}
+      <div className="modal">
+        <BootstrapDialog
+          onClose={handleCloseModal}
+          aria-labelledby="customized-dialog-title"
+          open={openModal}
+          sx={{position: "fixed"}}
+        >
+          <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
+            Modal title
+          </DialogTitle>
+          <IconButton
+            aria-label="close"
+            onClick={handleCloseModal}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <DialogContent dividers>
+            <Typography gutterBottom>
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
+              ac consectetur ac, vestibulum at eros.
+            </Typography>
+            <Typography gutterBottom>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur
+              et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              auctor.
+            </Typography>
+            <Typography gutterBottom>
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
+              cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
+              dui. Donec ullamcorper nulla non metus auctor fringilla.
+            </Typography>
+          </DialogContent>
+          <DialogActions>
+            <Button style={{
+              background: "#9155fd"
+            }} variant="contained" autoFocus onClick={handleCloseModal}>
+              Save changes
+            </Button>
+          </DialogActions>
+        </BootstrapDialog>
+      </div>
+      {/* this is modal section */}
+
+    </div>
   );
 }

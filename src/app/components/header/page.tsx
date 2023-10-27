@@ -15,6 +15,7 @@ import {
   Modal,
   Paper,
   Popper,
+  TextField,
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -74,7 +75,6 @@ const HeaderComponent = () => {
   const [iconSwitch, setIconSwitch] = useState(false);
   const [openMenuUser, setOpenMenuUser] = useState(false);
   const [openSearchInput, setOpenSearchInput] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleOpenSearchInput = () => {
     setOpenSearchInput(!openSearchInput);
@@ -82,12 +82,13 @@ const HeaderComponent = () => {
   const handleCloseSearchInput = () => {
     setOpenSearchInput(false);
   };
+  const dataFromFather = "dữ liệu";
   const handleSwitch = () => {
     setIconSwitch(!iconSwitch);
     setOpenMenu(!openMenu);
     console.log("trang thai menu: ", openMenu);
   };
-  const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const [anchorEl, setMenuAnchorEl] = useState<null | HTMLElement>(null);
   function handleListKeyDown(event: React.KeyboardEvent) {
     if (event.key === "Tab") {
       event.preventDefault();
@@ -117,6 +118,33 @@ const HeaderComponent = () => {
   };
 
   const [apiLoginData, setApiLoginData] = useState<ApiProps>();
+  const textfield = {
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#9155fd",
+      color: "#9155fd",
+    },
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+      borderColor: "rgba(58, 53, 65, 0.54)",
+      color: "#9155fd",
+    },
+    ".MuiOutlinedInput-root": {
+      borderRadius: "6px",
+    },
+    ".MuiInputLabel-outlined.Mui-focused": {
+      color: "#9155fd",
+    },
+    ".MuiOutlinedInput-root.Mui-focused.MuiOutlinedInput-notchedOutline": {
+      borderColor: "#9155fd",
+    },
+    ".MuiOutlinedInput-root:hover": {
+      borderColor: "#9155fd",
+    },
+    "& .MuiOutlinedInput-root:hover": {
+      "& fieldset": {
+        borderColor: "#9155fd",
+      },
+    },
+  };
 
   useEffect(() => {
     // Example: Fetch user data here
@@ -135,7 +163,7 @@ const HeaderComponent = () => {
 
     // You can add more side effects here if needed
   }, []);
-  console.log("state", apiLoginData);
+  // console.log("state", apiLoginData);
   const handleLogout = () => {
     // Clear session storage
     sessionStorage.clear();
@@ -150,6 +178,7 @@ const HeaderComponent = () => {
     transform: "translate(-50%, -50%)",
     width: 500,
     bgcolor: "background.paper",
+    border: "none",
     boxShadow: 24,
     p: 4,
     borderRadius: "6px",
@@ -157,6 +186,8 @@ const HeaderComponent = () => {
       width: 330,
     },
   };
+  console.log("search menu state:", openSearchInput);
+  console.log("path name:", pathname);
 
   return (
     <div className="header-container">
@@ -174,7 +205,7 @@ const HeaderComponent = () => {
         >
           <Box sx={style}>
             <SideMenu />
-          </Box>
+          </Box>o
         </Modal> */}
           {/* Modal menu mobile */}
           <div style={{ width: 80, height: 30 }} className="logo-container">
@@ -194,7 +225,9 @@ const HeaderComponent = () => {
                 home
               </Link>
             </div>
-            <div className={`menu-items ${pathname === "/guest/" ? "active" : ""}`}>
+            <div
+              className={`menu-items ${pathname === "/guest/" ? "active" : ""}`}
+            >
               <GroupsIcon className="icon" />
               <Link
                 className={`menu__item-link ${
@@ -205,11 +238,16 @@ const HeaderComponent = () => {
                 khách
               </Link>
             </div>
-            <div className={`menu-items ${pathname === "/money/" ? "active" : ""}`}>
+            <div
+              className={`menu-items ${pathname === "/money/" ? "active" : ""}`}
+            >
               <MonetizationOnIcon className="icon" />
-              <Link className={`menu__item-link ${
+              <Link
+                className={`menu__item-link ${
                   pathname === "/money/" ? "active" : ""
-                }`} href="/money">
+                }`}
+                href="/money"
+              >
                 tiền
               </Link>
             </div>
@@ -259,22 +297,42 @@ const HeaderComponent = () => {
                 </div>
               </div>
             </div> */}
-            <div className={`menu-items ${pathname === "/reportPage/" ? "active" : ""}`}>
+            <div
+              className={`menu-items ${
+                pathname === "/guestReport/" || pathname === "/income/"
+                  ? "active"
+                  : ""
+              }`}
+            >
               <BarChartIcon className="icon" />
-              <Link className={`menu__item-link ${
-                  pathname === "/reportPage/" ? "active" : ""
-                }`} href="/reportPage">
+              <Link
+                className={`menu__item-link ${
+                  pathname === "/guestReport/" || "/income/" ? "active" : ""
+                }`}
+                href="#"
+              >
                 báo cáo
               </Link>
               <ArrowDropDownIcon className="arrow" />
               <SubMenu />
             </div>
 
-            <div className={`menu-items ${pathname === "/manage/" ? "active" : ""}`}>
+            <div
+              className={`menu-items ${
+                pathname === "/guestManage/" || pathname === "/incomeManage/"
+                  ? "active"
+                  : ""
+              }`}
+            >
               <AssignmentOutlinedIcon className="icon" />
-              <Link className={`menu__item-link ${
-                  pathname === "/manage/" ? "active" : ""
-                }`} href="/manage">
+              <Link
+                className={`menu__item-link ${
+                  pathname === "/guestManage/" || pathname === "/incomeManage/"
+                    ? "active"
+                    : ""
+                }`}
+                href="/manage"
+              >
                 quản lý
               </Link>
               <ArrowDropDownIcon className="arrow" />
@@ -321,9 +379,19 @@ const HeaderComponent = () => {
               onClose={handleCloseSearchInput}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
+              className="ModalSearch"
+              sx={{ padding: "35px" }}
             >
               <Box sx={styleInputSearch}>
-                <TextFieldCustom />
+                <TextField
+                  id="outlined-basic"
+                  label="Tìm kiếm"
+                  variant="outlined"
+                  className="textField-container"
+                  sx={textfield}
+                  fullWidth
+                  // color={themes.palette.primary.main}
+                />
                 <IconButton
                   aria-label="delete"
                   size="small"
@@ -351,7 +419,7 @@ const HeaderComponent = () => {
                 <Popper
                   className="popperMenu"
                   open={true}
-                  anchorEl={anchorRef.current}
+                  anchorEl={anchorEl}
                   role={undefined}
                   placement="bottom-start"
                   transition
@@ -442,7 +510,7 @@ const HeaderComponent = () => {
                 <Popper
                   className="popperMenu"
                   open={true}
-                  anchorEl={anchorRef.current}
+                  anchorEl={anchorEl}
                   role={undefined}
                   placement="bottom-start"
                   transition
@@ -470,7 +538,7 @@ const HeaderComponent = () => {
                               className="menu-items bg-hover"
                             >
                               <LoginIcon className="icon" />
-                              <Link href="login">
+                              <Link href="/login">
                                 <span
                                   style={{
                                     color: "rgba(58, 53, 65, 0.68)",
@@ -512,11 +580,12 @@ const HeaderComponent = () => {
           </div>
         </div>
       </div>
+
       <div className={`mobile-menuContainer ${openMenu ? "active" : ""}`}>
         <nav className="mobile-menuList">
           <div className="mobile-menuItems">
             <Link
-              href="#"
+              href="/"
               className={`mobile-menuItem ${pathname === "/" ? "active" : ""}`}
             >
               <div className="left">
@@ -526,7 +595,7 @@ const HeaderComponent = () => {
             </Link>
           </div>
           <div className="mobile-menuItems">
-            <Link href="#" className="mobile-menuItem">
+            <Link href="/guest" className={`mobile-menuItem ${pathname === "/guest" ? "active" : ""}`}>
               <div className="left">
                 <PersonOutlineOutlinedIcon />
                 <span className="mobile-menuItem__title">khách</span>
@@ -534,7 +603,7 @@ const HeaderComponent = () => {
             </Link>
           </div>
           <div className="mobile-menuItems">
-            <Link href="#" className="mobile-menuItem">
+            <Link href="/money" className={`mobile-menuItem ${pathname === "/money" ? "active" : ""}`}>
               <div className="left">
                 <AttachMoneyOutlinedIcon />
                 <span className="mobile-menuItem__title">tiền</span>
@@ -704,7 +773,7 @@ const HeaderComponent = () => {
           <Link
             href="/guest"
             className={`menuMobile-items ${
-              pathname === "/guest" ? "activeMobieMenu" : ""
+              pathname === "/guest/" ? "activeMobieMenu" : ""
             } `}
           >
             <GroupsIcon />
@@ -713,7 +782,7 @@ const HeaderComponent = () => {
           <Link
             href="/money"
             className={`menuMobile-items ${
-              pathname === "/money" ? "activeMobieMenu" : ""
+              pathname === "/money/" ? "activeMobieMenu" : ""
             } `}
           >
             <MonetizationOnIcon />
