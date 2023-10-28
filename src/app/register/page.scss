@@ -81,15 +81,15 @@
           color: rgba(58, 53, 65, 0.68);
         }
 
-        // .custom-textfield
-        //   .MuiOutlinedInput-root.Mui-focused
-        //   .MuiOutlinedInput-notchedOutline {
-        //   border-color: #9155fd;
-        // }
+        .custom-textfield
+          .MuiOutlinedInput-root.Mui-focused
+          .MuiOutlinedInput-notchedOutline {
+          border-color: #9155fd;
+        }
 
-        // .custom-textfield .MuiOutlinedInput-input {
-        //   color: rgba(58, 53, 65, 0.87);
-        // }
+        .custom-textfield .MuiOutlinedInput-input {
+          color: rgba(58, 53, 65, 0.87);
+        }
 
         .custom-textfield .MuiInputLabel-outlined.Mui-focused {
           color: #9155fd;
@@ -186,4 +186,17 @@
   .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     max-width: 360px;
   }
+  .custom-textfield
+          .MuiOutlinedInput-root.Mui-focused
+          .MuiOutlinedInput-notchedOutline {
+          border-color: #9155fd;
+        }
+
+        .custom-textfield .MuiOutlinedInput-input {
+          color: rgba(58, 53, 65, 0.87);
+        }
+
+        .custom-textfield .MuiInputLabel-outlined.Mui-focused {
+          color: #9155fd;
+        }
 

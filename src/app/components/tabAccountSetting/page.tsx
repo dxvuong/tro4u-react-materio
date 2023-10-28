@@ -76,6 +76,7 @@ const TabAccountSetting = () => {
                 <div className="avatar">
                   <Image
                     src={avatar}
+                    priority
                     alt="avatar"
                     width={120}
                     height={120}
@@ -245,7 +246,7 @@ const TabAccountSetting = () => {
                   </Grid>
                   <Grid item xs={12} lg={6} xl={6}>
                     <div className="right">
-                      <Image src={pose} width={183} height={256} alt="pose" />
+                      <Image src={pose} width={183} height={256} alt="pose" priority />
                     </div>
                   </Grid>
                 </Grid>

@@ -69,8 +69,8 @@ const ForgotPassword = () => {
           </Link>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" />
-      <Image src={leaf} className="leaf" alt="leaf" />
+      <Image src={tree} className="tree" alt="tree" priority />
+      <Image src={leaf} className="leaf" alt="leaf" priority />
     </div>
   );
 };

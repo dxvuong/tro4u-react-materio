@@ -42,7 +42,7 @@ const Dashboard = async () => {
           </Button>
         </div>
         <div className="right">
-          <Image src={trophy} alt="trophy" width={65} height={90} />
+          <Image src={trophy} alt="trophy" width={65} height={90} priority />
         </div>
       </div>
       <div className="box box2">
@@ -310,6 +310,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -330,6 +331,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -350,6 +352,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -370,6 +373,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -390,6 +394,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -422,6 +427,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -442,6 +448,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -462,6 +469,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -482,6 +490,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">
@@ -502,6 +511,7 @@ const Dashboard = async () => {
                   alt="img"
                   width={20}
                   height={20}
+                  priority
                 />
                 <div className="content">
                   <div className="amount">

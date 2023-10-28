@@ -7,12 +7,14 @@ import {
   DialogContent,
   DialogTitle,
   FormControl,
+  FormControlLabel,
   FormLabel,
   IconButton,
   InputAdornment,
   InputLabel,
   MenuItem,
   Radio,
+  RadioGroup,
   Select,
   SelectChangeEvent,
   TextField,
@@ -21,7 +23,7 @@ import {
 } from "@mui/material";
 
 import Link from "next/link";
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
 import "./page.scss";
 import tree from "../../../public/assets/img/tree.png";
 import leaf from "../../../public/assets/img/leaf.png";
@@ -58,7 +60,7 @@ const Register = () => {
   const handleCheck = () => {
     setChecked(!checked);
   };
-  const [selectedRole, setSelectedRole] = React.useState(1);
+
   const [erroCheck, setErrorCheck] = useState("");
 
   // const handleChangeRole = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,12 +69,16 @@ const Register = () => {
   // console.log(selectedValue);
   // console.log("check checkbox:", checked);
 
-  const controlProps = (item: number) => ({
-    checked: selectedRole === item,
-    value: item,
-    name: "color-radio-button-demo",
-    inputProps: { "aria-label": item },
-  });
+  const [selectedRole, setSelectedRole] = React.useState("CN");
+
+  const handleChangeRole = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedRole(event.target.value);
+  }, []);
+
+  console.log("role:", selectedRole);
+  
+
+ 
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [name, setName] = useState("");
@@ -85,20 +91,18 @@ const Register = () => {
 
 
   const handleChangeRoom = (event: SelectChangeEvent) => {
-    
+
     setRoom(event.target.value as string);
   };
-  
-  
-  
-  console.log("role:", selectedRole);
-  
 
   const [openModalRole, setOpenModalRole] = useState(false);
 
-  const handleCloseModalRegister = () => {
-    setOpenModalRole(false);
-  };
+  
+
+  console.log("open modal", openModalRole);
+  
+
+
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
       padding: theme.spacing(3),
@@ -147,7 +151,7 @@ const Register = () => {
     setPassErrors("");
   };
 
- 
+
 
   const [showPassword, setShowPassword] = useState(false);
   const handleIconClick = () => {
@@ -161,9 +165,9 @@ const Register = () => {
     if (!validateForm()) {
       console.log("something wrong!");
     } else if (checked == false) {
-      
+
       setErrorCheck("Hãy đồng ý với chính sách và các điều khoản!");
-    } else  {
+    } else {
       setOpenModalRole(!openModalRole);
     }
 
@@ -171,8 +175,17 @@ const Register = () => {
     //
     // }
   };
+  const handleCloseModalRegister = () => {
+    setOpenModalRole(false);
+  };
   const handleSubmitRegister = async (event: FormEvent) => {
     event.preventDefault();
+    setOpenModalRole(false)
+    console.log({
+
+      phone, name, full_name, password, id_nhom_user, selectedRole, room
+    });
+    
     try {
       const response = await fetch(
         "https://api.tro4u.com/api/version/1.0/account/signup",
@@ -216,8 +229,8 @@ const Register = () => {
         // Store user data in sessionStorage
         sessionStorage.setItem("user", JSON.stringify(dataLogin.data));
         // // Redirect to another page if needed
-        alert("đăng ký thành công");
-        // window.location.href = "/";
+        // alert("đăng ký thành công");
+        window.location.href = "/";
       } else {
         // Handle error response from the server
         setErrorMessage(data.message); // Log the error message
@@ -251,7 +264,7 @@ const Register = () => {
                 {phoneError}
               </span>
               <TextField
-                id="outlined-basic"
+                id="phone"
                 label="Số điện thoại"
                 type="tel"
                 variant="outlined"
@@ -270,7 +283,7 @@ const Register = () => {
             </FormControl>
             <FormControl>
               <TextField
-                id="outlined-basic"
+                id="fname"
                 label="Họ"
                 variant="outlined"
                 value={name}
@@ -288,7 +301,7 @@ const Register = () => {
             </FormControl>
             <FormControl>
               <TextField
-                id="outlined-basic"
+                id="lname"
                 label="Tên"
                 variant="outlined"
                 value={full_name}
@@ -310,7 +323,7 @@ const Register = () => {
                 {passErrors}
               </span>
               <TextField
-                id="outlined-basic"
+                id="pass"
                 label="Mật khẩu"
                 value={password}
                 onChange={handleChangePassword}
@@ -392,8 +405,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" />
-      <Image src={leaf} className="leaf" alt="leaf" />
+      <Image src={tree} className="tree" alt="tree" priority />
+      <Image src={leaf} className="leaf" alt="leaf" priority />
 
       <BootstrapDialog
         onClose={handleCloseModalRegister}
@@ -418,10 +431,24 @@ const Register = () => {
         </IconButton>
 
         <DialogContent dividers>
-          <div className="modal-register" style={{display: "flex", flexDirection: "column"}}>
+          <div className="modal-register" style={{ display: "flex", flexDirection: "column" }}>
+            <FormControl>
+              <FormLabel sx={{color: "rgba(58, 53, 65, 0.68) !important"}} id="role">Bạn là: </FormLabel>
+              <RadioGroup
+                sx={{justifyContent: "space-around", marginBottom: "25px", }}
+                row
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel color="#333 !important" value="CN" checked={selectedRole === "CN"} control={<Radio onChange={handleChangeRole}  sx={{'&.Mui-checked' : {color: "#9155fd"}}} />} label="Chủ nhà" />
+                <FormControlLabel value="QL" checked={selectedRole === "QL"} control={<Radio onChange={handleChangeRole}  sx={{'&.Mui-checked' : {color: "#9155fd"}}} />} label="Quản lý" />
+
+              </RadioGroup>
+            </FormControl>
             <FormControl>
               <InputLabel
-                id="demo-simple-select-label"
+                id="room"
                 sx={{ color: "#9155fd" }}
               >
                 Số lượng phòng hoặc giường:
@@ -447,6 +474,7 @@ const Register = () => {
                   ".MuiSvgIcon-root ": {
                     fill: "black !important",
                   },
+                  
                 }}
               >
                 <MenuItem value={1}>dưới 20</MenuItem>
@@ -465,7 +493,7 @@ const Register = () => {
             }}
             variant="contained"
             autoFocus
-            onClick={handleCloseModalRegister}
+            onClick={handleSubmitRegister}
           >
             Hoàn tất
           </Button>

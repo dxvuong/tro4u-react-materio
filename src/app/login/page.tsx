@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./page.scss";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
@@ -12,9 +12,7 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import { signIn } from "next-auth/react";
-import { redirect } from "next/navigation";
-import router from "next/router";
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -113,7 +111,7 @@ const Login = () => {
           <FormControl fullWidth className="form-container">
             <div className="form-control">
               <TextField
-                id="outlined-basic"
+                id="phone"
                 label="Số Điện Thoại"
                 type="tel"
                 variant="outlined"
@@ -129,7 +127,7 @@ const Login = () => {
                 }}
               />
               <TextField
-                id="outlined-basic"
+                id="pass"
                 label="Mật Khẩu"
                 variant="outlined"
                 sx={textfield}
@@ -193,8 +191,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" />
-      <Image src={leaf} className="leaf" alt="leaf" />
+      <Image src={tree} className="tree" alt="tree" priority />
+      <Image src={leaf} className="leaf" alt="leaf" priority />
     </div>
   );
 };

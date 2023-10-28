@@ -35,11 +35,22 @@ export default function Home() {
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
       padding: theme.spacing(3),
+      
+      
     },
     "& .MuiDialogActions-root": {
       padding: theme.spacing(2),
     },
   }));
+
+  const styleModal = {
+    maxWidth : "360px",
+    padding: "20px",
+
+    "@media (max-width: 767px)": {
+      padding: "10px !important"
+    },
+  }
 
   return (
     <div className="container">
@@ -89,12 +100,12 @@ export default function Home() {
 
 
       {/* this is modal section */}
-      <div className="modal">
+      <div className="modal ">
         <BootstrapDialog
           onClose={handleCloseModal}
           aria-labelledby="customized-dialog-title"
           open={openModal}
-          sx={{position: "fixed"}}
+          sx={{position: "fixed",  }}
         >
           <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
             Modal title
@@ -111,22 +122,13 @@ export default function Home() {
           >
             <CloseIcon />
           </IconButton>
-          <DialogContent dividers>
+          <DialogContent dividers sx={styleModal} >
             <Typography gutterBottom>
               Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
               dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
               ac consectetur ac, vestibulum at eros.
             </Typography>
-            <Typography gutterBottom>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur
-              et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-              auctor.
-            </Typography>
-            <Typography gutterBottom>
-              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-              cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-              dui. Donec ullamcorper nulla non metus auctor fringilla.
-            </Typography>
+            
           </DialogContent>
           <DialogActions>
             <Button style={{

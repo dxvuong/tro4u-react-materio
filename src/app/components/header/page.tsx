@@ -88,7 +88,7 @@ const HeaderComponent = () => {
     setOpenMenu(!openMenu);
     console.log("trang thai menu: ", openMenu);
   };
-  const [anchorEl, setMenuAnchorEl] = useState<null | HTMLElement>(null);
+ 
   function handleListKeyDown(event: React.KeyboardEvent) {
     if (event.key === "Tab") {
       event.preventDefault();
@@ -112,7 +112,7 @@ const HeaderComponent = () => {
   };
 
   const [openSubmenu2, setOpenSubmenu2] = useState(false);
-
+  const anchorRef = React.useRef<HTMLButtonElement>(null);
   const handleOpenSubmenu2 = () => {
     setOpenSubmenu2(!openSubmenu2);
   };
@@ -163,7 +163,7 @@ const HeaderComponent = () => {
 
     // You can add more side effects here if needed
   }, []);
-  // console.log("state", apiLoginData);
+  console.log("state", apiLoginData);
   const handleLogout = () => {
     // Clear session storage
     sessionStorage.clear();
@@ -176,7 +176,7 @@ const HeaderComponent = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 500,
+    width: "360px",
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 24,
@@ -208,8 +208,8 @@ const HeaderComponent = () => {
           </Box>o
         </Modal> */}
           {/* Modal menu mobile */}
-          <div style={{ width: 80, height: 30 }} className="logo-container">
-            <Image src={logo} alt="logo" width={160} height={60} />
+          <div style={{ width: 90 }} className="logo-container">
+            <Image src={logo} alt="logo"  priority className="logo" width={160} height={60} />
           </div>
         </div>
         <div className="menu-container">
@@ -413,13 +413,14 @@ const HeaderComponent = () => {
                   alt="avatar "
                   width={40}
                   height={40}
+                  priority
                   style={{ borderRadius: "50%", cursor: "pointer" }}
                   // onClick={handleUserMenu}
                 />
                 <Popper
                   className="popperMenu"
                   open={true}
-                  anchorEl={anchorEl}
+                  anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
                   transition
@@ -445,7 +446,7 @@ const HeaderComponent = () => {
                         <ClickAwayListener onClickAway={handleCloseUserMenu}>
                           <MenuList
                             autoFocusItem={openMenuUser}
-                            id="composition-menu"
+                            id="login"
                             aria-labelledby="composition-button"
                             onKeyDown={handleListKeyDown}
                           >
@@ -510,7 +511,7 @@ const HeaderComponent = () => {
                 <Popper
                   className="popperMenu"
                   open={true}
-                  anchorEl={anchorEl}
+                  anchorEl={anchorRef.current}
                   role={undefined}
                   placement="bottom-start"
                   transition
@@ -529,7 +530,7 @@ const HeaderComponent = () => {
                         <ClickAwayListener onClickAway={handleCloseUserMenu}>
                           <MenuList
                             autoFocusItem={openMenuUser}
-                            id="composition-menu"
+                            id="login"
                             aria-labelledby="composition-button"
                             onKeyDown={handleListKeyDown}
                           >
