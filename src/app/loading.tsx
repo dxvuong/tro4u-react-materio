@@ -1,4 +1,6 @@
-import { Box, CircularProgress, LinearProgress } from '@mui/material'
+
+import Box from '@mui/material/Box'
+import LinearProgress from '@mui/material/LinearProgress'
 import React from 'react'
 
 const loading = () => {

@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import "./page.scss";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
-import { Button, InputAdornment } from "@mui/material";
-import Link from "next/link";
 import tree from "../../../public/assets/img/tree.png";
 import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import InputAdornment from "@mui/material/InputAdornment";
+import Button from "@mui/material/Button";
+
 const ResetPassword = () => {
   const textfield = {
     ".MuiOutlinedInput-root" : {

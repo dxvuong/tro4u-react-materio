@@ -7,23 +7,26 @@
 
     .info {
       display: flex;
-    flex-direction: column;
-    gap: 2px;
-    background: #fff;
-    width: 25%;
-    /* padding: 27px; */
-    padding: 10px;
-    border-radius: 6px 6px 0px 0px;
-    margin-bottom: -20px;
-    &:hover {
-      .home-info {
-        color: #8243f8;
+      flex-direction: column;
+      gap: 2px;
+      background: #fff;
+      width: 25%;
+      /* padding: 27px; */
+      padding: 10px;
+      border-radius: 6px 6px 0px 0px;
+      margin-bottom: -20px;
 
+      &:hover {
+        .home-info {
+          color: #8243f8;
+
+        }
+
+        .address {
+          color: #804bdf;
+        }
       }
-      .address {
-        color: #804bdf;
-      }
-    }
+
       .home-info {
         font-size: 1.2rem;
         display: flex;
@@ -32,6 +35,7 @@
         color: #333;
         text-transform: capitalize;
       }
+
       .address {
         margin: 0;
         font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
@@ -44,6 +48,7 @@
         color: rgba(58, 53, 65, 0.87);
       }
     }
+
     .actions {
       display: flex;
       gap: 10px;
@@ -62,11 +67,13 @@
         text-transform: uppercase;
         display: flex;
         gap: 5px;
+
         &:hover {
           border-color: #8243f8;
           background-color: #f0efef;
         }
       }
+
       .btn-actions2 {
         text-decoration: none;
         background-color: #804bdf;
@@ -80,6 +87,7 @@
           "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
           "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         text-transform: uppercase;
+
         &:hover {
           opacity: 0.9;
           box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
@@ -87,10 +95,100 @@
       }
     }
   }
+
   .bottom {
     background-color: #fff;
     min-height: 100vh;
     border-radius: 0px 6px 6px 6px;
+
+    .section1 {
+      width: 99%;
+      margin: 0 auto;
+      height: 50px;
+      padding: 18px 0px;
+
+      .content {
+        width: 100%;
+        height: auto;
+        background: #f4f5fa;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
+        align-items: center;
+
+        .data {
+          display: flex;
+          /* width: 179px; */
+          flex-direction: column;
+
+          .data-item {
+            display: flex;
+            padding: 5px 0;
+            gap: 20px;
+            .text {
+              font-size: 14px;
+              line-height: 1;
+            }
+          }
+        }
+
+        .actions {
+          display: flex;
+          gap: 20px;
+
+          .action1 {
+            .btn1 {
+              text-decoration: none;
+              background-color: #804bdf;
+              padding: 5px 20px;
+              box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
+              font-size: 0.875rem;
+              min-width: 64px;
+              display: flex;
+              gap: 5px;
+              font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+              text-transform: uppercase;
+
+              &:hover {
+                opacity: 0.9;
+                box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
+              }
+            }
+
+
+
+          }
+
+          .action2 {
+            .btn2 {
+              text-decoration: none;
+              background-color: #804bdf;
+              padding: 5px 20px;
+              box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
+              font-size: 0.875rem;
+              min-width: 64px;
+              display: flex;
+              gap: 5px;
+              font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+              text-transform: uppercase;
+
+              &:hover {
+                opacity: 0.9;
+                box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
+              }
+            }
+
+
+
+          }
+        }
+      }
+    }
   }
 }
 
@@ -98,10 +196,12 @@
   .home-container {
     .top {
       padding: 0 10px 0 0;
+
       .info {
         width: 56%;
-        .home-info {
-        }
+
+        .home-info {}
+
         .address {
           width: 195px;
           overflow: hidden;
@@ -109,12 +209,14 @@
           text-overflow: ellipsis;
         }
       }
+
       .actions {
         .btn-actions1 {
           span {
             display: none;
           }
         }
+
         .btn-actions2 {
           span {
             display: none;
@@ -123,6 +225,6 @@
       }
     }
   }
-  .bottom {
-  }
+
+  .bottom {}
 }

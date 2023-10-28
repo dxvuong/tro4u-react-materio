@@ -1,6 +1,4 @@
 "use client";
-import SideMenu from "./components/sideMenu/page";
-import Dashboard from "./components/dashboard/page";
 import HeaderComponent from "./components/header/page";
 import "./globals.scss";
 import Footer from "./components/footer/page";
@@ -11,16 +9,16 @@ import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
 import { useState } from "react";
 import ModalCustom from "./components/ModalCustom/page";
 import CloseIcon from "@mui/icons-material/Close";
-import {
-  DialogTitle,
-  IconButton,
-  DialogContent,
-  Typography,
-  DialogActions,
-  Button,
-  Dialog,
-  styled,
-} from "@mui/material";
+import styled from "@mui/material/styles/styled";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import DialogContent from "@mui/material/DialogContent";
+import Typography from "@mui/material/Typography";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
+
+
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
@@ -34,17 +32,17 @@ export default function Home() {
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
-      padding: theme.spacing(3),
       
-      
+
+
     },
     "& .MuiDialogActions-root": {
-      padding: theme.spacing(2),
+      
     },
   }));
 
   const styleModal = {
-    maxWidth : "360px",
+    maxWidth: "360px",
     padding: "20px",
 
     "@media (max-width: 767px)": {
@@ -89,7 +87,33 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="bottom"></div>
+          <div className="bottom">
+            <div className="section1">
+              <div className="content">
+                <div className="data">
+                  <div className="data-item">
+                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">TEXT 1</Typography>
+                  </div>
+                  <div className="data-item">
+                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">TEXT 1</Typography>
+                  </div>
+
+                </div>
+                <div className="actions">
+                  <div className="action1">
+                    <Button variant="contained" className="btn1">Button 1</Button>
+                  </div>
+                  <div className="action2">
+                    <Button variant="contained" className="btn2">Button 2</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
@@ -100,12 +124,13 @@ export default function Home() {
 
 
       {/* this is modal section */}
-      <div className="modal ">
+      <div className="modal " >
         <BootstrapDialog
           onClose={handleCloseModal}
           aria-labelledby="customized-dialog-title"
           open={openModal}
-          sx={{position: "fixed",  }}
+          
+          sx={{ position: "fixed",  }}
         >
           <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
             Modal title
@@ -122,14 +147,16 @@ export default function Home() {
           >
             <CloseIcon />
           </IconButton>
+
           <DialogContent dividers sx={styleModal} >
             <Typography gutterBottom>
               Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
               dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
               ac consectetur ac, vestibulum at eros.
             </Typography>
-            
+
           </DialogContent>
+
           <DialogActions>
             <Button style={{
               background: "#9155fd"

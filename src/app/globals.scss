@@ -34,7 +34,9 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  
+  // @media only screen and (min-width: 1900px) {
+  //   min-width: 1903px;
+  // }
 }
 .menu {
   flex: 1;
@@ -62,6 +64,7 @@ body {
   @media only screen and (min-width: 1245px) and (max-width: 1460px) {
     min-width: 1102px;
   }
+  
 }
 
 a {

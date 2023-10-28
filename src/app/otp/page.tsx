@@ -1,16 +1,13 @@
 "use client";
 import "./page.scss";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import { Button, InputAdornment, styled } from "@mui/material";
-import Link from "next/link";
 import tree from "../../../public/assets/img/tree.png";
 import leaf from "../../../public/assets/img/leaf.png";
 import Image from "next/image";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+
 import OtpInput from "react-otp-input";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
 
 const Otp = () => {
   const [otp, setOtp] = useState("");
