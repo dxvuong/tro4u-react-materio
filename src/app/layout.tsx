@@ -22,7 +22,7 @@ interface Iprops {
 export default function RootLayout({ children, session }: Iprops) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} style={{paddingRight: "0px !important"}}>
         {<SessionProvider session={session}>{children}</SessionProvider>}
       </body>
     </html>

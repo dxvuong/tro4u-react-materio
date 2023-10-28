@@ -32,12 +32,12 @@ export default function Home() {
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
-      
+      padding: theme.spacing(3),
 
 
     },
     "& .MuiDialogActions-root": {
-      
+      padding: theme.spacing(2),
     },
   }));
 
