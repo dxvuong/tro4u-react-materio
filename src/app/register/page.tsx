@@ -414,7 +414,7 @@ const Register = () => {
         open={openModalRole}
         sx={{ position: "fixed" }}
       >
-        <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
+        <DialogTitle sx={{ m: 0,  }} id="customized-dialog-title" style={{fontSize: "16px", padding: "24px 56px"}}>
           Hãy cho chúng tôi biết bạn là ai
         </DialogTitle>
         <IconButton
