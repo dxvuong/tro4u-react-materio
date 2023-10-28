@@ -92,20 +92,20 @@ export default function Home() {
               <div className="content">
                 <div className="data">
                   <div className="data-item">
-                    <Typography className="text">TEXT 1</Typography>
-                    <Typography className="text">TEXT 1</Typography>
-                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">test1</Typography>
+                    <Typography className="text">test1</Typography>
+                    <Typography className="text">test1</Typography>
                   </div>
                   <div className="data-item">
-                    <Typography className="text">TEXT 1</Typography>
-                    <Typography className="text">TEXT 1</Typography>
-                    <Typography className="text">TEXT 1</Typography>
+                    <Typography className="text">test1</Typography>
+                    <Typography className="text">test1</Typography>
+                    <Typography className="text">test1</Typography>
                   </div>
 
                 </div>
                 <div className="actions">
                   <div className="action1">
-                    <Button variant="contained" className="btn1">Button 1</Button>
+                    <Button variant="outlined" className="btn1">Button 1</Button>
                   </div>
                   <div className="action2">
                     <Button variant="contained" className="btn2">Button 2</Button>
