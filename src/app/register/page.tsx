@@ -415,7 +415,7 @@ const Register = () => {
         sx={{ position: "fixed" }}
       >
         <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
-          Đăng ký thành công - hãy cho chúng tôi biết bạn là ai
+          Hãy cho chúng tôi biết bạn là ai
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -430,7 +430,7 @@ const Register = () => {
           <CloseIcon />
         </IconButton>
 
-        <DialogContent dividers>
+        <DialogContent dividers sx={{maxWidth: "360px"}}>
           <div className="modal-register" style={{ display: "flex", flexDirection: "column" }}>
             <FormControl>
               <FormLabel sx={{color: "rgba(58, 53, 65, 0.68) !important"}} id="role">Bạn là: </FormLabel>
