@@ -7,6 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+
 const Footer = () => {
   return (
     <div className="footer-container">

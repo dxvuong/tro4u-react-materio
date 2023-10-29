@@ -57,8 +57,8 @@ const Otp = () => {
           </Button>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" priority />
-      <Image src={leaf} className="leaf" alt="leaf" priority/>
+      <Image src={tree} className="tree" alt="tree" priority={true} />
+      <Image src={leaf} className="leaf" alt="leaf" priority={true}/>
     </div>
   );
 };

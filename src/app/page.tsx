@@ -17,6 +17,9 @@ import DialogContent from "@mui/material/DialogContent";
 import Typography from "@mui/material/Typography";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import TableCustom from "./components/TableCustom/page";
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import AddHomeOutlinedIcon from '@mui/icons-material/AddHomeOutlined';
 
 
 export default function Home() {
@@ -105,13 +108,22 @@ export default function Home() {
                 </div>
                 <div className="actions">
                   <div className="action1">
-                    <Button variant="outlined" className="btn1">Button 1</Button>
+                    <Button variant="outlined" className="btn1" onClick={handleOpenModal}>
+                      <FilterAltOutlinedIcon />
+                      Bộ lọc
+                    </Button>
                   </div>
                   <div className="action2">
-                    <Button variant="contained" className="btn2">Button 2</Button>
+                    <Button variant="contained" className="btn2" onClick={handleOpenModal}>
+                      <AddHomeOutlinedIcon />
+                      Tạo phòng
+                    </Button>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="section2">
+              <TableCustom />
             </div>
           </div>
         </div>
@@ -129,8 +141,8 @@ export default function Home() {
           onClose={handleCloseModal}
           aria-labelledby="customized-dialog-title"
           open={openModal}
-          
-          sx={{ position: "fixed",  }}
+
+          sx={{ position: "fixed", }}
         >
           <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
             Modal title

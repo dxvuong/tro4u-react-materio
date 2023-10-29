@@ -80,8 +80,8 @@ const Login = () => {
           // Store user data in sessionStorage
           sessionStorage.setItem("user", JSON.stringify(data.data));
           // Redirect to another page if needed
-          alert("Dang nhap thanh cong")
-          // window.location.href = "/";
+          // alert("Dang nhap thanh cong")
+          window.location.href = "/";
         } else {
           // Handle error response from the server
 
@@ -193,8 +193,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" priority />
-      <Image src={leaf} className="leaf" alt="leaf" priority />
+      <Image src={tree} className="tree" alt="tree" priority={true} />
+      <Image src={leaf} className="leaf" alt="leaf" priority={true} />
     </div>
   );
 };

@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  
   images: {
     domains: ["i.pinimg.com"],
     unoptimized: true,
   },
-   output: 'export',
+  output: "export",
+   
    trailingSlash: true,
+   skipTrailingSlashRedirect: true,
    typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

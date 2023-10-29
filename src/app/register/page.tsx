@@ -1,26 +1,5 @@
 "use client";
-import {
-  Button,
-  Checkbox,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Typography,
-  styled,
-} from "@mui/material";
+
 
 import Link from "next/link";
 import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
@@ -34,6 +13,25 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import { purple } from "@mui/material/colors";
+import { SelectChangeEvent } from "@mui/material/Select/SelectInput";
+import styled from "@mui/material/styles/styled";
+import Dialog from "@mui/material/Dialog";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import DialogContent from "@mui/material/DialogContent";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import DialogActions from "@mui/material/DialogActions";
+import Radio from "@mui/material/Radio";
 
 const Register = () => {
   const textfield = {
@@ -405,8 +403,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Image src={tree} className="tree" alt="tree" priority />
-      <Image src={leaf} className="leaf" alt="leaf" priority />
+      <Image src={tree} className="tree" alt="tree" priority={true} />
+      <Image src={leaf} className="leaf" alt="leaf" priority={true} />
 
       <BootstrapDialog
         onClose={handleCloseModalRegister}

@@ -50,20 +50,27 @@ body {
   min-width: 1440px;
   padding: 0 20px 20px;
   margin-top: 70px;
-  @media only screen and (min-width: 551px) and (max-width: 1024px) {
-    min-width: 574px;
+  @media only screen and (min-width: 784px) and (max-width: 829px)  {
+    min-width: 792px;
   }
-  @media only screen and (min-width: 1025px) and (max-width: 1244px) {
+  @media only screen and (min-width: 830px) and (max-width: 949px)  {
+    min-width: 833px;
+  }
+  @media only screen and (min-width: 950px) and (max-width: 991px)  {
+    min-width: 955px;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1122px) {
+    min-width: 989px;
+  }
+  @media only screen and (min-width: 1123px) and (max-width: 1252px) {
     min-width: 1122px;
   }
   // @media only screen and (min-width: 1154px) and (max-width: 1243px) {
   //   min-width: 1263px;
   // }
-  @media only screen and (min-width: 805px) and (max-width: 991px)  {
-    min-width: 813px;
-  }
-  @media only screen and (min-width: 1245px) and (max-width: 1460px) {
-    min-width: 1102px;
+ 
+  @media only screen and (min-width: 1253px) and (max-width: 1460px) {
+    min-width: 1248px;
   }
   
 }
@@ -79,7 +86,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 783px) {
   .main {
     flex: 1;
     display: block;
