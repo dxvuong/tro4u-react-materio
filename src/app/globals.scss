@@ -35,9 +35,10 @@ body {
   align-items: center;
   width: 100%;
   position: absolute;
-  // @media only screen and (min-width: 1900px) {
-  //   min-width: 1903px;
-  // }
+  overflow: hidden;
+  @media only screen and (max-width: 783px) {
+    
+  }
 }
 .menu {
   flex: 1;
@@ -57,10 +58,12 @@ body {
     min-width: 833px;
   }
   @media only screen and (min-width: 950px) and (max-width: 991px)  {
-    min-width: 955px;
+    min-width: 869px;
+    max-width: 959px;
   }
   @media only screen and (min-width: 992px) and (max-width: 1122px) {
-    min-width: 989px;
+    min-width: 975px;
+    max-width: 997px;
   }
   @media only screen and (min-width: 1123px) and (max-width: 1252px) {
     min-width: 1122px;

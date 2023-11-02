@@ -74,12 +74,12 @@ const Register = () => {
   }, []);
 
   console.log("role:", selectedRole);
-  
 
- 
+
+
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState("default");
   const [full_name, setfullName] = useState("");
   const [password, setPassword] = useState("");
   const [passErrors, setPassErrors] = useState("");
@@ -95,10 +95,10 @@ const Register = () => {
 
   const [openModalRole, setOpenModalRole] = useState(false);
 
-  
+
 
   console.log("open modal", openModalRole);
-  
+
 
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -183,7 +183,7 @@ const Register = () => {
 
       phone, name, full_name, password, id_nhom_user, selectedRole, room
     });
-    
+
     try {
       const response = await fetch(
         "https://api.tro4u.com/api/version/1.0/account/signup",
@@ -279,7 +279,7 @@ const Register = () => {
                 }}
               />
             </FormControl>
-            <FormControl>
+            {/* <FormControl>
               <TextField
                 id="fname"
                 label="Họ"
@@ -296,7 +296,7 @@ const Register = () => {
                   ),
                 }}
               />
-            </FormControl>
+            </FormControl> */}
             <FormControl>
               <TextField
                 id="lname"
@@ -317,9 +317,8 @@ const Register = () => {
             </FormControl>
 
             <FormControl>
-              <span style={{ color: "red", marginBottom: "5px" }}>
-                {passErrors}
-              </span>
+              {passErrors ? <span style={{ color: "red" }}>{passErrors}</span> : ""}
+
               <TextField
                 id="pass"
                 label="Mật khẩu"
@@ -412,7 +411,7 @@ const Register = () => {
         open={openModalRole}
         sx={{ position: "fixed" }}
       >
-        <DialogTitle sx={{ m: 0,  }} id="customized-dialog-title" style={{fontSize: "16px", padding: "24px 56px"}}>
+        <DialogTitle sx={{ m: 0, }} id="customized-dialog-title" style={{ fontSize: "16px", padding: "24px 56px" }}>
           Hãy cho chúng tôi biết bạn là ai
         </DialogTitle>
         <IconButton
@@ -428,19 +427,19 @@ const Register = () => {
           <CloseIcon />
         </IconButton>
 
-        <DialogContent dividers sx={{maxWidth: "360px"}}>
+        <DialogContent dividers sx={{ maxWidth: "360px" }}>
           <div className="modal-register" style={{ display: "flex", flexDirection: "column" }}>
             <FormControl>
-              <FormLabel sx={{color: "rgba(58, 53, 65, 0.68) !important"}} id="role">Bạn là: </FormLabel>
+              <FormLabel sx={{ color: "rgba(58, 53, 65, 0.68) !important" }} id="role">Bạn là: </FormLabel>
               <RadioGroup
-                sx={{justifyContent: "space-around", marginBottom: "25px", }}
+                sx={{ justifyContent: "space-around", marginBottom: "25px", }}
                 row
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
                 name="radio-buttons-group"
               >
-                <FormControlLabel color="#333 !important" value="CN" checked={selectedRole === "CN"} control={<Radio onChange={handleChangeRole}  sx={{'&.Mui-checked' : {color: "#9155fd"}}} />} label="Chủ nhà" />
-                <FormControlLabel value="QL" checked={selectedRole === "QL"} control={<Radio onChange={handleChangeRole}  sx={{'&.Mui-checked' : {color: "#9155fd"}}} />} label="Quản lý" />
+                <FormControlLabel color="#333 !important" value="CN" checked={selectedRole === "CN"} control={<Radio onChange={handleChangeRole} sx={{ '&.Mui-checked': { color: "#9155fd" } }} />} label="Chủ nhà" />
+                <FormControlLabel value="QL" checked={selectedRole === "QL"} control={<Radio onChange={handleChangeRole} sx={{ '&.Mui-checked': { color: "#9155fd" } }} />} label="Quản lý" />
 
               </RadioGroup>
             </FormControl>
@@ -472,7 +471,7 @@ const Register = () => {
                   ".MuiSvgIcon-root ": {
                     fill: "black !important",
                   },
-                  
+
                 }}
               >
                 <MenuItem value={1}>dưới 20</MenuItem>

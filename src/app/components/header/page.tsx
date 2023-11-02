@@ -36,8 +36,6 @@ import { redirect, usePathname } from "next/navigation";
 import avatar from "../../../../public/assets/img/1.png";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
-import LoginOutlined from "@mui/icons-material/LoginOutlined";
-import TextFieldCustom from "../TextfiledCustom/page";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -560,22 +558,13 @@ const HeaderComponent = () => {
                 <Paper className="popperMenu" sx={{ width: 230, maxWidth: '100%' }}>
                   <MenuList>
                     <MenuItem className="menu-item">
-
-
-                      
                         <LoginIcon className="icon" />
                         <Link href="/login">Đăng nhập</Link>
-
-                      
                     </MenuItem>
                     <MenuItem className="menu-item">
-
-                      
                         <LogoutIcon className="icon" />
                         <Link href="/register">Đăng Ký</Link>
-                      
                     </MenuItem>
-
                   </MenuList>
                 </Paper>
               </div>

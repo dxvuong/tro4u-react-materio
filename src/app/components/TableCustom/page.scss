@@ -1,20 +1,275 @@
 .table-container {
-    
+    .grid-container {
+        .floor-container {
+            width: 100%;
+
+            .floor {
+                padding: 10px;
+                background: #3df986;
+                border-radius: 6px;
+            }
+
+            .bg-gray {
+                background-color: #f4f5fa;
+            }
+
+            .bg-empty {
+                background-color: rgb(244, 17, 24) !important;
+                /* Màu cho trạng thái "đang trống" */
+            }
+
+            .bg-rent {
+                background-color: rgba(86, 202, 0, 1) !important;
+                /* Màu cho trạng thái "cho thuê" */
+            }
+
+            .bg-deposit {
+                background-color: rgba(22, 177, 255, 1) !important;
+                /* Màu cho trạng thái "đang cọc" */
+            }
+
+            .bg-return {
+                background-color: rgba(145, 85, 253, 1) !important;
+                /* Màu cho trạng thái "báo trả" */
+            }
+
+            .bg-return-deposit {
+                background-color: rgba(145, 85, 253, 1) !important;
+                background-image: linear-gradient(to bottom, rgba(145, 85, 253, .7), rgba(22, 177, 255, .7)) !important;
+                /* Màu cho trạng thái "trả/cọc" */
+            }
+
+        }
+
+        .item-wrapp {
+            display: flex;
+
+            .item-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 200px;
+                /* padding: 20px; */
+
+                border-radius: 6px;
+                margin-top: 5px;
+                margin-left: 20px;
+                margin-bottom: 10px;
+                position: relative;
+                border: 1px solid #ccc;
+                .item-name {
+                    border-bottom: 1px solid #ccc;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+                    color: #333;
+                    font-size: 16px;
+
+                }
+
+                .icon-action {
+                    position: absolute;
+                    top: 6px;
+                    right: 0;
+                    color: #fff;
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+                    }
+                }
+
+                .detail {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 100%;
+                    padding: 10px;
+                    border-bottom: 1px solid #ccc;
+
+                    .icon-add {
+                        font-size: 40px;
+                        color: #40f940;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+
+                    .number-people {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        color: #333;
+                    }
+
+                    .number-bike {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        color: #333;
+                    }
+                }
+
+                .price {
+                    padding: 10px;
+                    color: #333;
+                }
+                .menu-container {
+                    .menu-list {
+                        .menu-item {
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    .fixed-cell {
+        border: 1px solid #cccccc;
+        font-weight: 600;
+    }
+
     .css-1eb4vap-MuiPaper-root {
         width: 100% !important;
+    }
+
+    .cell-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        color: #333;
+        gap: 10px;
+        width: max-content;
+        margin-left: 17px;
+        .icon-edit {
+            color: orange;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.7;
+            }
+        }
+
+        .icon-delete {
+            color: red;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.7;
+            }
+        }
+
+        .icon-bike {
+            color: #838487;
+        }
+
+        .icon-add {
+            color: green;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .icon {
+            font-size: 17px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .bg-gray {
+        background-color: #f4f5fa;
+    }
+
+    .bg-empty {
+        background-color: rgb(255, 255, 255);
+        /* Màu cho trạng thái "đang trống" */
+    }
+
+    .bg-rent {
+        background-color: rgba(86, 202, 0, 1);
+        /* Màu cho trạng thái "cho thuê" */
+    }
+
+    .bg-deposit {
+        background-color: rgba(22, 177, 255, 1);
+        /* Màu cho trạng thái "đang cọc" */
+    }
+
+    .bg-return {
+        background-color: rgba(145, 85, 253, 1);
+        /* Màu cho trạng thái "báo trả" */
+    }
+
+    .bg-return-deposit {
+        background-color: rgba(145, 85, 253, 1);
+        background-image: linear-gradient(to bottom, rgba(145, 85, 253, .7), rgba(22, 177, 255, .7));
+        /* Màu cho trạng thái "trả/cọc" */
     }
 }
 
 @media (max-width: 768px) {
     .table-container {
         padding: 10px;
-        
+
+        .grid-container {
+            .floor-container {
+                width: 50%;
+
+                .floor {
+                    width: 200%;
+                }
+            }
+
+            .item-wrapp {
+                flex-wrap: wrap;
+
+                .item-container {
+                    max-width: 148px;
+
+                    .item-name {}
+
+                    .detail {
+                        .number-people {}
+                    }
+                }
+            }
+
+
+        }
+
         .fixed-cell {
             position: sticky;
             left: 0;
-            z-index: 1;
+
+
+        }
+
+        .cell-item {}
+
+        .bg-gray {
+            background-color: #f4f5fa;
+        }
+
+        .bg-white {
             background-color: white;
-          }
+        }
+
+        .bg-green {
+            background-color: greenyellow;
+        }
+
     }
-    
+
 }

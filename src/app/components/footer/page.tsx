@@ -7,6 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -26,15 +27,23 @@ const Footer = () => {
             <h2 className="footer-title">thông tin</h2>
             <div className="info">
               <BorderColorIcon className="icon" />
-              <span>Giới thiệu</span>
+              <Link href="pages/introduce">
+                <span>Giới thiệu</span>
+              </Link>
+
             </div>
             <div className="info">
               <LocalLibraryIcon className="icon" />
-              <span>Hợp đồng mẫu</span>
+              <Link href="pages/sampleContact">
+                <span>Hợp đồng mẫu</span>
+              </Link>
             </div>
             <div className="info">
               <SettingsIcon className="icon" />
-              <span>Quy trình vận hành</span>
+              <Link href="pages/operating">
+                <span>Quy trình vận hành</span>
+              </Link>
+              
             </div>
           </div>
           <div className="footer-top__items3">
@@ -45,7 +54,10 @@ const Footer = () => {
             </div>
             <div className="info">
               <HomeIcon className="icon" />
-              <span>Cho thuê phòng </span>
+              <Link href="pages/hire">
+                <span>Cho thuê phòng</span>
+              </Link>
+              
             </div>
             <div className="info">
               <LanguageIcon className="icon" />
