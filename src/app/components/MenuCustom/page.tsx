@@ -1,11 +1,13 @@
 "use client"
-import { Button, TextField } from '@mui/material';
+
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 import React, { ChangeEvent, useEffect, useState } from 'react'
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 interface TableRowData {
     id: string;
     guest: any;
@@ -78,6 +80,15 @@ const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => 
         setDataEdit(event.target.value)
         setEditRentCost(event.target.value)
     }
+    // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    //     const { name, value } = event.target;
+    //     setDataEdit(prevState => {
+    //         if (typeof prevState === 'object' && prevState !== null) {
+    //             return { ...prevState, [name]: value };
+    //         }
+    //         return prevState;
+    //     });
+    // }
 
 
     const handleSubmit = () => {
@@ -151,6 +162,11 @@ const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => 
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+                    <Typography sx={{
+                        padding: "10px 0",
+                        marginBottom: "10px",
+                        color: "#333"
+                    }}>Chỉnh sửa</Typography>
                     <TextField
                         fullWidth
                         sx={textfield}

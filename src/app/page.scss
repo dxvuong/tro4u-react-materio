@@ -7,6 +7,7 @@
 
     .info {
       position: relative;
+
       .info-wrapp {
         display: flex;
         flex-direction: column;
@@ -38,7 +39,7 @@
           text-transform: capitalize;
           position: relative;
 
-          
+
         }
 
         .address {
@@ -53,6 +54,15 @@
           color: rgba(58, 53, 65, 0.87);
         }
       }
+
+      // .select-container {
+      //   position: absolute;
+      //   width: 100%;
+      //   top: 141%;
+      //   z-index: 20;
+      //   display: none;
+      // }
+
       .icon-menu {
         position: absolute;
         top: 3px;
@@ -66,9 +76,11 @@
         }
       }
     }
+
     .actions {
       display: flex;
       gap: 10px;
+
       .btn-actions1 {
         text-decoration: none;
         background-color: rgba(145, 85, 253, 0.04);

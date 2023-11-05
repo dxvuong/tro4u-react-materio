@@ -91,7 +91,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             sx={{ position: "fixed", }}
         >
             <Box sx={styleBox}>
-                <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
+                <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
                     Quản lý nhà
                 </DialogTitle>
                 <IconButton

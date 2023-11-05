@@ -65,7 +65,7 @@ type ApiProps = {
   };
 };
 
-const HeaderComponent = () => {
+const HeaderDisableComponent = () => {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
   const [iconSwitch, setIconSwitch] = useState(false);
@@ -214,22 +214,23 @@ const HeaderComponent = () => {
         </div>
         <div className="menu-container">
           <div className="menu-list">
-            <div className={`menu-items ${pathname === "/" ? "active" : ""}`}>
+            <div className={`menu-items ${pathname === "/components/NewUser" ? "active" : ""}`}>
               <HomeIcon className="icon" />
               <Link
-                className={`menu__item-link ${pathname === "/" ? "active" : ""
+                className={`menu__item-link   ${pathname === "/" ? "active" : ""
                   }`}
                 href="/"
+                
               >
                 home
               </Link>
             </div>
             <div
-              className={`menu-items ${pathname === "/guest/" ? "active" : ""}`}
+              className={`menu-items disabled-link ${pathname === "/guest/" ? "active" : ""}`}
             >
-              <GroupsIcon className="icon" />
+              <GroupsIcon className="icon disabled-link" />
               <Link
-                className={`menu__item-link ${pathname === "/guest/" ? "active" : ""
+                className={`menu__item-link disabled-link ${pathname === "/guest/" ? "active" : ""
                   }`}
                 href="/guest"
               >
@@ -237,11 +238,11 @@ const HeaderComponent = () => {
               </Link>
             </div>
             <div
-              className={`menu-items ${pathname === "/money/" ? "active" : ""}`}
+              className={`menu-items  disabled-link ${pathname === "/money/" ? "active" : ""}`}
             >
-              <MonetizationOnIcon className="icon" />
+              <MonetizationOnIcon className="icon  disabled-link " />
               <Link
-                className={`menu__item-link ${pathname === "/money/" ? "active" : ""
+                className={`menu__item-link disabled-link  ${pathname === "/money/" ? "active" : ""
                   }`}
                 href="/money"
               >
@@ -250,14 +251,14 @@ const HeaderComponent = () => {
             </div>
 
             <div
-              className={`menu-items ${pathname === "/guestReport/" || pathname === "/income/"
+              className={`menu-items disabled-link ${pathname === "/guestReport/" || pathname === "/income/"
                 ? "active"
                 : ""
                 }`}
             >
-              <BarChartIcon className="icon" />
+              <BarChartIcon className="icon disabled-link" />
               <Link
-                className={`menu__item-link ${pathname === "/guestReport/" || "/income/" ? "active" : ""
+                className={`menu__item-link disabled-link ${pathname === "/guestReport/" || "/income/" ? "active" : ""
                   }`}
                 href="#"
               >
@@ -268,14 +269,14 @@ const HeaderComponent = () => {
             </div>
 
             <div
-              className={`menu-items ${pathname === "/guestManage/" || pathname === "/incomeManage/"
+              className={`menu-items disabled-link ${pathname === "/guestManage/" || pathname === "/incomeManage/"
                 ? "active"
                 : ""
                 }`}
             >
-              <AssignmentOutlinedIcon className="icon" />
+              <AssignmentOutlinedIcon className="icon disabled-link" />
               <Link
-                className={`menu__item-link ${pathname === "/guestManage/" || pathname === "/incomeManage/"
+                className={`menu__item-link disabled-link ${pathname === "/guestManage/" || pathname === "/incomeManage/"
                   ? "active"
                   : ""
                   }`}
@@ -874,4 +875,4 @@ const HeaderComponent = () => {
   );
 };
 
-export default HeaderComponent;
+export default HeaderDisableComponent;

@@ -32,6 +32,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import DialogActions from "@mui/material/DialogActions";
 import Radio from "@mui/material/Radio";
+import ReCAPTCHA from "react-google-recaptcha";
+import ModalPolicy from "../components/ModalPolicy/page";
 
 const Register = () => {
   const textfield = {
@@ -55,6 +57,13 @@ const Register = () => {
   //   // Do something with the checked value if needed
   // };
   const [checked, setChecked] = useState<boolean>(false);
+  const [openModalPolicy, setOpenModalPolicy] = useState(false)
+  const handleOpenModalPolicy = () => {
+    setOpenModalPolicy(!openModalPolicy)
+  }
+  const handleCloseModalPolicy = () => {
+    setOpenModalPolicy(false)
+  }
   const handleCheck = () => {
     setChecked(!checked);
   };
@@ -83,6 +92,7 @@ const Register = () => {
   const [full_name, setfullName] = useState("");
   const [password, setPassword] = useState("");
   const [passErrors, setPassErrors] = useState("");
+  const [nameErrors, setNameErrors] = useState("");
   const [id_nhom_user, setRoleDefault] = useState(2);
   const [role, setRole] = useState("");
   const [room, setRoom] = useState("");
@@ -120,16 +130,25 @@ const Register = () => {
     setPassErrors(isValid ? "" : "Mật khẩu phải có 6 ký tự trở lên");
     return isValid;
   };
+  const validatelname = (name: string) => {
+    const isValid = name!=""
+    setNameErrors(isValid ? "" : "Tên không được để trống")
+    return isValid
+  }
+ 
+  
   const validateForm = () => {
     const isValidPhone = validatePhoneNumber(phone);
-    const isValidFirstName = name.trim() !== "";
-    const isValidLastName = full_name.trim() !== "";
+    const isValidLastName = validatelname(full_name)
+    // const isValidLastName = full_name.trim() !== "";
     const isValidPassword = validatePassword(password); // Example password length validation
-
+    
     return (
-      isValidPhone && isValidFirstName && isValidLastName && isValidPassword
+      isValidPhone  && isValidLastName && isValidPassword
     );
   };
+ 
+  
   const handleChangePhone = (event: ChangeEvent<HTMLInputElement>) => {
     const phoneNumber = event.target.value;
 
@@ -138,18 +157,21 @@ const Register = () => {
     setErrorMessage("");
   };
 
-  const handleChangeFirstName = (event: ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value as string);
-  };
+  // const handleChangeFirstName = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setName(event.target.value as string);
+  // };
   const handleChangeLastName = (event: ChangeEvent<HTMLInputElement>) => {
     setfullName(event.target.value as string);
+    setNameErrors("")
   };
   const handleChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value as string);
     setPassErrors("");
   };
 
+  const onChangeCapcha = () => {
 
+  }
 
   const [showPassword, setShowPassword] = useState(false);
   const handleIconClick = () => {
@@ -162,10 +184,12 @@ const Register = () => {
     event.preventDefault();
     if (!validateForm()) {
       console.log("something wrong!");
-    } else if (checked == false) {
+    } 
+    else if (checked == false) {
 
       setErrorCheck("Hãy đồng ý với chính sách và các điều khoản!");
-    } else {
+    } 
+     else {
       setOpenModalRole(!openModalRole);
     }
 
@@ -173,6 +197,8 @@ const Register = () => {
     //
     // }
   };
+  console.log("tên ", setNameErrors);
+  
   const handleCloseModalRegister = () => {
     setOpenModalRole(false);
   };
@@ -240,6 +266,8 @@ const Register = () => {
       // You can show a generic error message to the user in this case
     }
   };
+  console.log("erroe name:", nameErrors);
+  
 
 
   return (
@@ -258,9 +286,7 @@ const Register = () => {
           )}
           <form style={{ width: "100%" }} className="form-control">
             <FormControl>
-              <span style={{ color: "red", marginBottom: "5px" }}>
-                {phoneError}
-              </span>
+              
               <TextField
                 id="phone"
                 label="Số điện thoại"
@@ -278,6 +304,9 @@ const Register = () => {
                   ),
                 }}
               />
+              <span style={{ color: "red", marginBottom: "5px" }}>
+                {phoneError}
+              </span>
             </FormControl>
             {/* <FormControl>
               <TextField
@@ -314,10 +343,11 @@ const Register = () => {
                   ),
                 }}
               />
+              {nameErrors === "" ? "": <span style={{ color: "red" }}>{nameErrors}</span>}
             </FormControl>
 
             <FormControl>
-              {passErrors ? <span style={{ color: "red" }}>{passErrors}</span> : ""}
+              
 
               <TextField
                 id="pass"
@@ -344,8 +374,14 @@ const Register = () => {
                   ),
                 }}
               />
+              {passErrors ? <span style={{ color: "red" }}>{passErrors}</span> : ""}
             </FormControl>
-
+            <div className="capcha" style={{ display: "flex", justifyContent: "space-around" }}>
+              <ReCAPTCHA
+                sitekey="6LcT6OsoAAAAAEi5N9lk5b_0HQNeoV8g4GVGQ6Cb"
+                onChange={onChangeCapcha}
+              />
+            </div>
             <span style={{ color: "red" }}>
               {erroCheck == "" ? "" : erroCheck}
             </span>
@@ -367,11 +403,13 @@ const Register = () => {
                 }
                 onClick={handleCheck}
               />
+              
               <span
                 style={{
                   color: "9155fd",
                   lineHeight: "19px",
                 }}
+                onClick={handleOpenModalPolicy}
               >
                 Tôi đồng ý
                 <span
@@ -384,6 +422,7 @@ const Register = () => {
                   chính sách & điều khoản bảo mật
                 </span>{" "}
               </span>
+              <ModalPolicy open={openModalPolicy} close={handleCloseModalPolicy}/>
             </div>
           </form>
           <Button

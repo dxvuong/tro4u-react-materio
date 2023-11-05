@@ -16,13 +16,11 @@ import Avatar from '@mui/material/Avatar'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import MenuList from '@mui/material/MenuList'
 import MenuCustom from '../MenuCustom/page'
+import { deepPurple } from '@mui/material/colors';
 interface TableCustomProps {
     type: boolean
 }
@@ -56,7 +54,7 @@ const TableCustom = ({ type }: TableCustomProps) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
-    const handleClick =(row: TableRowData) => (event: React.MouseEvent<HTMLElement>) => {
+    const handleClick = (row: TableRowData) => (event: React.MouseEvent<HTMLElement>) => {
         setSelectedRow(row);
         setAnchorEl(event.currentTarget);
     };
@@ -187,9 +185,9 @@ const TableCustom = ({ type }: TableCustomProps) => {
                                                         <AddCircleOutlineIcon className='icon-add' onClick={handleOpenModalContact} />
                                                     </>
                                                     :
-                                                    <><span className='number-people'>{item.guest} <PermIdentityIcon /></span>
-                                                        <Avatar>H</Avatar>
-                                                        <span className='number-bike'>{item.bike} <TwoWheelerIcon /></span>
+                                                    <><span className='number-people'>{item.guest} <PermIdentityIcon className='icon-user' /></span>
+                                                        <Avatar className='avatar'>H</Avatar>
+                                                        <span className='number-bike'>{item.bike} <TwoWheelerIcon className='icon-bike' /></span>
                                                     </>}
 
                                             </div>
@@ -238,8 +236,13 @@ const TableCustom = ({ type }: TableCustomProps) => {
                                                     row.status === "đang cọc" ? "bg-deposit" :
                                                         row.status === "báo trả" ? "bg-return" : "bg-return-deposit"
                                                 }`} > <span className='cell-item'>{row.id} </span> </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.guest} </span>  </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.status ==="đang trống"? "" : row.bike }{row.status ==="đang trống"? "" : <TwoWheelerIcon className='icon-bike' />}  </span>  </TableCell>
+                                            <TableCell align='center'>
+                                                <span className='cell-item'>
+                                                    {row.status === "đang trống" ? "" : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
+
+                                                </span>
+                                            </TableCell>
+                                            <TableCell align='center'> <span className='cell-item'>{row.status === "đang trống" ? "" : row.bike}{row.status === "đang trống" ? "" : <TwoWheelerIcon className='icon-bike' />}  </span>  </TableCell>
                                             <TableCell align='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
                                             <TableCell align='right'> <span className='cell-item'>{row.status === "đang trống" ? <ControlPointIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}   </span> </TableCell>
                                             <TableCell align='center'> <span className='cell-item'>{row.termContract} </span> </TableCell>
@@ -252,7 +255,7 @@ const TableCustom = ({ type }: TableCustomProps) => {
                                                         className='icon-edit'
                                                         onClick={handleClick(row)}
                                                     />
-                                                    <MenuCustom  open={open} close={handleClose} anchorEl={anchorEl} selectedRow={selectedRow} />
+                                                    <MenuCustom open={open} close={handleClose} anchorEl={anchorEl} selectedRow={selectedRow} />
                                                 </span>
                                             </TableCell>
                                         </TableRow>

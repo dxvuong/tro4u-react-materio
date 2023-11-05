@@ -58,6 +58,7 @@
                 margin-bottom: 10px;
                 position: relative;
                 border: 1px solid #ccc;
+
                 .item-name {
                     border-bottom: 1px solid #ccc;
                     width: 100%;
@@ -73,6 +74,7 @@
                     top: 6px;
                     right: 0;
                     color: #fff;
+
                     &:hover {
                         cursor: pointer;
                         opacity: 0.7;
@@ -116,11 +118,10 @@
                     padding: 10px;
                     color: #333;
                 }
+
                 .menu-container {
                     .menu-list {
-                        .menu-item {
-                            
-                        }
+                        .menu-item {}
                     }
                 }
             }
@@ -147,6 +148,7 @@
         gap: 10px;
         width: max-content;
         margin-left: 17px;
+
         .icon-edit {
             color: orange;
 
@@ -198,24 +200,24 @@
     }
 
     .bg-rent {
-        background-color: rgba(86, 202, 0, 1);
+        background-color: #daf9e0;
         /* Màu cho trạng thái "cho thuê" */
     }
 
     .bg-deposit {
-        background-color: rgba(22, 177, 255, 1);
+        background-color: #d8ebfb;
         /* Màu cho trạng thái "đang cọc" */
     }
 
     .bg-return {
-        background-color: rgba(145, 85, 253, 1);
+        background-color: #f6deff;
         /* Màu cho trạng thái "báo trả" */
     }
 
     .bg-return-deposit {
         background-color: rgba(145, 85, 253, 1);
-        background-image: linear-gradient(to bottom, rgba(145, 85, 253, .7), rgba(22, 177, 255, .7));
-        /* Màu cho trạng thái "trả/cọc" */
+        background-image: linear-gradient(145deg, rgba(246, 222, 255, 1) 54%, rgba(217, 235, 251, 1) 56%)
+            /* Màu cho trạng thái "trả/cọc" */
     }
 }
 
@@ -236,12 +238,47 @@
                 flex-wrap: wrap;
 
                 .item-container {
-                    max-width: 148px;
+                    max-width: 90px;
 
-                    .item-name {}
+                    .item-name {
+                        font-size: 10px;
+                    }
+
+                    .icon-action {
+                        font-size: 16px;
+                        color: #333;
+                    }
 
                     .detail {
-                        .number-people {}
+                        padding: 10px 0;
+
+                        .number-people {
+                            flex-direction: column;
+                            gap: 0px;
+                            font-size: 13px;
+                            .icon-user {
+                                font-size: 13px;
+                            }
+                        }
+
+                        .avatar {
+                            width: 20px;
+                            height: 20px;
+                            font-size: 10px;
+                        }
+
+                        .number-bike {
+                            flex-direction: column;
+                            gap: 0px;
+                            font-size: 13px;
+                            .icon-bike {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    .price {
+                        font-size: 13px;
                     }
                 }
             }
@@ -252,7 +289,7 @@
         .fixed-cell {
             position: sticky;
             left: 0;
-
+            z-index: 10;
 
         }
 

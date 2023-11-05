@@ -29,7 +29,7 @@ import NewuserPage from "./components/NewUser/page";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-
+import { purple } from '@mui/material/colors';
 import MenuItem from "@mui/material/MenuItem";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
@@ -39,6 +39,12 @@ import SelectPaymentSchedule from "./components/SelectPaymentSchedule/page";
 import BootstrapDialogCustom from "./components/DialogAddHouse/page";
 import DialogAddHouse from "./components/DialogAddHouse/page";
 import DialogAddRoom from "./components/DialogAddRoom/page";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Divider from "@mui/material/Divider";
+import Menu from "@mui/material/Menu";
+import React from "react";
+import SelectHouseComponent from "./components/SelectHouse/page";
 
 export default function Home() {
   const [openModalAddHouse, setOpenModalAddHouse] = useState(false);
@@ -101,6 +107,16 @@ export default function Home() {
     setStatus(event.target.value as string)
   }
 
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
   const [paymentSchedule, setPaymentSchedule] = useState('')
   const handleChangePaymentSchedule = (event: SelectChangeEvent) => {
     event.preventDefault()
@@ -160,7 +176,7 @@ export default function Home() {
     p: 4,
     "@media (max-width: 783px)": {
       width: 318,
-      left: "45%"
+      left: "50%"
     },
   };
   // const CustomInputLabel = styled(InputLabel)({
@@ -214,8 +230,27 @@ export default function Home() {
                 <span className="address">
                   315/272/26 Phạm Văn Chiêu, Phường 9, Gò vấp
                 </span>
+                
               </div>
-              <MoreVertIcon className="icon-menu" />
+              {/* <div className="select-container">
+                <SelectHouseComponent/>
+              </div> */}
+              
+              
+              <MoreVertIcon sx={{color: "black"}} className="icon-menu" onClick={handleClick} />
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+              >
+                <MenuItem onClick={handleClose}>Sửa</MenuItem>
+                <MenuItem onClick={handleClose}>Xóa </MenuItem>
+                <MenuItem onClick={handleClose}>Chi tiết</MenuItem>
+              </Menu>
             </div>
             <div className="actions">
               <Button
@@ -250,6 +285,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
+          
           <div className="bottom">
             <div className="section1">
               <div className="content">
@@ -283,7 +319,7 @@ export default function Home() {
                       sx={{ position: "fixed", }}
                     >
                       <Box sx={styleBox}>
-                        <DialogTitle sx={{ m: 0, p: 3 }} id="customized-dialog-title">
+                        <DialogTitle sx={{ m: 0, p: 3, fontWeight: "600", color:"black" }} id="customized-dialog-title">
                           Bộ lọc
                         </DialogTitle>
                         <IconButton
@@ -300,8 +336,45 @@ export default function Home() {
                         </IconButton>
 
                         <DialogContent dividers sx={styleModal} >
-                          <SelectStatusCustom data={status} onchange={handleChangeStatus} />
-                          <SelectPaymentSchedule data={paymentSchedule} onchange={handleChangePaymentSchedule} />
+                          {/* <SelectStatusCustom data={status} onchange={handleChangeStatus} />
+                          <SelectPaymentSchedule data={paymentSchedule} onchange={handleChangePaymentSchedule} /> */}
+                          <Box
+
+                          >
+                            <Typography sx={{
+                              fontSize: "18px",
+                              color: "#804bdf",
+                              fontWeight: "600"
+                            }}>Trạng thái</Typography>
+                            <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang trống" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="cho thuê" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang cọc" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="báo trả" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="trả/cọc" />
+                            </Box>
+                          </Box>
+                          <Divider />
+                          <Box sx={{ marginTop: "10px" }}>
+                            <Typography sx={{
+                              fontSize: "18px",
+                              color: "#804bdf",
+                              fontWeight: "600"
+                            }}>Mốc thanh toán</Typography>
+                            <Box sx={{ display: "flex", flexWrap: "wrap", }}>
+
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="1 - 5" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="6 - 10" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="11 - 15" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="16 - 20" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="21 - 25" />
+                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="26 - cuối tháng" />
+                            </Box>
+                          </Box>
+
+
+
 
                         </DialogContent>
 
@@ -327,6 +400,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            
             <div className="section2">
               <TableCustom type={displayGrid} />
 

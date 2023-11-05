@@ -64,7 +64,7 @@ const ForgotPassword = () => {
               ></div>
             </div>
           </FormControl>
-          <Link href="./otp">
+          <Link href="/otp">
             <Button fullWidth variant="contained" className="btn-forget">
               Tiếp tục <ArrowRightAltIcon sx={{ marginLeft: "5px" }} />
             </Button>

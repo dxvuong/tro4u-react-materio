@@ -17,7 +17,7 @@ const Otp = () => {
       alert("Mã OTP không hợp lệ");
     } else {
       alert("Mã OTP hợp lệ");
-      window.location.href = "./resetPassword";
+      window.location.href = "/resetPassword";
     }
   };
   return (

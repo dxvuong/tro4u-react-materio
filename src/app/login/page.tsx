@@ -14,7 +14,7 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,10 +26,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const textfield = {
-    ".MuiOutlinedInput-root" : {
+    ".MuiOutlinedInput-root": {
       borderRadius: "6px",
     },
-    "& .MuiOutlinedInput-root:hover" : {
+    "& .MuiOutlinedInput-root:hover": {
       "& fieldset": {
         borderColor: "#9155fd"
       }
@@ -42,6 +42,9 @@ const Login = () => {
     }
   }
 
+  const onChangeCapcha = () => {
+
+  }
   const handleOnchangePhone = (event: ChangeEvent<HTMLInputElement>) => {
     setPhone(event.target.value);
     setErrorMessage("")
@@ -173,10 +176,16 @@ const Login = () => {
                   cursor: "pointer",
                 }}
               >
-                <Link href="./forgetPassword">Quên mật khẩu?</Link>
+                <Link href="/forgetPassword">Quên mật khẩu?</Link>
               </span>
             </div>
           </FormControl>
+          <div className="capcha" style={{display: "flex", justifyContent: "space-around"}}>
+            <ReCAPTCHA
+              sitekey="6LcT6OsoAAAAAEi5N9lk5b_0HQNeoV8g4GVGQ6Cb"
+              onChange={onChangeCapcha}
+            />
+          </div>
 
           <Button
             variant="contained"

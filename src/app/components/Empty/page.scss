@@ -1,0 +1,25 @@
+.newUser-container {
+    background: #fff;
+    min-height: 50vh;
+    margin-top: 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    .content {
+        background-color: #f4f5fa;
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 6px;
+        text-align: center;
+        .text {
+           font-size: 16px;
+           color: rgba(58, 53, 65, 0.87);
+           align-items: center;
+        }
+        .btn {
+            background-color: #804bdf;
+            margin-top: 5px;
+        }
+    }
+}
