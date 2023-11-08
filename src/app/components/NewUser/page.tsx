@@ -400,7 +400,7 @@ export default function NewuserPage() {
                 <div className="content">
                   <Typography className='text'>Nhà chưa có sản phẩm nào </Typography>
                   <Typography className='text'>Vui lòng nhấn để tạo nhà </Typography>
-                  <Button variant="contained" className='btn'>tạo nhà</Button>
+                  <Button variant="contained" className='btn'>Tạo nhà</Button>
                 </div>
 
               </div>

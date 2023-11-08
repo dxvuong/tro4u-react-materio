@@ -19,16 +19,16 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 interface BootstrapDialogCustomProps {
     open: boolean,
     close: () => void
 }
 
-const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
+const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
     const styleModal = {
         maxWidth: "360px",
@@ -42,16 +42,17 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             padding: "10px !important"
         },
     }
-    // const [nameHouse, setNameHouse] = useState("")
-    // const [floor, setFloor] = useState("")
+    const styleModalBottom = {
+        maxWidth: "360px",
+        minWidth: "360px",
+        padding: "10px",
 
-    // const handleChangeNameHouse = (event: ChangeEvent<HTMLInputElement>) => {
-    //     setNameHouse(event.target.value)
-    // }
 
-    // const handleChangeFloor = (event: ChangeEvent<HTMLInputElement>) => {
-    //     setFloor(event.target.value)
-    // }
+        "@media (max-width: 783px)": {
+            height: "500px",
+            padding: "10px !important"
+        },
+    }
     const [nameHouse, setNameHouse] = useState("")
     const [floor, setFloor] = useState("")
     const [group, setGroup] = useState("")
@@ -99,6 +100,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         setFloor(event.target.value)
     }
 
+
     const textfield = {
 
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
@@ -123,46 +125,26 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             borderColor: '#804bdf !important', // Màu viền khi textfield được focus
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf !important', // Màu viền khi textfield được hover
+            borderColor: '#804bdf', // Màu viền khi textfield được hover
         },
         background: "#fff",
         marginBottom: "10px"
     };
 
-    const styleDate = {
-        marginBottom: "10px",
-        '&.Mui-focused': {
-            color: '#804bdf', // Thay đổi màu khi tập trung
-        },
-        backgroundColor: "#fff",
-        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
 
-        '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
-        '.MuiSvgIcon-root ': {
-            fill: "#804bdf !important",
-            fontSize: "30px"
-        },
 
-        '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: "#9155fd"
-        },
-        ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
-            color: "#ccc",
-        },
-        '.MuiInputLabel-outlined.Mui-focused': {
-            color: "#9155fd"
-        },
-        ".MuiPickersPopper-root.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root.MuiPopper-root": {
-            position: "absolute !important",
-            left: "19px !important"
-        },
 
-        width: "100%"
-    }
+    const styleBox = {
+        position: 'absolute' as 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 360,
+        bgcolor: 'background.paper',
+        boxShadow: 24,
+
+    };
+
     const styledSelect = {
         marginBottom: "10px",
         '&.Mui-focused': {
@@ -183,174 +165,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             fill: "black !important",
         },
     }
-
-
-    const styleBox = {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 360,
-        bgcolor: 'background.paper',
-
-        boxShadow: 24,
-
-
-    };
     return (
-        // <LocalizationProvider dateAdapter={AdapterDayjs}>
-        //     <Modal
-        //         onClose={close}
-        //         aria-labelledby="customized-dialog-title"
-        //         open={open}
-        //         className='modal-container'
-        //         sx={{ position: "fixed", }}
-        //     >
-        //         <Box sx={styleBox}>
-        //             <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
-        //                 Thêm nhà
-        //             </DialogTitle>
-        //             <IconButton
-        //                 aria-label="close"
-        //                 onClick={close}
-        //                 sx={{
-        //                     position: "absolute",
-        //                     right: 8,
-        //                     top: 8,
-        //                     color: (theme) => theme.palette.grey[500],
-        //                 }}
-        //             >
-        //                 <CloseIcon />
-        //             </IconButton>
-
-        //             <DialogContent dividers sx={styleModal} >
-        //                 <div className='input' style={{ padding: "10px", borderRadius: "6px", marginBottom: "10px" }}>
-        //                     <TextField
-        //                         id="name"
-        //                         value={nameHouse}
-        //                         label="Tên nhà"
-        //                         variant="outlined"
-        //                         onChange={handleChangeNameHouse}
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="floor"
-        //                         value={floor}
-        //                         label="Số lầu"
-        //                         variant="outlined"
-        //                         onChange={handleChangeFloor}
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="nhom"
-        //                         // value={floor}
-        //                         label="Nhóm"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="khu"
-        //                         // value={floor}
-        //                         label="Khu"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-
-        //                     <DatePicker label="Ngày tính số liệu" sx={styleDate} />
-
-        //                     {/* <TextField
-        //                         id="date"
-        //                         // value={floor}
-        //                         label=""
-        //                         type='date'
-        //                         placeholder=''
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     /> */}
-        //                     <TextField
-        //                         id="tt"
-        //                         // value={floor}
-        //                         label="Tình trạng"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                 </div>
-
-        //                 <div className='input' style={{ background: "#f4f5fa", borderRadius: "6px" }}>
-
-        //                     <TextField
-        //                         id="dc"
-        //                         // value={floor}
-        //                         label="Địa chỉ"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="sdtql1"
-        //                         // value={floor}
-        //                         label="SDT Quản lý 1"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="sdtql2"
-        //                         // value={floor}
-        //                         label="SDT Quản lý 2"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                     <TextField
-        //                         id="link"
-        //                         // value={floor}
-        //                         label="Link giới thiệu"
-        //                         variant="outlined"
-        //                         // onChange={handleChangeFloor} 
-        //                         fullWidth
-        //                         sx={textfield}
-        //                     />
-        //                 </div>
-
-
-        //             </DialogContent>
-
-        //             <DialogActions>
-        //                 <Button
-        //                     style={{
-        //                         background: "#fff",
-        //                         color: "#333",
-        //                         border: "none"
-        //                     }}
-        //                     variant="outlined" autoFocus onClick={close}>
-        //                     Đóng
-        //                 </Button>
-
-        //                 <Button
-        //                     style={{
-        //                         background: "#9155fd"
-        //                     }} variant="contained" autoFocus onClick={close}>
-        //                     Thêm
-        //                 </Button>
-        //             </DialogActions>
-        //         </Box>
-
-        //     </Modal>
-        // </LocalizationProvider>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Modal
                 onClose={close}
@@ -361,7 +176,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             >
                 <Box sx={styleBox}>
                     <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
-                        Thêm nhà
+                        Cập nhật nhà
                     </DialogTitle>
                     <IconButton
                         aria-label="close"
@@ -377,7 +192,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                     </IconButton>
 
                     <DialogContent sx={styleModal} >
-                        <div className='input' style={{ borderRadius: "6px", marginBottom: "10px" }}>
+                        <div className='input' style={{  borderRadius: "6px", marginBottom: "10px" }}>
                             <TextField
                                 id="name"
                                 value={nameHouse}
@@ -553,7 +368,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                         
 
                     </DialogContent> */}
-                    <Divider sx={{ color: "#804bdf" }} />
+                    <Divider sx={{color: "#804bdf"}}/>
                     <DialogActions>
                         <Button
                             style={{
@@ -569,14 +384,15 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             style={{
                                 background: "#9155fd"
                             }} variant="contained" autoFocus onClick={close}>
-                            Thêm
+                            Lưu
                         </Button>
                     </DialogActions>
                 </Box>
 
             </Modal>
         </LocalizationProvider>
+
     )
 }
 
-export default DialogAddHouse
+export default DialogEditHouse

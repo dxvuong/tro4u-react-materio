@@ -8,6 +8,12 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from "@mui/icons-material/Close";
+import DialogContent from '@mui/material/DialogContent';
+import { DialogActions, Divider } from '@mui/material';
+import "./page.scss"
 interface TableRowData {
     id: string;
     guest: any;
@@ -22,12 +28,11 @@ interface TableRowData {
 interface MenuCustomProps {
     open: any,
     close: () => void,
-    anchorEl: any,
     selectedRow: TableRowData | null;
 }
 
-const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => {
-    console.log("thông tin data:", selectedRow);
+const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
+
 
 
     const [openModal, setOpenModal] = React.useState(false);
@@ -99,17 +104,29 @@ const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => 
         setEditGuest("")
         setOpenModal(false)
     }
-    const style = {
+    const styleBox = {
         position: 'absolute' as 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 360,
         bgcolor: 'background.paper',
-
         boxShadow: 24,
-        p: 4,
+
     };
+    const styleModal = {
+        maxWidth: "360px",
+        minWidth: "360px",
+        padding: "10px",
+        marginTop: "10px",
+
+        "@media (max-width: 783px)": {
+            height: "500px",
+            padding: "10px !important"
+        },
+    }
+    console.log("selected: ", selectedRow);
+
     const textfield = {
 
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
@@ -139,9 +156,11 @@ const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => 
 
         marginBottom: "10px"
     };
+    console.log(selectedRow);
+    
     return (
         <>
-            <Menu
+            {/* <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -154,113 +173,149 @@ const MenuCustom = ({ open, close, anchorEl, selectedRow }: MenuCustomProps) => 
                 <MenuItem onClick={handleOpenModal}>Sửa </MenuItem>
                 <MenuItem onClick={close}>Xóa</MenuItem>
                 <MenuItem onClick={close}>Chi tiết</MenuItem>
-            </Menu>
+            </Menu> */}
+            <div className='menuEdit-container'>
+                <div className="menu-list">
+                    <div className="menu-item" onClick={ handleOpenModal}>
+                        Sửa
+                    </div>
+                    <div className="menu-item">
+                        Xóa
+                    </div>
+                    <div className="menu-item">
+                        Chi tiết
+                    </div>
+                </div>
+
+            </div>
+            
+
             <Modal
                 open={openModal}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
-                    <Typography sx={{
-                        padding: "10px 0",
-                        marginBottom: "10px",
-                        color: "#333"
-                    }}>Chỉnh sửa</Typography>
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Mã phòng"
-                        autoFocus
-                        value={(dataEdit as TableRowData)?.id!}
-                        onChange={handleOnchangeId}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Khách thuê"
-                        autoFocus
-                        value={(dataEdit as TableRowData)?.guest!}
-                        onChange={handleOnchangeGuest}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        type='number'
-                        label="Số lượng xe"
-                        value={(dataEdit as TableRowData)?.bike!}
-                        onChange={handleOnchangeBike}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Số điện thoại"
-                        value={(dataEdit as TableRowData)?.phone!}
-                        onChange={handleOnchangePhone}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Tình trạng"
-                        value={(dataEdit as TableRowData)?.status!}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                <Box sx={styleBox}>
+                    <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
+                        Cập nhật phòng
+                    </DialogTitle>
+                    <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: "absolute",
+                            right: 8,
+                            top: 8,
+                            color: (theme) => theme.palette.grey[500],
                         }}
-                        onChange={handleOnchangeStatus}
-                    />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Thời hạn hợp đồng"
-                        value={(dataEdit as TableRowData)?.termContract}
-                        onChange={handleOnchangeTerm}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Tiền cọc"
-                        value={(dataEdit as TableRowData)?.deposit!}
-                        onChange={handleOnchangeDeposit}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <TextField
-                        fullWidth
-                        sx={textfield}
-                        label="Giá thuê"
-                        value={(dataEdit as TableRowData)?.rentcost!}
-                        onChange={handleOnchangeRentCost}
-                        variant='outlined'
-                        InputLabelProps={{
-                            shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
-                        }} />
-                    <div style={{
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                    <DialogContent sx={styleModal}>
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Mã phòng"
+                            autoFocus
+                            value={(dataEdit as TableRowData)?.id!}
+                            onChange={handleOnchangeId}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Khách thuê"
+                            autoFocus
+                            value={(dataEdit as TableRowData)?.guest!}
+                            onChange={handleOnchangeGuest}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            type='number'
+                            label="Số lượng xe"
+                            value={(dataEdit as TableRowData)?.bike!}
+                            onChange={handleOnchangeBike}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Số điện thoại"
+                            value={(dataEdit as TableRowData)?.phone!}
+                            onChange={handleOnchangePhone}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Tình trạng"
+                            value={(dataEdit as TableRowData)?.status!}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }}
+                            onChange={handleOnchangeStatus}
+                        />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Thời hạn hợp đồng"
+                            value={(dataEdit as TableRowData)?.termContract}
+                            onChange={handleOnchangeTerm}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Tiền cọc"
+                            value={(dataEdit as TableRowData)?.deposit!}
+                            onChange={handleOnchangeDeposit}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                        <TextField
+                            fullWidth
+                            sx={textfield}
+                            label="Giá thuê"
+                            value={(dataEdit as TableRowData)?.rentcost!}
+                            onChange={handleOnchangeRentCost}
+                            variant='outlined'
+                            InputLabelProps={{
+                                shrink: true, // Giữ cho label không bao giờ rơi xuống khi có dữ liệu trong input field
+                            }} />
+                    </DialogContent>
+                    <Divider />
+                    <DialogActions style={{
                         textAlign: "right"
                     }}>
+                        <Button style={{
+                            background: "#fff",
+                            border: "none",
+                            color: "black"
+                        }} variant="outlined" autoFocus onClick={handleClose}>
+                            Đóng
+                        </Button>
                         <Button style={{
                             background: "#9155fd",
                             textAlign: "right"
                         }} variant="contained" autoFocus onClick={handleSubmit}>
                             Cập nhật
                         </Button>
-                    </div>
+                    </DialogActions>
 
                 </Box>
             </Modal>

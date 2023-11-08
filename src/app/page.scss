@@ -5,6 +5,10 @@
     align-items: center;
     margin: 20px 0;
 
+    .menu-house {
+      display: none;
+    }
+
     .info {
       position: relative;
 
@@ -55,52 +59,94 @@
         }
       }
 
-      // .select-container {
-      //   position: absolute;
-      //   width: 100%;
-      //   top: 141%;
-      //   z-index: 20;
-      //   display: none;
-      // }
-
-      .icon-menu {
+      .select-container {
         position: absolute;
-        top: 3px;
-        right: 0;
-        z-index: 10;
-        cursor: pointer;
+        width: 100%;
+        top: 141%;
+        z-index: 20;
+        display: none;
+      }
 
-        &:hover {
-          opacity: 0.7;
+      .active-select {
+        display: block;
 
+        .css-1wwozwr-control:hover {
+          border-color: #804bdf !important;
+          box-shadow: 0 0 0 1px #804bdf;
         }
       }
+
+      .menuHouseIcon {
+        position: relative;
+        right: 0;
+        top: -40px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 3px;
+          right: 0;
+
+          width: 20px;
+          height: 30px;
+        }
+
+        &:hover {
+          .menuHouse-container {
+            display: block;
+          }
+        }
+
+        .icon-menu {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 10;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+
+
+          }
+        }
+
+        .menuHouse-container {
+          position: absolute;
+          background-color: #fff;
+          right: 0;
+          z-index: 20;
+          top: 30px;
+          width: 100px;
+          display: none;
+          box-shadow: 0 5px 5px -3px rgba(58, 53, 65, 0.2), 0 8px 10px 1px rgba(58, 53, 65, 0.14), 0 3px 14px 2px rgba(58, 53, 65, 0.12);
+
+          .menuHouse-list {
+
+            display: flex;
+            flex-direction: column;
+
+            .menuHouse-item {
+              padding: 10px;
+              color: black;
+
+              &:hover {
+                background-color: #f4f5fa;
+              }
+            }
+          }
+        }
+      }
+
+
+
     }
 
     .actions {
       display: flex;
       gap: 10px;
 
-      .btn-actions1 {
-        text-decoration: none;
-        background-color: rgba(145, 85, 253, 0.04);
-        border: 1px solid #804bdf;
-        color: #9155fd;
-        padding: 5px 20px;
-        font-size: 0.875rem;
-        min-width: 64px;
-        font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
-          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        text-transform: uppercase;
-        display: flex;
-        gap: 5px;
 
-        &:hover {
-          border-color: #8243f8;
-          background-color: #f0efef;
-        }
-      }
 
       .btn-actions2 {
         text-decoration: none;
@@ -150,7 +196,7 @@
           display: flex;
           /* width: 179px; */
           flex-direction: column;
-
+          width: 100%;
 
           .data-item {
             display: flex;
@@ -161,7 +207,8 @@
               font-size: 14px;
               line-height: 1;
               text-transform: capitalize;
-              min-width: 150px;
+              min-width: fit-content;
+              margin-right: 10px;
             }
           }
         }
@@ -169,6 +216,29 @@
         .actions {
           display: flex;
           gap: 20px;
+
+          .action3 {
+            .btn3 {
+              text-decoration: none;
+              background-color: rgba(145, 85, 253, 0.04);
+              border: 1px solid #804bdf;
+              color: #9155fd;
+              padding: 5px 20px;
+              font-size: 0.875rem;
+              width: max-content;
+              font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+              text-transform: uppercase;
+              display: flex;
+              gap: 5px;
+
+              &:hover {
+                border-color: #8243f8;
+                background-color: #f0efef;
+              }
+            }
+          }
 
           .action1 {
             .btn1 {
@@ -178,7 +248,7 @@
               color: #9155fd;
               padding: 5px 20px;
               font-size: 0.875rem;
-              min-width: 64px;
+              width: max-content;
               font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -211,7 +281,7 @@
               padding: 5px 20px;
               box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
               font-size: 0.875rem;
-              min-width: 64px;
+              width: max-content;
               display: flex;
               gap: 5px;
               font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont,
@@ -269,14 +339,7 @@
       }
 
       .actions {
-        .btn-actions1 {
-          min-width: 30px;
-          max-width: 30px;
-
-          span {
-            display: none;
-          }
-        }
+        .btn-actions1 {}
 
         .btn-actions2 {
           min-width: 30px;
@@ -304,7 +367,8 @@
 
             .data-item {
               flex-wrap: wrap;
-              justify-content: space-around;
+              justify-content: flex-start;
+              flex-direction: column;
 
               .text {
                 color: #333;
@@ -317,6 +381,17 @@
             .action1 {}
 
             .action2 {}
+
+            .action3 {
+              .btn3 {
+                min-width: 64px;
+                max-width: 30px;
+
+                span {
+                  display: none;
+                }
+              }
+            }
           }
         }
       }

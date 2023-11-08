@@ -21,8 +21,10 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuCustom from '../MenuCustom/page'
 import { deepPurple } from '@mui/material/colors';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 interface TableCustomProps {
-    type: boolean
+    types: boolean
 }
 interface TableRowData {
     id: string;
@@ -36,9 +38,19 @@ interface TableRowData {
     date: string;
 }
 
-const TableCustom = ({ type }: TableCustomProps) => {
+const TableCustom = ({ types }: TableCustomProps) => {
 
     const [openModalContact, setOpenModalContact] = useState(false)
+    const [openModalEditTable, setOpenModalEditTable] = useState(false)
+    const handleOpenModalEditTable = (row : TableRowData) => {
+        setOpenModalEditTable(!openModalEditTable)
+        setSelectedRow(row)
+        
+    }
+    const handleCloseModalEditTable = () => {
+        setOpenModalEditTable(false)
+    }
+    const [openMenu, setopenMenu] = useState(false)
     const handleOpenModalContact = () => {
         setOpenModalContact(!openModalContact)
     }
@@ -50,24 +62,26 @@ const TableCustom = ({ type }: TableCustomProps) => {
     }
 
     const [selectedRow, setSelectedRow] = useState<TableRowData | null>(null);
-
+    console.log("data:" , selectedRow);
+    
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
     const handleClick = (row: TableRowData) => (event: React.MouseEvent<HTMLElement>) => {
         setSelectedRow(row);
         setAnchorEl(event.currentTarget);
+        setopenMenu(!openMenu)
     };
     const handleClose = () => {
         setAnchorEl(null);
+        setopenMenu(false)
     };
 
     function createData(
         id: string,
         guest: any,
-        bike: number,
+        bike: string,
         phone: string,
-
         status: string,
         termContract: string,
         deposit: string,
@@ -77,18 +91,19 @@ const TableCustom = ({ type }: TableCustomProps) => {
         return { id, guest, bike, phone, status, termContract, deposit, rentcost, date };
     }
     const rows = [
-        createData("A00001", "", 0, "", "đang trống", "", "", '', ""),
-        createData("A00002", "khách thuê2", 2, "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "09/23/2016"),
-        createData("A00003", "khách thuê 3", 0, "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "10/15/2017"),
-        createData("A00004", "khách thuê 4", 2, "0819673847", "báo trả", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "10/15/2017"),
-        createData("A00005", "", 0, "", "đang trống", "", "", '', ""),
-        createData("A00006", "khách thuê 6", 1, "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "10/15/2017"),
+        createData("A00001", "", "0", "", "đang trống", "", "", '', ""),
+        createData("A00002", "khách thuê2", "2", "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "23/09/2016"),
+        createData("A00003", "khách thuê 3", "0", "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
+        createData("A00004", "khách thuê 4", "2", "0819673847", "báo trả", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
+        createData("A00005", "", "0", "", "đang trống", "", "", '', ""),
+        createData("A00006", "khách thuê 6", "1", "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "25/12/2017"),
+        
     ];
 
     function createData2(
         id: string,
         guest: number,
-        bike: number,
+        bike: string,
         phone: string,
         status: string,
         termContract: string,
@@ -102,23 +117,23 @@ const TableCustom = ({ type }: TableCustomProps) => {
         {
             floor: 1,
             data: [
-                createData2("A00001", 0, 0, "chưa có", "đang trống", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "09/27/2018"),
-                createData2("A00002", 2, 2, "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1..195.000", "5.000.000", "09/23/2016"),
+                createData2("A00001", 0, "0", "chưa có", "đang trống", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "09/27/2018"),
+                createData2("A00002", 2, "2", "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1..195.000", "5.000.000", "09/23/2016"),
             ]
         },
         {
             floor: 2,
             data: [
-                createData2("A00003", 0, 0, "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
-                createData2("A00004", 1, 1, "0819673847", "báo trả", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
-                createData2("A00005", 0, 0, "chưa có", "đang trống", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
+                createData2("A00003", 0, "0", "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
+                createData2("A00004", 1, "1", "0819673847", "báo trả", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
+                createData2("A00005", 0, "0", "chưa có", "đang trống", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
             ]
         },
         {
             floor: 3,
             data: [
 
-                createData2("A00006", 2, 1, "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
+                createData2("A00006", 2, "1", "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", "5.000.000", "10/15/2017"),
             ]
         },
 
@@ -131,7 +146,7 @@ const TableCustom = ({ type }: TableCustomProps) => {
 
 
         <div className='table-container'>
-            {type ?
+            {types ?
                 gridRows.map((floors) => {
                     return (
                         <div className='grid-container' key={floors.floor}>
@@ -148,7 +163,7 @@ const TableCustom = ({ type }: TableCustomProps) => {
                                                 item.status === "đang cọc" ? "bg-deposit" :
                                                     item.status === "báo trả" ? "bg-return" : "bg-return-deposit"}`} key={item.id}>
                                             <h2 className='item-name'>{item.id}</h2>
-                                            <MoreVertIcon className='icon-action' onClick={handleClick(item)} />
+                                            <MoreVertIcon className='icon-action' onClick={() => handleClick(item)} />
                                             <Menu
                                                 id="fade-menu"
                                                 MenuListProps={{
@@ -206,8 +221,8 @@ const TableCustom = ({ type }: TableCustomProps) => {
                 })
 
                 :
-                <Paper sx={{ overflow: "hidden" }}>
-                    <TableContainer>
+                <Paper >
+                    <TableContainer >
                         <Table stickyHeader>
                             <TableHead>
                                 <TableRow >
@@ -249,13 +264,26 @@ const TableCustom = ({ type }: TableCustomProps) => {
                                             <TableCell align='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
                                             <TableCell align='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
                                             <TableCell sx={{ textAlign: "-webkit-center" }} align='center'> <span className='cell-item'>{row.date} </span> </TableCell>
-                                            <TableCell align='right'>
-                                                <span className='cell-item'>
-                                                    <MoreVertIcon
-                                                        className='icon-edit'
-                                                        onClick={handleClick(row)}
-                                                    />
-                                                    <MenuCustom open={open} close={handleClose} anchorEl={anchorEl} selectedRow={selectedRow} />
+                                            <TableCell align='left'>
+                                                <span className='cell-item icon-container' onClick={handleClick(row)}>
+                                                    <ArrowDropDownIcon className='icon-edit' />
+
+                                                    {/* <div className='menuEdit-container'>
+                                                        <div className="menu-list">
+                                                            <div className="menu-item" onClick={() => handleOpenModalEditTable(row)}>
+                                                                Sửa
+                                                            </div>
+                                                            <div className="menu-item">
+                                                                Xóa
+                                                            </div>
+                                                            <div className="menu-item">
+                                                                Chi tiết
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div> */}
+                                                    <MenuCustom open={openModalEditTable} close={handleCloseModalEditTable}  selectedRow={selectedRow}  />
+
                                                 </span>
                                             </TableCell>
                                         </TableRow>

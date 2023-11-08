@@ -45,16 +45,32 @@ import Divider from "@mui/material/Divider";
 import Menu from "@mui/material/Menu";
 import React from "react";
 import SelectHouseComponent from "./components/SelectHouse/page";
+import ModalSelectHouse from "./components/ModalSelectHouse/page";
+import DialogEditHouse from "./components/DialogEditHouse/page";
 
 export default function Home() {
+  const MenuHouse = [
+    { value: 'Qt1', label: 'Quang trung 1' },
+    { value: 'Qt2', label: 'Quang trung 2' },
+    { value: 'Qt3', label: 'Quang trung 3' }
+  ]
   const [openModalAddHouse, setOpenModalAddHouse] = useState(false);
   const [openModalAddRoom, setOpenModalAddRoom] = useState(false);
   const [displayGrid, setDisplayGrid] = useState(false)
-
+  const [openModalSelectHouse, setModalOpenSelectHouse] = useState(false)
+  const [openModalEditHouse, setOpenModalEditHouse] = useState(false);
+  const handleOpenSelectHouse = () => {
+    setModalOpenSelectHouse(!openModalSelectHouse)
+  }
+  const handleCloseSeclectHouse = () => {
+    setModalOpenSelectHouse(false)
+  }
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => {
     setOpenModal(!openModal);
   };
+
+
 
   const handleCloseModal = () => {
     setOpenModal(false);
@@ -72,6 +88,14 @@ export default function Home() {
 
   const handleCloseModalAddHouse = () => {
     setOpenModalAddHouse(false);
+  };
+
+  const handleOpenModalEditHouse = () => {
+    setOpenModalEditHouse(!openModalEditHouse);
+  };
+
+  const handleCloseModalEditHouse = () => {
+    setOpenModalEditHouse(false);
   };
 
   const handleOpenModalAddRoom = () => {
@@ -97,7 +121,7 @@ export default function Home() {
     setOpenModalfilter(true)
 
   }
-  console.log("modal filter", openModalfilter);
+
   const handleCloseModalFilter = () => {
     setOpenModalfilter(false)
   }
@@ -219,10 +243,10 @@ export default function Home() {
           <div className="top">
             <div
               className="info"
-              onClick={handleOpenModal}
+
               style={{ cursor: "pointer" }}
             >
-              <div className="info-wrapp">
+              <div className="info-wrapp" onClick={handleOpenSelectHouse}>
                 <span className="home-info">
                   quang trung <ArrowDropDown sx={{ color: "#9155fd" }} />
 
@@ -230,15 +254,24 @@ export default function Home() {
                 <span className="address">
                   315/272/26 Phạm Văn Chiêu, Phường 9, Gò vấp
                 </span>
-                
+
               </div>
-              {/* <div className="select-container">
-                <SelectHouseComponent/>
+              {/* <div className={`select-container ${openSelectHouse ? "active-select" : ""}`}>
+                <SelectHouseComponent close ={handleCloseSeclectHouse} options={MenuHouse}/>
               </div> */}
-              
-              
-              <MoreVertIcon sx={{color: "black"}} className="icon-menu" onClick={handleClick} />
-              <Menu
+              <div className="menuHouseIcon">
+                <MoreVertIcon sx={{ color: "black" }} className="icon-menu" /* onClick={() =>handleClick}*/ />
+                <div className="menuHouse-container">
+                  <div className="menuHouse-list">
+                    <span className="menuHouse-item" onClick={handleOpenModalEditHouse}>Sửa</span>
+                    <span className="menuHouse-item">Xóa</span>
+                    <span className="menuHouse-item">Chi tiết</span>
+                  </div>
+                </div>
+                <DialogEditHouse open={openModalEditHouse} close={handleCloseModalEditHouse} />
+              </div>
+
+              {/* <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -250,29 +283,12 @@ export default function Home() {
                 <MenuItem onClick={handleClose}>Sửa</MenuItem>
                 <MenuItem onClick={handleClose}>Xóa </MenuItem>
                 <MenuItem onClick={handleClose}>Chi tiết</MenuItem>
-              </Menu>
+              </Menu> */}
+
             </div>
+
             <div className="actions">
-              <Button
-                onClick={handleOpenModalDisplay}
-                variant="outlined"
-                className="btn-actions1"
-              >
-                {" "}
-                <GridViewOutlinedIcon className="icon" /> <span>hiển thị</span>
-                <div className='modalDisplay-container'>
-                  <Modal open={openModalDisplay} onClose={handleCloseModalDisplay}>
-                    <Box sx={styleModalDisplay}>
 
-                      <Button sx={styleBtnDisplay1} className="btn-1" onClick={handleDisplayGrid} variant="outlined">Kiểu lưới</Button>
-
-                      <Button sx={styleBtnDisplay2} onClick={handleDisplayTable} variant="contained">Kiểu bảng</Button>
-
-                    </Box>
-
-                  </Modal>
-                </div>
-              </Button>
 
 
               <Button
@@ -281,30 +297,53 @@ export default function Home() {
                 className="btn-actions2"
               >
                 {" "}
+
                 <AddHomeWorkIcon className="icon" /> <span>thêm nhà</span>{" "}
               </Button>
             </div>
           </div>
-          
+
           <div className="bottom">
             <div className="section1">
               <div className="content">
                 <div className="data">
                   <div className="data-item">
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "#ff00ff !important" }}>tổng giá thuê: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "green !important" }}>tổng tiền cọc: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "black !important" }}>tổng xe: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "orange !important" }}>tổng người ở: </Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "#ff00ff !important" }}>tổng thuê:2.394.324.000 </Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "green !important" }}>tổng cọc: 1.324.234.234</Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "black !important" }}>tổng xe: 24</Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "orange !important" }}>tổng người: 56 </Typography>
                   </div>
                   <div className="data-item">
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "purple !important" }}>số phòng trống: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "blue !important" }}>phòng đã cọc: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "#83db10 !important" }}>đang cho thuê: </Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "red !important" }}> báo trả: </Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "purple !important" }}>trống: 14 </Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "blue !important" }}>cọc: 23</Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "#83db10 !important" }}>thuê: 28</Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "red !important" }}> báo trả: 04</Typography>
                   </div>
 
                 </div>
                 <div className="actions">
+                  <div className="action3">
+                    <Button
+                      onClick={handleOpenModalDisplay}
+                      variant="outlined"
+                      className="btn3"
+                    >
+                      {" "}
+                      <GridViewOutlinedIcon className="icon" /> <span>hiển thị</span>
+                      <div className='modalDisplay-container'>
+                        <Modal open={openModalDisplay} onClose={handleCloseModalDisplay}>
+                          <Box sx={styleModalDisplay}>
+
+                            <Button sx={styleBtnDisplay1} className="btn-1" onClick={handleDisplayGrid} variant="outlined">Kiểu lưới</Button>
+
+                            <Button sx={styleBtnDisplay2} onClick={handleDisplayTable} variant="contained">Kiểu bảng</Button>
+
+                          </Box>
+
+                        </Modal>
+                      </div>
+                    </Button>
+                  </div>
                   <div className="action1">
                     <Button variant="outlined" className="btn1" onClick={handleOpenModalFilter}>
                       <FilterAltOutlinedIcon />
@@ -319,7 +358,7 @@ export default function Home() {
                       sx={{ position: "fixed", }}
                     >
                       <Box sx={styleBox}>
-                        <DialogTitle sx={{ m: 0, p: 3, fontWeight: "600", color:"black" }} id="customized-dialog-title">
+                        <DialogTitle sx={{ m: 0, p: 2, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
                           Bộ lọc
                         </DialogTitle>
                         <IconButton
@@ -346,13 +385,13 @@ export default function Home() {
                               color: "#804bdf",
                               fontWeight: "600"
                             }}>Trạng thái</Typography>
-                            <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+                            <Box sx={{ display: "flex", flexDirection: "column" }}>
 
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang trống" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="cho thuê" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang cọc" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="báo trả" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="trả/cọc" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang trống" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="cho thuê" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="đang cọc" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="báo trả" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="trả/cọc" />
                             </Box>
                           </Box>
                           <Divider />
@@ -362,14 +401,14 @@ export default function Home() {
                               color: "#804bdf",
                               fontWeight: "600"
                             }}>Mốc thanh toán</Typography>
-                            <Box sx={{ display: "flex", flexWrap: "wrap", }}>
+                            <Box sx={{ display: "flex", flexDirection: "column" }}>
 
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="1 - 5" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="6 - 10" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="11 - 15" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="16 - 20" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="21 - 25" />
-                              <FormControlLabel sx={{color: "black"}} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="26 - cuối tháng" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="1 - 5" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="6 - 10" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="11 - 15" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="16 - 20" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="21 - 25" />
+                              <FormControlLabel sx={{ color: "black" }} control={<Checkbox sx={{ '&.Mui-checked': { color: purple[400] } }} />} label="26 - cuối tháng" />
                             </Box>
                           </Box>
 
@@ -380,8 +419,15 @@ export default function Home() {
 
                         <DialogActions>
                           <Button style={{
+                            border: "none",
+                            color: "#333",
+                            background: "none"
+                          }} variant="outlined" autoFocus onClick={handleCloseModalFilter}>
+                            Đóng
+                          </Button>
+                          <Button style={{
                             background: "#9155fd"
-                          }} variant="contained" autoFocus onClick={handleCloseModal}>
+                          }} variant="contained" autoFocus onClick={handleCloseModalFilter}>
                             Lọc
                           </Button>
                         </DialogActions>
@@ -400,7 +446,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="section2">
               <TableCustom type={displayGrid} />
 
@@ -419,6 +465,12 @@ export default function Home() {
       {/* this is modal section */}
       <div className="modal " >
         <DialogAddRoom open={openModalAddRoom} close={handleCloseModalAddRoom} />
+      </div>
+      {/* this is modal section */}
+
+      {/* this is modal section */}
+      <div className="modal " >
+        <ModalSelectHouse open={openModalSelectHouse} close={handleCloseSeclectHouse} options={MenuHouse} />
       </div>
       {/* this is modal section */}
 

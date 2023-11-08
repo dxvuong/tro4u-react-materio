@@ -1,4 +1,7 @@
 .table-container {
+    ::-webkit-scrollbar {
+        width: 1px;
+    }
     .grid-container {
         .floor-container {
             width: 100%;
@@ -149,14 +152,12 @@
         width: max-content;
         margin-left: 17px;
 
-        .icon-edit {
-            color: orange;
-
-            &:hover {
-                cursor: pointer;
-                opacity: 0.7;
+        &:hover {
+            .menu-container {
+                display: block;
             }
         }
+
 
         .icon-delete {
             color: red;
@@ -173,6 +174,7 @@
 
         .icon-add {
             color: green;
+            margin-left: 17px;
             cursor: pointer;
 
             &:hover {
@@ -189,6 +191,97 @@
             }
         }
     }
+
+    .icon-container {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            // background-color: red;
+            content: "";
+            width: 50px;
+            height: 30px;
+            bottom: -16px;
+            right: 0;
+        }
+
+        // &:nth-last-child(-n+2):hover {
+        //     .menuEdit-container {
+        //         display: block;
+        //         top: -80px
+        //             /* Giá trị top mong muốn */
+        //         ;
+        //         right: 20px
+        //             /* Giá trị right mong muốn */
+        //         ;
+        //     }
+        // }
+
+
+
+        &:hover {
+            .menuEdit-container {
+                display: block;
+
+            }
+        }
+
+        .icon-edit {
+            color: orange;
+            margin-left: 9px;
+            position: relative;
+
+
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.7;
+
+            }
+        }
+
+        .menu-custom {
+            display: none;
+        }
+
+        .menuEdit-container {
+            position: absolute;
+            background-color: #fff;
+            right: -13px;
+            z-index: 20;
+            top: 10px;
+            width: 80px;
+            display: none;
+            border-radius: 6px;
+            box-shadow: 0 5px 5px -3px rgba(58, 53, 65, 0.2), 0 8px 10px 1px rgba(58, 53, 65, 0.14), 0 3px 14px 2px rgba(58, 53, 65, 0.12);
+
+            :last-child {
+                top: -80px;
+                right: 20px;
+            }
+
+            .menu-list {
+                display: flex;
+                flex-direction: column;
+
+                .menu-item {
+                    padding: 10px;
+                    color: black;
+                    text-align: left;
+
+                    &:hover {
+                        background-color: #f4f5fa;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
+
 
     .bg-gray {
         background-color: #f4f5fa;
@@ -246,7 +339,7 @@
 
                     .icon-action {
                         font-size: 16px;
-                        color: #333;
+                        color: #333 !important;
                     }
 
                     .detail {
@@ -256,6 +349,7 @@
                             flex-direction: column;
                             gap: 0px;
                             font-size: 13px;
+
                             .icon-user {
                                 font-size: 13px;
                             }
@@ -271,6 +365,7 @@
                             flex-direction: column;
                             gap: 0px;
                             font-size: 13px;
+
                             .icon-bike {
                                 font-size: 13px;
                             }
@@ -293,7 +388,9 @@
 
         }
 
-        .cell-item {}
+        .cell-item {
+            margin-left: 7px !important;
+        }
 
         .bg-gray {
             background-color: #f4f5fa;

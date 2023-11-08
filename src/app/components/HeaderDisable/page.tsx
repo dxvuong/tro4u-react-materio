@@ -181,7 +181,7 @@ const HeaderDisableComponent = () => {
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 24,
-    p: 4,
+    p: 2,
     borderRadius: "6px",
     "@media (max-width: 767px)": {
       width: 330,

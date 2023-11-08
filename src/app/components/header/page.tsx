@@ -52,6 +52,8 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import Tab from "@mui/material/Tab";
 import TabPanel from "@mui/lab/TabPanel";
+import KeyIcon from '@mui/icons-material/Key';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 type ApiProps = {
   user_token: string;
@@ -120,6 +122,7 @@ const HeaderComponent = () => {
 
   const [apiLoginData, setApiLoginData] = useState<ApiProps>();
   const textfield = {
+    position: "relative",
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderColor: "#9155fd",
       color: "#9155fd",
@@ -181,7 +184,7 @@ const HeaderComponent = () => {
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 24,
-    p: 4,
+    p: 1,
     borderRadius: "6px",
     "@media (max-width: 767px)": {
       width: 330,
@@ -333,9 +336,13 @@ const HeaderComponent = () => {
               <Box sx={styleInputSearch}>
                 <TabContext value={value}>
                   <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChange} aria-label="lab API tabs example">
-                      <Tab label="Cục bộ" value="1" />
-                      <Tab label="Khách" value="2" />
+                    <TabList onChange={handleChange} aria-label="lab API tabs example" sx={{
+                      '& .MuiTabs-indicator': {
+                        backgroundColor: 'rgb(128, 75, 223)',
+                      },
+                    }}>
+                      <Tab label="Cục bộ" value="1" style={{ color: "rgb(128, 75, 223)" }} />
+                      <Tab label="Khách" value="2" style={{ color: "rgb(128, 75, 223)" }} />
 
                     </TabList>
                   </Box>
@@ -354,9 +361,9 @@ const HeaderComponent = () => {
                       size="small"
                       sx={{
                         position: "absolute",
-                        fontSize: "30px",
-                        top: "40px",
-                        right: "35px",
+                        fontSize: "25px",
+                        right: "11%",
+                        top: "54%"
                       }}
                     >
                       <SearchIcon fontSize="inherit" />
@@ -377,9 +384,9 @@ const HeaderComponent = () => {
                       size="small"
                       sx={{
                         position: "absolute",
-                        fontSize: "30px",
-                        top: "40px",
-                        right: "35px",
+                        fontSize: "25px",
+                        right: "11%",
+                        top: "54%"
                       }}
                     >
                       <SearchIcon fontSize="inherit" />
@@ -402,7 +409,7 @@ const HeaderComponent = () => {
                 // onClick={handleUserMenu}
                 />
                 <Paper className="popperMenu" sx={{ width: "240px !important", maxWidth: '100%' }}>
-                  <MenuList>
+                  <MenuList className="menu-list">
                     <MenuItem className="menu-item" style={{ padding: "10px 16px" }}>
                       <div className="profile-container">
                         <div className="avatar">
@@ -416,8 +423,8 @@ const HeaderComponent = () => {
                         </div>
                       </div>
                     </MenuItem>
-                    <MenuItem
-                      className="menu-items bg"
+                    <Link href="#"
+                      className="menu-item bg"
                     >
                       <PersonOutlineIcon className="icon" />
                       <span
@@ -427,11 +434,12 @@ const HeaderComponent = () => {
                       >
                         Thông tin tài khoản
                       </span>
-                    </MenuItem>
-                    <MenuItem
-                      className="menu-items bg"
+                    </Link>
+                    <Link
+                      href="#"
+                      className="menu-item bg"
                     >
-                      <PersonOutlineIcon className="icon" />
+                      <KeyIcon className="icon" />
                       <span
                         style={{
                           color: "rgba(58, 53, 65, 0.68)",
@@ -439,11 +447,12 @@ const HeaderComponent = () => {
                       >
                         Đổi mật khẩu
                       </span>
-                    </MenuItem>
-                    <MenuItem
-                      className="menu-items bg"
+                    </Link>
+                    <Link
+                      href="#"
+                      className="menu-item bg"
                     >
-                      <PersonOutlineIcon className="icon" />
+                      <AttachMoneyIcon className="icon" />
                       <span
                         style={{
                           color: "rgba(58, 53, 65, 0.68)",
@@ -451,23 +460,16 @@ const HeaderComponent = () => {
                       >
                         Xu
                       </span>
-                    </MenuItem>
+                    </Link>
                     <Divider />
-                    <MenuItem
-
-                      className="menu-items"
+                    <Link
+                      href="/"
+                      className="menu-item"
+                      onClick={handleLogout}
                     >
                       <LogoutIcon className="icon" />
-                      <Link href="/" onClick={handleLogout}>
-                        <span
-                          style={{
-                            color: "rgba(58, 53, 65, 0.68)",
-                          }}
-                        >
-                          Đăng xuất
-                        </span>
-                      </Link>
-                    </MenuItem>
+                      <span >Đăng xuất</span>
+                    </Link>
 
                   </MenuList>
                 </Paper>
@@ -625,15 +627,15 @@ const HeaderComponent = () => {
                   )}
                 </Popper> */}
                 <Paper className="popperMenu" sx={{ width: 230, maxWidth: '100%' }}>
-                  <MenuList>
-                    <MenuItem className="menu-item">
+                  <MenuList className="menu-list">
+                    <Link href="/login" className="menu-item">
                       <LoginIcon className="icon" />
-                      <Link href="/login">Đăng nhập</Link>
-                    </MenuItem>
-                    <MenuItem className="menu-item">
+                      <span >Đăng nhập</span>
+                    </Link>
+                    <Link href="/register" className="menu-item">
                       <LogoutIcon className="icon" />
-                      <Link href="/register">Đăng Ký</Link>
-                    </MenuItem>
+                      <span >Đăng Ký</span>
+                    </Link>
                   </MenuList>
                 </Paper>
               </div>

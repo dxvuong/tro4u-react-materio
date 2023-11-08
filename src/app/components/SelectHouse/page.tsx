@@ -1,15 +1,27 @@
-import React from 'react'
-import Select from 'react-select'
+// import React from 'react'
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
-const SelectHouseComponent = () => {
+
+
+// interface SelectHouseComponentProps {
+  
+//   options: { value: string; label: string }[];
+// }
+
+
+// const SelectHouseComponent = ({options}: SelectHouseComponentProps) => {
+  
+//   return (
+    
+//   )
+// }
+
+// export default SelectHouseComponent
+import React from 'react'
+
+const page = () => {
   return (
-    <Select options={options} />
+    <div>page</div>
   )
 }
 
-export default SelectHouseComponent
+export default page
