@@ -14,6 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import DialogContent from '@mui/material/DialogContent';
 import { DialogActions, Divider } from '@mui/material';
 import "./page.scss"
+import Link from 'next/link';
 interface TableRowData {
     id: string;
     guest: any;
@@ -157,7 +158,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         marginBottom: "10px"
     };
     console.log(selectedRow);
-    
+
     return (
         <>
             {/* <Menu
@@ -176,19 +177,24 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             </Menu> */}
             <div className='menuEdit-container'>
                 <div className="menu-list">
-                    <div className="menu-item" onClick={ handleOpenModal}>
+                    <div className="menu-item" onClick={handleOpenModal}>
                         Sửa
                     </div>
                     <div className="menu-item">
-                        Xóa
+                        <Link href="#">
+                            Xóa
+                        </Link>
+
                     </div>
                     <div className="menu-item">
-                        Chi tiết
+                        <Link href="chi tiet">
+                            Chi tiết
+                        </Link>
                     </div>
                 </div>
 
             </div>
-            
+
 
             <Modal
                 open={openModal}
