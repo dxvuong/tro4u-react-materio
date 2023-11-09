@@ -1,12 +1,33 @@
 .input {
     padding: 10px;
+
+}
+.btn {
+   background-color: #fff !important;
+   color: #333 !important;
+   border: none !important;
+   &:hover {
+    color: #804bdf !important;
+    background-color: #fff !important;
+    border: none !important;
+   }
+   
 }
 
 .modal-container {
+    position: fixed !important;
     ::-webkit-scrollbar {
         width: 1px;
     }
-
+    
+    
     /* Handle on hover */
     
+}
+
+@media (max-width: 783px) {
+    .input {
+        max-width: 343px;
+    
+    }
 }

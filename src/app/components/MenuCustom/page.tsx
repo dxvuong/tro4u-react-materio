@@ -13,7 +13,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from "@mui/icons-material/Close";
 import DialogContent from '@mui/material/DialogContent';
 import { DialogActions, Divider } from '@mui/material';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import "./page.scss"
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Link from 'next/link';
 interface TableRowData {
     id: string;
@@ -113,7 +116,9 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         width: 360,
         bgcolor: 'background.paper',
         boxShadow: 24,
-
+        "@media (max-width: 783px)": {
+            width: 330,
+        },
     };
     const styleModal = {
         maxWidth: "360px",
@@ -122,8 +127,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         marginTop: "10px",
 
         "@media (max-width: 783px)": {
-            height: "500px",
-            padding: "10px !important"
+            minWidth: "330px",
         },
     }
     console.log("selected: ", selectedRow);
@@ -178,18 +182,21 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             <div className='menuEdit-container'>
                 <div className="menu-list">
                     <div className="menu-item" onClick={handleOpenModal}>
+                        <EditOutlinedIcon />
                         Sửa
                     </div>
                     <div className="menu-item">
-                        <Link href="#">
+                        
+                            <DeleteOutlinedIcon />
                             Xóa
-                        </Link>
+                        
 
                     </div>
                     <div className="menu-item">
-                        <Link href="chi tiet">
+                        
+                            <InfoOutlinedIcon />
                             Chi tiết
-                        </Link>
+                        
                     </div>
                 </div>
 
@@ -308,11 +315,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
                     <DialogActions style={{
                         textAlign: "right"
                     }}>
-                        <Button style={{
-                            background: "#fff",
-                            border: "none",
-                            color: "black"
-                        }} variant="outlined" autoFocus onClick={handleClose}>
+                        <Button className='btn' variant="outlined" autoFocus onClick={handleClose}>
                             Đóng
                         </Button>
                         <Button style={{

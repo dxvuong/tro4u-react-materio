@@ -11,7 +11,7 @@ import Modal from '@mui/material/Modal'
 import CloseIcon from "@mui/icons-material/Close";
 import SelectHouseComponent from '../SelectHouse/page'
 import Select, { StylesConfig } from 'react-select';
-
+import "./page.scss"
 interface ModalSelectHouseProps {
     open: boolean,
     close: () => void
@@ -25,6 +25,7 @@ const ModalSelectHouse = ({ open, close, options }: ModalSelectHouseProps) => {
         transform: 'translate(-50%, -50%)',
         width: "20%",
         bgcolor: 'background.paper',
+        borderRadius: "6px",
         border: "none !important",
         boxShadow: 24,
         "@media (max-width: 783px)": {
@@ -57,7 +58,7 @@ const ModalSelectHouse = ({ open, close, options }: ModalSelectHouseProps) => {
             sx={{ position: "fixed", border: "none" }}
         >
             <Box sx={styleBox}>
-                <DialogTitle sx={{ m: 0, p: 2, color: "#fff", background:"#804bdf" }} id="customized-dialog-title">
+                <DialogTitle sx={{padding: " 10px 11px !important", m: 0, color: "#fff", background:"#804bdf", borderRadius:"6px 6px 0 0" }} id="customized-dialog-title">
                     Chọn nhà
                 </DialogTitle>
                 <IconButton

@@ -47,7 +47,9 @@ import React from "react";
 import SelectHouseComponent from "./components/SelectHouse/page";
 import ModalSelectHouse from "./components/ModalSelectHouse/page";
 import DialogEditHouse from "./components/DialogEditHouse/page";
-
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 export default function Home() {
   const MenuHouse = [
     { value: 'Qt1', label: 'Quang trung 1' },
@@ -161,20 +163,43 @@ export default function Home() {
     transform: 'translate(-50%, -50%)',
     width: 360,
     bgcolor: 'background.paper',
-
+    borderRadius: "6px",
     boxShadow: 24,
 
   };
+  const styleDialogContent = {
+    display: "flex",
+    padding: "15px",
+    gap: "10px"
+  }
   const styleModal = {
     maxWidth: "360px",
     minWidth: "360px",
-    padding: "20px",
+    padding: "10px",
+    
 
 
-    "@media (max-width: 783px)": {
-      padding: "10px !important"
-    },
-  }
+    // "@media (max-width: 783px)": {
+    //     height: "590px",
+    //     padding: "10px !important"
+
+    // },
+    // "@media (min-width: 784px) and (max-width: 1537px)": {
+    //     height: "590px",
+    //     padding: "10px !important"
+
+    // },
+}
+  // const styleModal = {
+  //   maxWidth: "360px",
+  //   minWidth: "360px",
+  //   padding: "20px",
+
+
+  //   "@media (max-width: 783px)": {
+  //     padding: "10px !important"
+  //   },
+  // }
   const ModalFilter = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
       padding: theme.spacing(3),
@@ -187,22 +212,24 @@ export default function Home() {
   }));
 
 
-  const styleModalDisplay = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 500,
-    bgcolor: 'background.paper',
-    display: "flex",
-    gap: "10px",
-    boxShadow: 24,
-    p: 4,
-    "@media (max-width: 783px)": {
-      width: 318,
-      left: "50%"
-    },
-  };
+//   const styleBox = {
+//     position: 'absolute' as 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: 360,
+//     bgcolor: 'background.paper',
+//     borderRadius: "6px",
+//     boxShadow: 24,
+//     "@media (max-width: 783px)": {
+//         width: 330,
+//         top: '70%',
+//     },
+//     "@media (min-width: 783px) and (max-width: 1537px)": {
+//         top: '65%',
+//     },
+
+// };
   // const CustomInputLabel = styled(InputLabel)({
   //   '&.Mui-focused': {
   //     color: 'green', // Thay đổi màu khi tập trung
@@ -263,12 +290,12 @@ export default function Home() {
                 <MoreVertIcon sx={{ color: "black" }} className="icon-menu" /* onClick={() =>handleClick}*/ />
                 <div className="menuHouse-container">
                   <div className="menuHouse-list">
-                    <span className="menuHouse-item" onClick={handleOpenModalEditHouse}>Sửa</span>
-                    <span className="menuHouse-item">Xóa</span>
-                    <span className="menuHouse-item">Chi tiết</span>
+                    <span className="menuHouse-item" onClick={handleOpenModalEditHouse}><EditOutlinedIcon sx={{ color: "black" }} /> Sửa</span>
+                    <span className="menuHouse-item"><DeleteOutlineOutlinedIcon /> Xóa</span>
+                    <span className="menuHouse-item"><InfoOutlinedIcon /> Chi tiết</span>
                   </div>
                 </div>
-                <DialogEditHouse open={openModalEditHouse} close={handleCloseModalEditHouse} />
+
               </div>
 
               {/* <Menu
@@ -308,12 +335,12 @@ export default function Home() {
               <div className="content">
                 <div className="data">
                   <div className="data-item">
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "#ff00ff !important" }}>tổng thuê:2.394.324.000 </Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "#ff00ff !important" }}>tổng thuê: 394.324.000 </Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "green !important" }}>tổng cọc: 1.324.234.234</Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "black !important" }}>tổng xe: 24</Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "orange !important" }}>tổng người: 56 </Typography>
                   </div>
-                  <div className="data-item">
+                  <div className="data-item2">
                     <Typography className="text" sx={{ fontWeight: "bold", color: "purple !important" }}>trống: 14 </Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "blue !important" }}>cọc: 23</Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "#83db10 !important" }}>thuê: 28</Typography>
@@ -332,11 +359,29 @@ export default function Home() {
                       <GridViewOutlinedIcon className="icon" /> <span>hiển thị</span>
                       <div className='modalDisplay-container'>
                         <Modal open={openModalDisplay} onClose={handleCloseModalDisplay}>
-                          <Box sx={styleModalDisplay}>
+                          <Box sx={styleBox}>
+                            <DialogTitle sx={{ padding: " 10px 11px", m: 0, color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
+                              Kiểu hiển thị
+                            </DialogTitle>
+                            <IconButton
+                              aria-label="close"
+                              onClick={handleCloseModalDisplay}
+                              sx={{
+                                position: "absolute",
+                                right: 8,
+                                top: 8,
+                                color: (theme) => theme.palette.grey[500],
+                              }}
+                            >
+                              <CloseIcon />
+                            </IconButton>
+                            <DialogContent sx={styleDialogContent}>
+                              <Button sx={styleBtnDisplay1} className="btn-1" onClick={handleDisplayGrid} variant="outlined">Kiểu lưới</Button>
 
-                            <Button sx={styleBtnDisplay1} className="btn-1" onClick={handleDisplayGrid} variant="outlined">Kiểu lưới</Button>
+                              <Button sx={styleBtnDisplay2} onClick={handleDisplayTable} variant="contained">Kiểu bảng</Button>
+                            </DialogContent>
 
-                            <Button sx={styleBtnDisplay2} onClick={handleDisplayTable} variant="contained">Kiểu bảng</Button>
+
 
                           </Box>
 
@@ -358,7 +403,7 @@ export default function Home() {
                       sx={{ position: "fixed", }}
                     >
                       <Box sx={styleBox}>
-                        <DialogTitle sx={{ m: 0, p: 2, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
+                        <DialogTitle sx={{ m: 0, padding: " 10px 15px", color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
                           Bộ lọc
                         </DialogTitle>
                         <IconButton
@@ -418,11 +463,7 @@ export default function Home() {
                         </DialogContent>
 
                         <DialogActions>
-                          <Button style={{
-                            border: "none",
-                            color: "#333",
-                            background: "none"
-                          }} variant="outlined" autoFocus onClick={handleCloseModalFilter}>
+                          <Button className="btn-close" variant="outlined" autoFocus onClick={handleCloseModalFilter}>
                             Đóng
                           </Button>
                           <Button style={{
@@ -448,7 +489,7 @@ export default function Home() {
             </div>
 
             <div className="section2">
-              <TableCustom type={displayGrid} />
+              <TableCustom types={displayGrid} />
 
             </div>
           </div>
@@ -473,7 +514,7 @@ export default function Home() {
         <ModalSelectHouse open={openModalSelectHouse} close={handleCloseSeclectHouse} options={MenuHouse} />
       </div>
       {/* this is modal section */}
-
+      <DialogEditHouse open={openModalEditHouse} close={handleCloseModalEditHouse} />
     </div>
   );
 }

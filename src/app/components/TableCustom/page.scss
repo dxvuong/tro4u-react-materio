@@ -1,7 +1,13 @@
+.center {
+    text-align: -webkit-center !important;
+}
+
 .table-container {
+
     ::-webkit-scrollbar {
         width: 1px;
     }
+
     .grid-container {
         .floor-container {
             width: 100%;
@@ -150,7 +156,7 @@
         color: #333;
         gap: 10px;
         width: max-content;
-        margin-left: 17px;
+        
 
         &:hover {
             .menu-container {
@@ -174,7 +180,7 @@
 
         .icon-add {
             color: green;
-            margin-left: 17px;
+
             cursor: pointer;
 
             &:hover {
@@ -190,6 +196,22 @@
                 opacity: 0.5;
             }
         }
+    }
+
+    .ct {
+        color: #13cb36;
+    }
+
+    .dc {
+        color: #1f84d9;
+    }
+
+    .bt {
+        color: #b12ce3;
+    }
+
+    .tc {
+        color: rgb(91 0 255)
     }
 
     .icon-container {
@@ -227,7 +249,7 @@
         }
 
         .icon-edit {
-            color: orange;
+            color: #804bdf;
             margin-left: 9px;
             position: relative;
 
@@ -247,10 +269,10 @@
         .menuEdit-container {
             position: absolute;
             background-color: #fff;
-            right: -13px;
+            right: 7px;
             z-index: 20;
-            top: 10px;
-            width: 80px;
+            top: 16px;
+            width: 100pxpx;
             display: none;
             border-radius: 6px;
             box-shadow: 0 5px 5px -3px rgba(58, 53, 65, 0.2), 0 8px 10px 1px rgba(58, 53, 65, 0.14), 0 3px 14px 2px rgba(58, 53, 65, 0.12);
@@ -268,6 +290,9 @@
                     padding: 10px;
                     color: black;
                     text-align: left;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
 
                     &:hover {
                         background-color: #f4f5fa;

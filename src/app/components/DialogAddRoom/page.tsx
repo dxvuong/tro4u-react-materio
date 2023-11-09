@@ -84,7 +84,7 @@ const DialogAddRoom = ({ open, close }: BootstrapDialogCustomProps) => {
         transform: 'translate(-50%, -50%)',
         width: 360,
         bgcolor: 'background.paper',
-
+        borderRadius: "6px",
         boxShadow: 24,
 
     };
@@ -111,7 +111,7 @@ const DialogAddRoom = ({ open, close }: BootstrapDialogCustomProps) => {
             sx={{ position: "fixed", }}
         >
             <Box sx={styleBox}>
-                <DialogTitle sx={{ m: 0, p: 2, color: "#fff",background: "#804bdf" }} id="customized-dialog-title">
+                <DialogTitle sx={{ m: 0, padding: " 10px 11px", color: "#fff",background: "#804bdf",borderRadius:"6px 6px 0 0" }} id="customized-dialog-title">
                     Tạo phòng
                 </DialogTitle>
                 <IconButton

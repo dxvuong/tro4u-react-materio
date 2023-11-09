@@ -1,9 +1,27 @@
+.btn {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    &:hover {
+     color: #804bdf;
+     background-color: #fff;
+     border: none;
+    }
+    
+ }
+.icon-edit {
+    &:hover {
+        .menu-option {
+            display: block;
+        }
+    }
+}
 .menuEdit-container {
     position: absolute;
     background-color: #fff;
-    right: 0;
+    right: 7px;
     z-index: 20;
-    top: 30px;
+    top: 16px;
     width: 110px;
     display: block;
     border-radius: 6px;

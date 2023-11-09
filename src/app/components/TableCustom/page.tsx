@@ -42,10 +42,10 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
     const [openModalContact, setOpenModalContact] = useState(false)
     const [openModalEditTable, setOpenModalEditTable] = useState(false)
-    const handleOpenModalEditTable = (row : TableRowData) => {
+    const handleOpenModalEditTable = (row: TableRowData) => {
         setOpenModalEditTable(!openModalEditTable)
         setSelectedRow(row)
-        
+
     }
     const handleCloseModalEditTable = () => {
         setOpenModalEditTable(false)
@@ -62,8 +62,8 @@ const TableCustom = ({ types }: TableCustomProps) => {
     }
 
     const [selectedRow, setSelectedRow] = useState<TableRowData | null>(null);
-    console.log("data:" , selectedRow);
-    
+    console.log("data:", selectedRow);
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
@@ -94,10 +94,10 @@ const TableCustom = ({ types }: TableCustomProps) => {
         createData("A00001", "", "0", "", "đang trống", "", "", '', ""),
         createData("A00002", "khách thuê2", "2", "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "23/09/2016"),
         createData("A00003", "khách thuê 3", "0", "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
-        createData("A00004", "khách thuê 4", "2", "0819673847", "báo trả", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
+        createData("A00004", "khách thuê 4", "2", "0819673847", "báo trả: 01/11/2023 ", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
         createData("A00005", "", "0", "", "đang trống", "", "", '', ""),
         createData("A00006", "khách thuê 6", "1", "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "25/12/2017"),
-        
+
     ];
 
     function createData2(
@@ -235,36 +235,44 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Tiền cọc</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Giá thuê</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Ngày thanh toán</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Sửa / Xóa</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"></TableCell>
 
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
+                            <TableBody >
                                 {rows.map((row) => {
-
-
                                     return (
                                         <TableRow key={row.id}>
 
-                                            <TableCell align='center' className={`fixed-cell ${row.status === "đang trống" ? "bg-empty" :
+                                            <TableCell className={`fixed-cell center ${row.status === "đang trống" ? "bg-empty" :
                                                 row.status === "cho thuê" ? "bg-rent" :
                                                     row.status === "đang cọc" ? "bg-deposit" :
-                                                        row.status === "báo trả" ? "bg-return" : "bg-return-deposit"
+                                                        row.status === "trả/cọc" ? "bg-return-deposit" : "bg-return"
                                                 }`} > <span className='cell-item'>{row.id} </span> </TableCell>
-                                            <TableCell align='center'>
+                                            <TableCell className='center' >
                                                 <span className='cell-item'>
                                                     {row.status === "đang trống" ? "" : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
 
                                                 </span>
                                             </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.status === "đang trống" ? "" : row.bike}{row.status === "đang trống" ? "" : <TwoWheelerIcon className='icon-bike' />}  </span>  </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
-                                            <TableCell align='right'> <span className='cell-item'>{row.status === "đang trống" ? <ControlPointIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}   </span> </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.termContract} </span> </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
-                                            <TableCell align='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
-                                            <TableCell sx={{ textAlign: "-webkit-center" }} align='center'> <span className='cell-item'>{row.date} </span> </TableCell>
-                                            <TableCell align='left'>
+                                            <TableCell className='center' >
+                                                <span className="cell-item">
+                                                    {row.status === "đang trống" ? "" : row.bike}{row.status === "đang trống" ? "" : <TwoWheelerIcon className='icon-bike' />}
+                                                </span>  </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
+                                            <TableCell className='center'>
+                                                <span className={`cell-item ct ${row.status === "cho thuê" ? "ct" :
+                                                    row.status === "đang cọc" ? "dc" :
+                                                        row.status === "trả/cọc" ? "tc" : "bt"
+
+                                                    }`}>
+                                                    {row.status === "đang trống" ? <ControlPointIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}
+                                                </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.termContract} </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
+                                            <TableCell className='center' >
                                                 <span className='cell-item icon-container' onClick={handleClick(row)}>
                                                     <ArrowDropDownIcon className='icon-edit' />
 
@@ -282,13 +290,19 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                         </div>
                                                        
                                                     </div> */}
-                                                    <MenuCustom open={openModalEditTable} close={handleCloseModalEditTable}  selectedRow={selectedRow}  />
+                                                    <MenuCustom open={openModalEditTable} close={handleCloseModalEditTable} selectedRow={selectedRow} />
 
                                                 </span>
                                             </TableCell>
                                         </TableRow>
                                     )
                                 })}
+                                <TableRow>
+                                    <TableCell align='center' sx={{height: "100px", backgroundColor: "#f4f5fa"}}>
+                                        <span>Tổng</span>
+                                    </TableCell>
+                                </TableRow>
+                                
                             </TableBody>
                         </Table>
                     </TableContainer>
