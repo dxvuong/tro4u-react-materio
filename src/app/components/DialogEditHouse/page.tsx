@@ -1,9 +1,8 @@
 "use client"
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
-
-import CloseIcon from "@mui/icons-material/Close";
 import React, { ChangeEvent, useState } from 'react'
+import CloseIcon from "@mui/icons-material/Close";
 import DialogContent from '@mui/material/DialogContent';
 import Typography from '@mui/material/Typography';
 import DialogActions from '@mui/material/DialogActions';
@@ -25,6 +24,9 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { block } from 'sharp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+import InputAdornment from '@mui/material/InputAdornment';
 interface BootstrapDialogCustomProps {
     open: boolean,
     close: () => void
@@ -35,8 +37,9 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
     const styleModal = {
         maxWidth: "360px",
         minWidth: "360px",
-        padding: "0",
-        
+        padding: "10px 0",
+
+
 
 
         // "@media (max-width: 783px)": {
@@ -80,22 +83,22 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
     const handleChangePhone = (event: ChangeEvent<HTMLInputElement>) => {
         setPhone(event.target.value)
     }
-    const handleChangeAddress = (event: SelectChangeEvent) => {
+    const handleChangeAddress = (event: ChangeEvent<HTMLInputElement>) => {
         setAddress(event.target.value)
     }
-    const handleChangeWard = (event: SelectChangeEvent) => {
+    const handleChangeWard = (event: ChangeEvent<HTMLInputElement>) => {
         setWard(event.target.value)
     }
-    const handleChangeGroupt = (event: SelectChangeEvent) => {
+    const handleChangeGroupt = (event: ChangeEvent<HTMLInputElement>) => {
         setGroup(event.target.value)
     }
-    const handleChangeDistrict = (event: SelectChangeEvent) => {
+    const handleChangeDistrict = (event: ChangeEvent<HTMLInputElement>) => {
         setDistrict(event.target.value)
     }
-    const handleChangeStatus = (event: SelectChangeEvent) => {
+    const handleChangeStatus = (event: ChangeEvent<HTMLInputElement>) => {
         setStatus(event.target.value)
     }
-    const handleChangeCity = (event: SelectChangeEvent) => {
+    const handleChangeCity = (event: ChangeEvent<HTMLInputElement>) => {
         setCity(event.target.value)
     }
 
@@ -108,21 +111,26 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
     }
 
     const textfield = {
-
+        // maxHeight: "30px",
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
 
-
-
+        '.MuiInputBase-root': {
+            height: "40px"
+        },
         '.MuiSvgIcon-root ': {
-            fill: "white !important",
+            fill: "black !important",
         },
         '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: "#9155fd"
         },
         ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
             color: "#ccc",
+        },
+        "& .MuiFormLabel-root": {
+            color: "#cfcfcf",
+            top: "-8px"
         },
         '.MuiInputLabel-outlined.Mui-focused': {
             color: "#9155fd"
@@ -131,57 +139,66 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             color: '#804bdf', // Màu khi textfield được focus
             borderColor: '#804bdf !important', // Màu viền khi textfield được focus
         },
+        '&.MuiInputBase-input': {
+            paddingLeft: "30px"
+        },
         '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf !important', // Màu viền khi textfield được hover
         },
         background: "#fff",
-        marginBottom: "10px"
+        marginBottom: "15px"
     };
 
-    const styleDate = {
-        marginBottom: "10px",
-        '&.Mui-focused': {
-            color: '#804bdf', // Thay đổi màu khi tập trung
-        },
-        backgroundColor: "#fff",
-        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
+    // const styleDate = {
+    //     marginBottom: "10px",
+    //     '&.Mui-focused': {
+    //         color: '#804bdf', // Thay đổi màu khi tập trung
+    //     },
+    //     backgroundColor: "#fff",
+    //     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    //         borderColor: '#804bdf',
+    //     },
 
-        '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
-        '.MuiSvgIcon-root ': {
-            fill: "#804bdf !important",
-            fontSize: "30px"
-        },
+    //     '&:hover .MuiOutlinedInput-notchedOutline': {
+    //         borderColor: '#804bdf',
+    //     },
+    //     '.MuiSvgIcon-root ': {
+    //         fill: "#804bdf !important",
+    //         fontSize: "30px"
+    //     },
 
-        '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: "#9155fd"
-        },
-        ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
-            color: "#ccc",
-        },
-        '.MuiInputLabel-outlined.Mui-focused': {
-            color: "#9155fd"
-        },
-        ".MuiPickersPopper-root.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root.MuiPopper-root": {
-            position: "absolute !important",
-            left: "19px !important"
-        },
+    //     '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    //         borderColor: "#9155fd"
+    //     },
+    //     ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
+    //         color: "#ccc",
+    //     },
+    //     '.MuiInputLabel-outlined.Mui-focused': {
+    //         color: "#9155fd"
+    //     },
+    //     ".MuiPickersPopper-root.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root.MuiPopper-root": {
+    //         position: "absolute !important",
+    //         left: "19px !important"
+    //     },
 
-        width: "100%"
-    }
+    //     width: "100%"
+    // }
     const styledSelect = {
         marginBottom: "10px",
         '&.Mui-focused': {
             color: '#804bdf', // Thay đổi màu khi tập trung
         },
+        '.MuiInputBase-root': {
+            height: "40px"
+        },
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
+        },
+        ".MuiInputLabel-root": {
+            color: "red !important"
         },
         backgroundColor: "#fff",
 
@@ -192,6 +209,7 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             fill: "black !important",
         },
     }
+
 
 
     const styleBox = {
@@ -207,9 +225,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             width: 330,
             top: '65%',
         },
-        "@media (min-width: 784px) and (max-width: 1537px)": {
-            width: 360,
-            top: '74%',
+        "@media  (max-height: 800px)": {
+            top: '65%',
         },
 
     };
@@ -224,7 +241,7 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         padding: "10px",
         background: "rgb(222 255 223)",
         borderRadius: "6px",
-        
+
 
 
 
@@ -383,90 +400,111 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
         //     </Modal>
         // </LocalizationProvider>
-        
-            <Modal
-                onClose={close}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-                className='modal-container'
-                sx={{position: "absolute", overflowY: "auto", overflowX: "hidden" }}
-            >
-                <Box sx={styleBox}>
-                    <DialogTitle sx={{ padding: " 10px 11px", m: 0, color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
-                        Cập nhật nhà
-                    </DialogTitle>
-                    <IconButton
-                        aria-label="close"
-                        onClick={close}
-                        sx={{
-                            position: "absolute",
-                            right: 8,
-                            top: 8,
-                            color: (theme) => theme.palette.grey[500],
-                        }}
-                    >
-                        <CloseIcon />
-                    </IconButton>
 
-                    <DialogContent sx={styleModal} >
-                        
-                            <div className='input' style={styleInput}>
-                                <TextField
-                                    id="name"
-                                    value={nameHouse}
-                                    label="Tên nhà"
-                                    variant="outlined"
-                                    onChange={handleChangeNameHouse}
-                                    fullWidth
-                                    sx={textfield}
-                                />
-                                <TextField
-                                    id="floor"
-                                    value={floor}
-                                    label="Số lầu"
-                                    variant="outlined"
-                                    onChange={handleChangeFloor}
-                                    fullWidth
-                                    sx={textfield}
-                                />
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Nội bộ</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={group}
-                                        label="Nội bộ"
-                                        onChange={handleChangeGroupt}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"1"}>Nội bộ 1 </MenuItem>
-                                        <MenuItem value={"2"}>Nội bộ 2</MenuItem>
-                                        <MenuItem value={"3"}>Nội bộ 3</MenuItem>
+        <Modal
+            onClose={close}
+            aria-labelledby="customized-dialog-title"
+            open={open}
+            className='modal-container'
+            sx={{ position: "absolute", overflowY: "auto", overflowX: "hidden" }}
+        >
+            <Box sx={styleBox}>
+                <DialogTitle sx={{ padding: " 10px 11px", m: 0, color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
+                    Cập nhật nhà
+                </DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={close}
+                    sx={{
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[500],
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
 
-                                    </Select>
-                                </FormControl>
+                <DialogContent sx={styleModal} >
 
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Tình trạng</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={status}
-                                        label="Tình trạng"
-                                        onChange={handleChangeStatus}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"đt"}>đang trống </MenuItem>
-                                        <MenuItem value={"ct"}>cho thuê</MenuItem>
-                                        <MenuItem value={"đc"}>đang cọc</MenuItem>
-                                        <MenuItem value={"bt"}>báo trả</MenuItem>
-                                        <MenuItem value={"tc"}>trả/cọc</MenuItem>
+                    <div className='input' style={styleInput}>
+                        <TextField
+                            id="name"
+                            value={nameHouse}
+                            label="Tên nhà"
+                            variant="outlined"
 
-                                    </Select>
-                                </FormControl>
+                            onChange={handleChangeNameHouse}
+                            fullWidth
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+
+                        />
+                        <TextField
+                            id="floor"
+                            value={floor}
+                            label="Số lầu"
+                            variant="outlined"
+                            onChange={handleChangeFloor}
+                            fullWidth
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        />
 
 
-                                {/* <TextField
+                        <TextField
+                            id="group"
+                            value={group}
+                            label="Nội bộ"
+                            select
+                            fullWidth
+                            onChange={handleChangeGroupt}
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+
+                        >
+                            <MenuItem value={"1"}>Nội bộ 1 </MenuItem>
+                            <MenuItem value={"2"}>Nội bộ 2</MenuItem>
+                            <MenuItem value={"3"}>Nội bộ 3</MenuItem>
+                        </TextField>
+
+                        <TextField
+
+                            id="status"
+                            value={status}
+                            label="Tình trạng"
+                            onChange={handleChangeStatus}
+                            fullWidth
+                            select
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        >
+                            <MenuItem value={"đt"}>đang trống </MenuItem>
+                            <MenuItem value={"ct"}>cho thuê</MenuItem>
+                            <MenuItem value={"đc"}>đang cọc</MenuItem>
+                            <MenuItem value={"bt"}>báo trả</MenuItem>
+                            <MenuItem value={"tc"}>trả/cọc</MenuItem>
+
+                        </TextField>
+
+
+                        {/* <TextField
                                 id="date"
                                 // value={floor}
                                 label=""
@@ -478,136 +516,165 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                                 sx={textfield}
                             /> */}
 
-                            </div>
-                            <Divider />
-                            <div className='input' style={styleInput}>
-
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Tỉnh/Thành</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={city}
-                                        label="Tỉnh/Thành"
-                                        onChange={handleChangeCity}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"tt1"}>Tỉnh/Thành 1</MenuItem>
-                                        <MenuItem value={"tt2"}>Tỉnh/Thành 2</MenuItem>
-                                        <MenuItem value={"tt3"}>Tỉnh/Thành 3</MenuItem>
-
-
-                                    </Select>
-                                </FormControl>
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Quận</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={district}
-                                        label="Quận"
-                                        onChange={handleChangeDistrict}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"q1"}>Quận 1</MenuItem>
-                                        <MenuItem value={"q2"}>Quận 2</MenuItem>
-                                        <MenuItem value={"q3"}>Quận 3</MenuItem>
+                    </div>
+                    <Divider />
+                    <div className='input' style={styleInput}>
+                        <TextField
+                            fullWidth
+                            id="ci"
+                            value={city}
+                            label="Tỉnh/Thành"
+                            select
+                            onChange={handleChangeCity}
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        >
+                            <MenuItem value={"tt1"}>Tỉnh/Thành 1</MenuItem>
+                            <MenuItem value={"tt2"}>Tỉnh/Thành 2</MenuItem>
+                            <MenuItem value={"tt3"}>Tỉnh/Thành 3</MenuItem>
+                        </TextField>
 
 
-                                    </Select>
-                                </FormControl>
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Phường</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={ward}
-                                        label="Phường"
-                                        onChange={handleChangeWard}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"p1"}>Phường 1</MenuItem>
-                                        <MenuItem value={"p2"}>Phường 2</MenuItem>
-                                        <MenuItem value={"p3"}>Phường 3</MenuItem>
+                        <TextField
+                            id="qu"
+                            fullWidth
+                            value={district}
+                            label="Quận"
+                            select
+                            onChange={handleChangeDistrict}
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        >
+                            <MenuItem value={"q1"}>Quận 1</MenuItem>
+                            <MenuItem value={"q2"}>Quận 2</MenuItem>
+                            <MenuItem value={"q3"}>Quận 3</MenuItem>
+                        </TextField>
 
 
-                                    </Select>
-                                </FormControl>
-                                <FormControl fullWidth>
-                                    <InputLabel sx={styledSelect} id="demo-simple-select-label">Địa chỉ</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={address}
-                                        label="Địa chỉ"
-                                        onChange={handleChangeAddress}
-                                        sx={styledSelect}
-                                    >
-                                        <MenuItem value={"dc1"}>Địa chỉ 1</MenuItem>
-                                        <MenuItem value={"dc2"}>Địa chỉ 2</MenuItem>
-                                        <MenuItem value={"dc3"}>Địa chỉ 3</MenuItem>
+
+                        <TextField
+
+                            id="ph"
+                            value={ward}
+                            fullWidth
+                            select
+                            label="Phường"
+                            onChange={handleChangeWard}
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        >
+                            <MenuItem value={"p1"}>Phường 1</MenuItem>
+                            <MenuItem value={"p2"}>Phường 2</MenuItem>
+                            <MenuItem value={"p3"}>Phường 3</MenuItem>
 
 
-                                    </Select>
-                                </FormControl>
-                            </div>
+                        </TextField>
 
-                            <div className='input' style={styleInputBottom}>
-                                <TextField
-                                    id="phone"
-                                    value={phone}
-                                    label="Số điện thoại"
-                                    variant="outlined"
-                                    onChange={handleChangePhone}
-                                    fullWidth
-                                    sx={textfield}
-                                />
-                                <TextField
-                                    id="link"
-                                    value={link}
-                                    label="Link giới thiệu"
-                                    variant="outlined"
-                                    onChange={handleChangeLink}
-                                    fullWidth
-                                    sx={textfield}
-                                />
-                                <TextField
-                                    id="map"
-                                    value={linkMap}
-                                    label="Map"
-                                    variant="outlined"
-                                    onChange={handleChangeLinkMap}
-                                    fullWidth
-                                    sx={textfield}
-                                />
-                            </div>
-                        
+                        <TextField
+                            id="demo-simple-select"
+                            fullWidth
+                            value={address}
+                            select
+                            label="Địa chỉ"
+                            onChange={handleChangeAddress}
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        >
+                            <MenuItem value={"dc1"}>Địa chỉ 1</MenuItem>
+                            <MenuItem value={"dc2"}>Địa chỉ 2</MenuItem>
+                            <MenuItem value={"dc3"}>Địa chỉ 3</MenuItem>
 
-                    </DialogContent>
-                    {/* <DialogContent sx={styleModalBottom}  >
+
+                        </TextField>
+                    </div>
+
+                    <div className='input' style={styleInputBottom}>
+                        <TextField
+                            id="phone"
+                            value={phone}
+                            label="Số điện thoại"
+                            variant="outlined"
+                            onChange={handleChangePhone}
+                            fullWidth
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        />
+                        <TextField
+                            id="link"
+                            value={link}
+                            label="Link giới thiệu"
+                            variant="outlined"
+                            onChange={handleChangeLink}
+                            fullWidth
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        />
+                        <TextField
+                            id="map"
+                            value={linkMap}
+                            label="Map"
+                            variant="outlined"
+                            onChange={handleChangeLinkMap}
+                            fullWidth
+                            sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+                        />
+                    </div>
+
+
+                </DialogContent>
+                {/* <DialogContent sx={styleModalBottom}  >
                         
 
                     </DialogContent> */}
-                    <Divider sx={{ color: "#804bdf" }} />
-                    <DialogActions>
-                        <Button
+                <Divider sx={{ color: "#804bdf" }} />
+                <DialogActions>
+                    <Button
 
-                            className='btn'
-                            variant="outlined" autoFocus onClick={close}>
-                            Đóng
-                        </Button>
+                        className='btn'
+                        variant="outlined" autoFocus onClick={close}>
+                        Đóng
+                    </Button>
 
-                        <Button
-                            style={{
-                                background: "#9155fd"
-                            }} variant="contained" autoFocus onClick={close}>
-                            Thêm
-                        </Button>
-                    </DialogActions>
-                </Box>
+                    <Button
+                        style={{
+                            background: "#9155fd"
+                        }} variant="contained" autoFocus onClick={close}>
+                        Cập nhật
+                    </Button>
+                </DialogActions>
+            </Box>
 
-            </Modal>
-        
+        </Modal>
+
     )
 }
 
