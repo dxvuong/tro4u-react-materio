@@ -21,6 +21,9 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuCustom from '../MenuCustom/page'
 import { deepPurple } from '@mui/material/colors';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 interface TableCustomProps {
@@ -32,7 +35,8 @@ interface TableRowData {
     bike: string;
     phone: string;
     status: string;
-    termContract: string;
+    termContractIn: string;
+    termContractOut: string;
     deposit: string;
     rentcost: string;
     date: string;
@@ -83,20 +87,21 @@ const TableCustom = ({ types }: TableCustomProps) => {
         bike: string,
         phone: string,
         status: string,
-        termContract: string,
+        termContractIn: string,
+        termContractOut: string,
         deposit: string,
         rentcost: string,
         date: string,
     ) {
-        return { id, guest, bike, phone, status, termContract, deposit, rentcost, date };
+        return { id, guest, bike, phone, status, termContractIn, termContractOut, deposit, rentcost, date };
     }
     const rows = [
-        createData("A00001", "", "0", "", "đang trống", "", "", '', ""),
-        createData("A00002", "khách thuê2", "2", "0823273847", "cho thuê", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "23/09/2016"),
-        createData("A00003", "khách thuê 3", "0", "0819673847", "đang cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
-        createData("A00004", "khách thuê 4", "2", "0819673847", "báo trả: 01/11/2023 ", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "15/10/2017"),
-        createData("A00005", "", "0", "", "đang trống", "", "", '', ""),
-        createData("A00006", "khách thuê 6", "1", "0819673847", "trả/cọc", "10/11/2023 - 20/11/2024", "1.195.000", '5.000.000', "25/12/2017"),
+        createData("A00001", "", "0", "", "đang trống", "", "", "", '', ""),
+        createData("A00002", "khách thuê2", "2", "0823273847", "cho thuê", "10/11/2023", "20/11/2024", "1.195.000", '5.000.000', "1-5"),
+        createData("A00003", "khách thuê 3", "0", "0819673847", "giữ đến: 20/12/2023", "10/11/2023", "20/11/2024", "1.195.000", '5.000.000', "6-11"),
+        createData("A00004", "khách thuê 4", "2", "0819673847", "báo trả: 01/11/2023 ", "10/11/2023", "20/11/2024", "1.195.000", '5.000.000', "1-5"),
+        createData("A00005", "", "0", "", "đang trống", "", "", "", '', ""),
+        createData("A00006", "khách thuê 6", "1", "0819673847", "Báo trả: 20/12/2022 Giữ đến: 20/11/2023", "10/11/2023", "20/11/2024", "1.195.000", '5.000.000', "11-15"),
 
     ];
 
@@ -179,20 +184,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                 <MenuItem onClick={handleClose}>Chi tiết</MenuItem>
                                             </Menu>
 
-                                            {/* <Menu
-                                                id="fade-menu"
-                                                MenuListProps={{
-                                                    'aria-labelledby': 'fade-button',
-                                                }}
-                                                
-                                                open={openMenu}
-                                                onClose={handleCloseMenu}
-                                                
-                                            >
-                                                <MenuItem onClick={handleCloseMenu}>Sửa</MenuItem>
-                                                <MenuItem onClick={handleCloseMenu}>Xóa</MenuItem>
-                                                <MenuItem onClick={handleCloseMenu}>Chi tiết</MenuItem>
-                                            </Menu> */}
+
                                             <div className="detail">
                                                 {item.status === "đang trống" ?
 
@@ -235,6 +227,10 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Tiền  cọc</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Giá  thuê</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Ngày  thanh  toán</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Checkin</TableCell>
+
+
+
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"></TableCell>
 
                                 </TableRow>
@@ -246,32 +242,52 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
                                             <TableCell className={`fixed-cell center ${row.status === "đang trống" ? "bg-empty" :
                                                 row.status === "cho thuê" ? "bg-rent" :
-                                                    row.status === "đang cọc" ? "bg-deposit" :
-                                                        row.status === "trả/cọc" ? "bg-return-deposit" : "bg-return"
-                                                }`} > <span className='cell-item'>{row.id} </span> </TableCell>
+                                                    row.status.includes("giữ đến") ? "bg-deposit" :
+                                                        row.status.includes("Giữ đến")  ? "bg-return-deposit" :  "bg-return" 
+                                                }`} > <span className='cell-item'>{row.id} </span>
+                                            </TableCell>
+
                                             <TableCell className='center' >
                                                 <span className='cell-item'>
                                                     {row.status === "đang trống" ? "" : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
 
                                                 </span>
                                             </TableCell>
+
                                             <TableCell className='center' >
                                                 <span className="cell-item">
                                                     {row.status === "đang trống" ? "" : row.bike}{row.status === "đang trống" ? "" : <TwoWheelerIcon className='icon-bike' />}
                                                 </span>  </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
+
                                             <TableCell className='center'>
                                                 <span className={`cell-item ct ${row.status === "cho thuê" ? "ct" :
-                                                    row.status === "đang cọc" ? "dc" :
-                                                        row.status === "trả/cọc" ? "tc" : "bt"
+                                                    row.status.includes("giữ đến") ? "dc" :
+                                                        row.status.includes("Giữ đến") ? "tc" : "bt"
 
                                                     }`}>
                                                     {row.status === "đang trống" ? <ControlPointIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}
-                                                </span> </TableCell>
-                                            <TableCell className='center'> <span className='cell-item'>{row.termContract} </span> </TableCell>
+                                                </span>
+                                            </TableCell>
+
+                                            <TableCell className='center'> <span className='cell-item'>
+                                                {row.status === "đang trống" ? "" :
+                                                    <div className='term'>
+                                                        <div className='item'>
+                                                            <LoginIcon />
+                                                            {row.termContractIn}
+                                                        </div>
+                                                        <div className='item'>
+                                                            <LogoutIcon />
+                                                            {row.termContractOut}
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'><SmartDisplayOutlinedIcon sx={{ color: "#804bdf", fontSize: "1.875rem", cursor: "pointer" }} /> </span> </TableCell>
                                             <TableCell className='center' >
                                                 <span className='cell-item icon-container' onClick={handleClick(row)}>
                                                     <ExpandMoreOutlinedIcon className='icon-edit' />

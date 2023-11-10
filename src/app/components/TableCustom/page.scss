@@ -174,7 +174,7 @@
         color: #333;
         gap: 10px;
         width: max-content;
-
+        
 
         &:hover {
             .menu-container {
@@ -214,6 +214,13 @@
                 opacity: 0.5;
             }
         }
+        .term {
+            .item {
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+            }
+        }
     }
 
     .ct {
@@ -229,7 +236,8 @@
     }
 
     .tc {
-        color: rgb(91 0 255)
+        color: rgb(91 0 255);
+        width: 140px;
     }
 
     .icon-container {
