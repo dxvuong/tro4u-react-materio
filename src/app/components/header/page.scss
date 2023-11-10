@@ -38,7 +38,7 @@
     align-items: center;
 
     @media (max-width: 783px) {
-      padding: 10px 0px;
+      padding: 10px;
       max-width: 382px;
       min-width: 355px;
     }
@@ -373,7 +373,7 @@
             .popperMenu {
               display: block;
               position: absolute;
-              top: 69px;
+              top: 63px;
               right: 58px;
               width: 190px;
               box-shadow: rgba(58, 53, 65, 0.2) 0px 5px 5px -3px,
@@ -487,8 +487,8 @@
           }
 
           @media (min-width: 769px) and (max-width: 1600px) {
-            top: 14px;
-            right: 50px;
+            top: 24px;
+            right: 77px;
           }
         }
 

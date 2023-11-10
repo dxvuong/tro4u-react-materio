@@ -49,6 +49,7 @@ import ModalSelectHouse from "./components/ModalSelectHouse/page";
 import DialogEditHouse from "./components/DialogEditHouse/page";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import LocalPrintshopOutlinedIcon from '@mui/icons-material/LocalPrintshopOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 export default function Home() {
   const MenuHouse = [
@@ -59,8 +60,9 @@ export default function Home() {
   const [openModalAddHouse, setOpenModalAddHouse] = useState(false);
   const [openModalAddRoom, setOpenModalAddRoom] = useState(false);
   const [displayGrid, setDisplayGrid] = useState(false)
-  const [openModalSelectHouse, setModalOpenSelectHouse] = useState(false)
   const [openModalEditHouse, setOpenModalEditHouse] = useState(false);
+  const [openModalSelectHouse, setModalOpenSelectHouse] = useState(false)
+  
   const handleOpenSelectHouse = () => {
     setModalOpenSelectHouse(!openModalSelectHouse)
   }
@@ -165,6 +167,9 @@ export default function Home() {
     bgcolor: 'background.paper',
     borderRadius: "6px",
     boxShadow: 24,
+    "@media (max-width: 783px)": {
+      width: "350px"
+    }
 
   };
   const styleDialogContent = {
@@ -176,65 +181,16 @@ export default function Home() {
     maxWidth: "360px",
     minWidth: "360px",
     padding: "10px",
+
+
+
     
+  }
+  
+  
 
 
-    // "@media (max-width: 783px)": {
-    //     height: "590px",
-    //     padding: "10px !important"
-
-    // },
-    // "@media (min-width: 784px) and (max-width: 1537px)": {
-    //     height: "590px",
-    //     padding: "10px !important"
-
-    // },
-}
-  // const styleModal = {
-  //   maxWidth: "360px",
-  //   minWidth: "360px",
-  //   padding: "20px",
-
-
-  //   "@media (max-width: 783px)": {
-  //     padding: "10px !important"
-  //   },
-  // }
-  const ModalFilter = styled(Dialog)(({ theme }) => ({
-    "& .MuiDialogContent-root": {
-      padding: theme.spacing(3),
-
-
-    },
-    "& .MuiDialogActions-root": {
-      padding: theme.spacing(2),
-    },
-  }));
-
-
-//   const styleBox = {
-//     position: 'absolute' as 'absolute',
-//     top: '50%',
-//     left: '50%',
-//     transform: 'translate(-50%, -50%)',
-//     width: 360,
-//     bgcolor: 'background.paper',
-//     borderRadius: "6px",
-//     boxShadow: 24,
-//     "@media (max-width: 783px)": {
-//         width: 330,
-//         top: '70%',
-//     },
-//     "@media (min-width: 783px) and (max-width: 1537px)": {
-//         top: '65%',
-//     },
-
-// };
-  // const CustomInputLabel = styled(InputLabel)({
-  //   '&.Mui-focused': {
-  //     color: 'green', // Thay đổi màu khi tập trung
-  //   },
-  // });
+  
 
   const styleBtnDisplay1 = {
     color: "#9155fd",
@@ -290,9 +246,18 @@ export default function Home() {
                 <MoreVertIcon sx={{ color: "black" }} className="icon-menu" /* onClick={() =>handleClick}*/ />
                 <div className="menuHouse-container">
                   <div className="menuHouse-list">
-                    <span className="menuHouse-item" onClick={handleOpenModalEditHouse}><EditOutlinedIcon sx={{ color: "black" }} /> Sửa</span>
-                    <span className="menuHouse-item"><DeleteOutlineOutlinedIcon /> Xóa</span>
-                    <span className="menuHouse-item"><InfoOutlinedIcon /> Chi tiết</span>
+                    <div className="menuHouse-item" onClick={handleOpenModalEditHouse}>
+                      <EditOutlinedIcon sx={{ color: "#17a2b8" }} />
+                      <span style={{color:"#333"}}>Sửa</span>
+                    </div>
+                    <div className="menuHouse-item">
+                      <DeleteOutlineOutlinedIcon sx={{ color: "#dc3545" }} /> 
+                      <span style={{color:"#333"}}>Xóa</span>
+                    </div>
+                    <div className="menuHouse-item">
+                      <InfoOutlinedIcon sx={{ color: "#804bdf" }} /> 
+                      <span style={{color:"#333"}}>Chi tiết</span>
+                    </div>
                   </div>
                 </div>
 
@@ -337,18 +302,59 @@ export default function Home() {
                   <div className="data-item">
                     <Typography className="text" sx={{ fontWeight: "bold", color: "#ff00ff !important" }}>tổng thuê: 394.324.000 </Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "green !important" }}>tổng cọc: 1.324.234.234</Typography>
-                    <Typography className="text" sx={{ fontWeight: "bold", color: "black !important" }}>tổng xe: 24</Typography>
+                    
                     <Typography className="text" sx={{ fontWeight: "bold", color: "orange !important" }}>tổng người: 56 </Typography>
                   </div>
                   <div className="data-item2">
                     <Typography className="text" sx={{ fontWeight: "bold", color: "purple !important" }}>trống: 14 </Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "blue !important" }}>cọc: 23</Typography>
+                    <Typography className="text" sx={{ fontWeight: "bold", color: "black !important" }}>tổng xe: 24</Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "#83db10 !important" }}>thuê: 28</Typography>
                     <Typography className="text" sx={{ fontWeight: "bold", color: "red !important" }}> báo trả: 04</Typography>
                   </div>
 
                 </div>
                 <div className="actions">
+                <div className="action3">
+                    <Button
+                      // onClick={handleOpenModalDisplay}
+                      variant="outlined"
+                      className="btn3"
+                    >
+                      {" "}
+                      <LocalPrintshopOutlinedIcon className="icon" /> <span>Xuất excel</span>
+                      <div className='modalDisplay-container'>
+                        <Modal open={openModalDisplay} onClose={handleCloseModalDisplay}>
+                          <Box sx={styleBox}>
+                            <DialogTitle sx={{ padding: " 10px 11px", m: 0, color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
+                              Kiểu hiển thị
+                            </DialogTitle>
+                            <IconButton
+                              aria-label="close"
+                              onClick={handleCloseModalDisplay}
+                              sx={{
+                                position: "absolute",
+                                right: 8,
+                                top: 8,
+                                color: (theme) => theme.palette.grey[500],
+                              }}
+                            >
+                              <CloseIcon />
+                            </IconButton>
+                            <DialogContent sx={styleDialogContent}>
+                              <Button sx={styleBtnDisplay1} className="btn-1" onClick={handleDisplayGrid} variant="outlined">Kiểu lưới</Button>
+
+                              <Button sx={styleBtnDisplay2} onClick={handleDisplayTable} variant="contained">Kiểu bảng</Button>
+                            </DialogContent>
+
+
+
+                          </Box>
+
+                        </Modal>
+                      </div>
+                    </Button>
+                  </div>
                   <div className="action3">
                     <Button
                       onClick={handleOpenModalDisplay}

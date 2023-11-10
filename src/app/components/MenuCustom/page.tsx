@@ -182,20 +182,20 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             <div className='menuEdit-container'>
                 <div className="menu-list">
                     <div className="menu-item" onClick={handleOpenModal}>
-                        <EditOutlinedIcon />
-                        Sửa
+                        <EditOutlinedIcon sx={{color: "#17a2b8"}} />
+                        <span style={{color: "#333"}}>Sửa</span>
                     </div>
                     <div className="menu-item">
                         
-                            <DeleteOutlinedIcon />
-                            Xóa
+                            <DeleteOutlinedIcon sx={{color: "#dc3545"}} />
+                            <span style={{color: "#333"}}>Xóa</span>
                         
 
                     </div>
                     <div className="menu-item">
                         
-                            <InfoOutlinedIcon />
-                            Chi tiết
+                            <InfoOutlinedIcon sx={{color: "#804bdf"}} />
+                            <span style={{color: "#333"}}>Chi tiết</span>
                         
                     </div>
                 </div>

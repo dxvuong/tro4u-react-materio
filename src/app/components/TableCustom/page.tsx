@@ -21,7 +21,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuCustom from '../MenuCustom/page'
 import { deepPurple } from '@mui/material/colors';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 interface TableCustomProps {
     types: boolean
@@ -201,7 +201,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                     </>
                                                     :
                                                     <><span className='number-people'>{item.guest} <PermIdentityIcon className='icon-user' /></span>
-                                                        <Avatar className='avatar'>H</Avatar>
+                                                        <Avatar src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />
                                                         <span className='number-bike'>{item.bike} <TwoWheelerIcon className='icon-bike' /></span>
                                                     </>}
 
@@ -227,14 +227,14 @@ const TableCustom = ({ types }: TableCustomProps) => {
                             <TableHead>
                                 <TableRow >
                                     <TableCell align='center' component="th" scope='row' sx={{ fontWeight: "bold", zIndex: 10 }} className="fixed-cell bg-gray">Mã phòng</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Khách thuê</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Xe</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Số điện thoại</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Tình trạng</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Thời hạn hợp đồng</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Tiền cọc</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Giá thuê</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center">Ngày thanh toán</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Khách  thuê</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Xe</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Số  điện  thoại</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Tình  trạng</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Thời  hạn  hợp  đồng</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Tiền  cọc</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Giá  thuê</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Ngày  thanh  toán</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"></TableCell>
 
                                 </TableRow>
@@ -274,7 +274,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                             <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
                                             <TableCell className='center' >
                                                 <span className='cell-item icon-container' onClick={handleClick(row)}>
-                                                    <ArrowDropDownIcon className='icon-edit' />
+                                                    <ExpandMoreOutlinedIcon className='icon-edit' />
 
                                                     {/* <div className='menuEdit-container'>
                                                         <div className="menu-list">
@@ -298,11 +298,35 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                     )
                                 })}
                                 <TableRow>
-                                    <TableCell align='center' sx={{height: "100px", backgroundColor: "#f4f5fa"}}>
-                                        <span>Tổng</span>
+                                    <TableCell className='fixed-cell bg-gray' align='center' sx={{ height: "100px", backgroundColor: "#f4f5fa" }}>
+                                        <span></span>
                                     </TableCell>
+
+                                    {/* <div className='note-container'>
+                                        <div className='note-wrapp'>
+                                            <div className='note-color'></div>
+                                            <div className='note-content'>đang trống</div>
+                                        </div>
+                                        <div className='note-wrapp '>
+                                            <div className='note-color bg-rent'></div>
+                                            <div className='note-content'>cho thuê</div>
+                                        </div>
+                                        <div className='note-wrapp'>
+                                            <div className='note-color bg-deposit '></div>
+                                            <div className='note-content'>đang cọc</div>
+                                        </div>
+                                        <div className='note-wrapp'>
+                                            <div className='note-color bg-return'></div>
+                                            <div className='note-content'>báo trả</div>
+                                        </div>
+                                        <div className='note-wrapp'>
+                                            <div className='note-color bg-return-deposit'></div>
+                                            <div className='note-content'>trả / cọc</div>
+                                        </div>
+                                    </div> */}
+
                                 </TableRow>
-                                
+
                             </TableBody>
                         </Table>
                     </TableContainer>

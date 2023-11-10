@@ -321,82 +321,85 @@ const HeaderComponent = () => {
 
         <div className="right-container">
           <div className="right-items">
-            <SearchIcon
-              className="search-icon"
-              onClick={handleOpenSearchInput}
-            />
-            <Modal
-              open={openSearchInput}
-              onClose={handleCloseSearchInput}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-              className="ModalSearch"
-              sx={{ padding: "35px" }}
-            >
-              <Box sx={styleInputSearch}>
-                <TabContext value={value}>
-                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChange} aria-label="lab API tabs example" sx={{
-                      '& .MuiTabs-indicator': {
-                        backgroundColor: 'rgb(128, 75, 223)',
-                      },
-                    }}>
-                      <Tab label="Cục bộ" value="1" style={{ color: "rgb(128, 75, 223)" }} />
-                      <Tab label="Khách" value="2" style={{ color: "rgb(128, 75, 223)" }} />
+            <div className="search-cotainer">
+              <SearchIcon
+                className="search-icon"
+                onClick={handleOpenSearchInput}
+              />
+              <Modal
+                open={openSearchInput}
+                onClose={handleCloseSearchInput}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                className="ModalSearch"
+                sx={{ padding: "35px" }}
+              >
+                <Box sx={styleInputSearch}>
+                  <TabContext value={value}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                      <TabList onChange={handleChange} aria-label="lab API tabs example" sx={{
+                        '& .MuiTabs-indicator': {
+                          backgroundColor: 'rgb(128, 75, 223)',
+                        },
+                      }}>
+                        <Tab label="Cục bộ" value="1" style={{ color: "rgb(128, 75, 223)" }} />
+                        <Tab label="Khách" value="2" style={{ color: "rgb(128, 75, 223)" }} />
 
-                    </TabList>
-                  </Box>
-                  <TabPanel value="1">
-                    <TextField
-                      id="outlined-basic"
-                      label="cục bộ"
-                      variant="outlined"
-                      className="textField-container"
-                      sx={textfield}
-                      fullWidth
-                    // color={themes.palette.primary.main}
-                    />
-                    <IconButton
-                      aria-label="delete"
-                      size="small"
-                      sx={{
-                        position: "absolute",
-                        fontSize: "25px",
-                        right: "11%",
-                        top: "54%"
-                      }}
-                    >
-                      <SearchIcon fontSize="inherit" />
-                    </IconButton>
-                  </TabPanel>
-                  <TabPanel value="2">
-                    <TextField
-                      id="outlined-basic"
-                      label="Tìm kiếm khách"
-                      variant="outlined"
-                      className="textField-container"
-                      sx={textfield}
-                      fullWidth
-                    // color={themes.palette.primary.main}
-                    />
-                    <IconButton
-                      aria-label="delete"
-                      size="small"
-                      sx={{
-                        position: "absolute",
-                        fontSize: "25px",
-                        right: "11%",
-                        top: "54%"
-                      }}
-                    >
-                      <SearchIcon fontSize="inherit" />
-                    </IconButton>
-                  </TabPanel>
+                      </TabList>
+                    </Box>
+                    <TabPanel value="1">
+                      <TextField
+                        id="outlined-basic"
+                        label="cục bộ"
+                        variant="outlined"
+                        className="textField-container"
+                        sx={textfield}
+                        fullWidth
+                      // color={themes.palette.primary.main}
+                      />
+                      <IconButton
+                        aria-label="delete"
+                        size="small"
+                        sx={{
+                          position: "absolute",
+                          fontSize: "25px",
+                          right: "11%",
+                          top: "54%"
+                        }}
+                      >
+                        <SearchIcon fontSize="inherit" />
+                      </IconButton>
+                    </TabPanel>
+                    <TabPanel value="2">
+                      <TextField
+                        id="outlined-basic"
+                        label="Tìm kiếm khách"
+                        variant="outlined"
+                        className="textField-container"
+                        sx={textfield}
+                        fullWidth
+                      // color={themes.palette.primary.main}
+                      />
+                      <IconButton
+                        aria-label="delete"
+                        size="small"
+                        sx={{
+                          position: "absolute",
+                          fontSize: "25px",
+                          right: "11%",
+                          top: "54%"
+                        }}
+                      >
+                        <SearchIcon fontSize="inherit" />
+                      </IconButton>
+                    </TabPanel>
 
-                </TabContext>
+                  </TabContext>
 
-              </Box>
-            </Modal>
+                </Box>
+              </Modal>
+            </div>
+
             {apiLoginData ? (
               <div className="menu-user">
                 <Image
@@ -635,6 +638,14 @@ const HeaderComponent = () => {
                     <Link href="/register" className="menu-item">
                       <LogoutIcon className="icon" />
                       <span >Đăng Ký</span>
+                    </Link>
+                    <Link href="/components/NewUser" className="menu-item">
+                      <LogoutIcon className="icon" />
+                      <span >Người dùng mới</span>
+                    </Link>
+                    <Link href="/components/Empty" className="menu-item">
+                      <LogoutIcon className="icon" />
+                      <span >Trống</span>
                     </Link>
                   </MenuList>
                 </Paper>

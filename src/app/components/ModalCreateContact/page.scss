@@ -11,16 +11,18 @@
     align-items: center;
     .btn-1 {
         width: 65%;
-        background: rgb(86, 202, 0);
+        background-color: #1976d2;
         &:hover {
             opacity: 0.8;
+            background-color: #1976d2 !important;
         }
     }
     .btn-2 {
         width: 65%;
-        background: rgb(145, 85, 253);
+        background-color: #804bdf;
         &:hover {
             opacity: 0.8;
+            background-color: #804bdf !important;
         }
     }
 

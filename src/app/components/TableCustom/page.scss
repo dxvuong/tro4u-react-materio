@@ -14,8 +14,8 @@
 
             .floor {
                 padding: 10px;
-                background: #3df986;
-                border-radius: 6px;
+                background: #fcfcfc;
+                border-top: 1px solid #e6eafd;
             }
 
             .bg-gray {
@@ -82,7 +82,7 @@
                     position: absolute;
                     top: 6px;
                     right: 0;
-                    color: #fff;
+                    color: #333;
 
                     &:hover {
                         cursor: pointer;
@@ -100,7 +100,7 @@
 
                     .icon-add {
                         font-size: 40px;
-                        color: #40f940;
+                        color: #804bdf;
                         cursor: pointer;
 
                         &:hover {
@@ -140,8 +140,26 @@
     }
 
     .fixed-cell {
-        border: 1px solid #cccccc;
+        border-right: 1px solid #cccccc;
+        border-left: 1px solid #cccccc;
         font-weight: 600;
+    }
+
+    .note-container {
+        .note-wrapp {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .note-color {
+                width: 30px;
+                height: 15px;
+                border: 1px solid;
+            }
+            
+
+            .note-content {}
+        }
     }
 
     .css-1eb4vap-MuiPaper-root {
@@ -156,7 +174,7 @@
         color: #333;
         gap: 10px;
         width: max-content;
-        
+
 
         &:hover {
             .menu-container {
@@ -179,7 +197,7 @@
         }
 
         .icon-add {
-            color: green;
+            color: #804bdf;
 
             cursor: pointer;
 
@@ -216,13 +234,13 @@
 
     .icon-container {
         position: relative;
+        cursor: pointer;
 
         &::after {
             position: absolute;
-            // background-color: red;
             content: "";
-            width: 50px;
-            height: 30px;
+            width: 29px;
+            height: 33px;
             bottom: -16px;
             right: 0;
         }
@@ -252,7 +270,7 @@
             color: #804bdf;
             margin-left: 9px;
             position: relative;
-
+            font-size: 25px;
 
 
             &:hover {
@@ -310,6 +328,8 @@
 
     .bg-gray {
         background-color: #f4f5fa;
+        padding: 16px 0px;
+        font-size: 13px;
     }
 
     .bg-empty {

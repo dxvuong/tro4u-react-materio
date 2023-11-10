@@ -102,6 +102,7 @@
           top: 0;
           right: 0;
           z-index: 10;
+          color: #804bdf;
           cursor: pointer;
 
           &:hover {
@@ -254,6 +255,16 @@
                 border-color: #8243f8;
                 background-color: #f0efef;
               }
+              @media (max-width: 1124px) {
+                span {
+                  display: none;
+                }
+              }
+              @media (min-width: 1125px) and (max-width: 1253px) {
+                font-size: 12px;
+                gap: 2px;
+                
+              }
             }
           }
 
@@ -277,6 +288,11 @@
                 span {
                   display: none;
                 }
+              }
+              @media (min-width: 1125px) and (max-width: 1253px) {
+                font-size: 12px;
+                gap: 2px;
+                
               }
 
               &:hover {
@@ -310,6 +326,11 @@
                 span {
                   display: none;
                 }
+              }
+              @media (min-width: 1125px) and (max-width: 1253px) {
+                font-size: 12px;
+                gap: 2px;
+                
               }
 
               &:hover {
@@ -351,12 +372,12 @@
 @media (max-width: 783px) {
   .home-container {
     .top {
-      padding: 0 10px 0 0;
+      padding: 0 20px 0 0;
 
       .info {
         width: 60%;
         flex: 2;
-        padding-right: 10px;
+        padding-right: 20px;
         .home-info {}
 
         .address {
@@ -418,13 +439,31 @@
           }
 
           .actions {
-            .action1 {}
+            .action1 {
+              .btn1 {
+                min-width: 30px;
+                max-width: 30px;
 
-            .action2 {}
+                span {
+                  display: none;
+                }
+              }
+            }
+
+            .action2 {
+              .btn2 {
+                min-width: 30px;
+                max-width: 30px;
+
+                span {
+                  display: none;
+                }
+              }
+            }
 
             .action3 {
               .btn3 {
-                min-width: 64px;
+                min-width: 30px;
                 max-width: 30px;
 
                 span {

@@ -204,7 +204,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         boxShadow: 24,
         "@media (max-width: 783px)": {
             width: 330,
-            top: '70%',
+            top: '65%',
         },
         "@media (min-width: 783px) and (max-width: 1537px)": {
             top: '65%',
@@ -214,7 +214,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
     const styleInput = {
         borderRadius: "6px",
-        marginBottom: "10px",
+        marginBottom: "-10px",
 
 
     }
@@ -222,7 +222,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         padding: "10px",
         background: "rgb(222 255 223)",
         borderRadius: "6px",
-        marginTop: "10px",
+        
 
 
 

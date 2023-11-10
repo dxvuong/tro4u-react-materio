@@ -86,6 +86,9 @@ const DialogAddRoom = ({ open, close }: BootstrapDialogCustomProps) => {
         bgcolor: 'background.paper',
         borderRadius: "6px",
         boxShadow: 24,
+        "@media (max-width: 783px)": {
+            width: "350px"
+        }
 
     };
     const styledSelect = {
