@@ -146,17 +146,26 @@
     }
 
     .note-container {
+        padding: 39px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 20px;
+        width: max-content;
+        @media (max-width: 783px) {
+            width: 332%;
+          }
         .note-wrapp {
             display: flex;
-            gap: 10px;
+            gap: 5px;
             align-items: center;
 
             .note-color {
-                width: 30px;
-                height: 15px;
-                border: 1px solid;
+                width: 15px;
+    height: 15px;
+    border: 1px solid;
             }
-            
+
 
             .note-content {}
         }
@@ -174,7 +183,7 @@
         color: #333;
         gap: 10px;
         width: max-content;
-        
+
 
         &:hover {
             .menu-container {
@@ -214,6 +223,7 @@
                 opacity: 0.5;
             }
         }
+
         .term {
             .item {
                 display: flex;

@@ -23,13 +23,13 @@ const ModalSelectHouse = ({ open, close, options }: ModalSelectHouseProps) => {
         top: '30%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: "20%",
+        width: "360px",
         bgcolor: 'background.paper',
         borderRadius: "6px",
         border: "none !important",
         boxShadow: 24,
         "@media (max-width: 783px)": {
-            width: "80%",
+            width: "350px",
         },
 
     };

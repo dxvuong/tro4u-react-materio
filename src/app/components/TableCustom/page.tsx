@@ -243,7 +243,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                             <TableCell className={`fixed-cell center ${row.status === "đang trống" ? "bg-empty" :
                                                 row.status === "cho thuê" ? "bg-rent" :
                                                     row.status.includes("giữ đến") ? "bg-deposit" :
-                                                        row.status.includes("Giữ đến")  ? "bg-return-deposit" :  "bg-return" 
+                                                        row.status.includes("Giữ đến") ? "bg-return-deposit" : "bg-return"
                                                 }`} > <span className='cell-item'>{row.id} </span>
                                             </TableCell>
 
@@ -313,38 +313,41 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                         </TableRow>
                                     )
                                 })}
-                                <TableRow>
+
+                                {/* <TableRow>
                                     <TableCell className='fixed-cell bg-gray' align='center' sx={{ height: "100px", backgroundColor: "#f4f5fa" }}>
                                         <span></span>
                                     </TableCell>
 
-                                    {/* <div className='note-container'>
-                                        <div className='note-wrapp'>
-                                            <div className='note-color'></div>
-                                            <div className='note-content'>đang trống</div>
-                                        </div>
-                                        <div className='note-wrapp '>
-                                            <div className='note-color bg-rent'></div>
-                                            <div className='note-content'>cho thuê</div>
-                                        </div>
-                                        <div className='note-wrapp'>
-                                            <div className='note-color bg-deposit '></div>
-                                            <div className='note-content'>đang cọc</div>
-                                        </div>
-                                        <div className='note-wrapp'>
-                                            <div className='note-color bg-return'></div>
-                                            <div className='note-content'>báo trả</div>
-                                        </div>
-                                        <div className='note-wrapp'>
-                                            <div className='note-color bg-return-deposit'></div>
-                                            <div className='note-content'>trả / cọc</div>
-                                        </div>
-                                    </div> */}
+                                    
 
-                                </TableRow>
+                                </TableRow> */}
 
                             </TableBody>
+
                         </Table>
+                        <div className='note-container'>
+                            <div className='note-wrapp'>
+                                <div className='note-color'></div>
+                                <div className='note-content'>Đang trống</div>
+                            </div>
+                            <div className='note-wrapp '>
+                                <div className='note-color bg-rent'></div>
+                                <div className='note-content'>Đang cho thuê </div>
+                            </div>
+                            <div className='note-wrapp'>
+                                <div className='note-color bg-deposit '></div>
+                                <div className='note-content'>Đã cọc giữ chỗ</div>
+                            </div>
+                            <div className='note-wrapp'>
+                                <div className='note-color bg-return'></div>
+                                <div className='note-content'>Khách Báo trả</div>
+                            </div>
+                            <div className='note-wrapp'>
+                                <div className='note-color bg-return-deposit'></div>
+                                <div className='note-content'>Khách Báo trả có người cọc giữ chỗ</div>
+                            </div>
+                        </div>
                     </TableContainer>
                 </Paper>}
 
