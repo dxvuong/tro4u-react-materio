@@ -75,7 +75,7 @@ const ModalSelectHouse = ({ open, close, options }: ModalSelectHouseProps) => {
                 </IconButton>
 
                 <DialogContent sx={content}  >
-
+                    
                     <Select options={options} styles={colourStyles} />
                 </DialogContent>
 

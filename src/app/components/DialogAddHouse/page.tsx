@@ -38,7 +38,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         maxWidth: "360px",
         minWidth: "360px",
         padding: "10px 0",
-        
+
 
 
 
@@ -115,6 +115,10 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
+        '.MuiSelect-select': {
+            paddingLeft: "30px"
+        },
+
         '.MuiInputBase-root': {
             height: "40px"
         },
@@ -138,12 +142,16 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             color: '#804bdf', // Màu khi textfield được focus
             borderColor: '#804bdf !important', // Màu viền khi textfield được focus
         },
+        '&.MuiInputBase-input': {
+            paddingLeft: "30px"
+        },
         '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf !important', // Màu viền khi textfield được hover
         },
         background: "#fff",
         marginBottom: "15px"
     };
+
 
     // const styleDate = {
     //     marginBottom: "10px",
@@ -205,7 +213,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             fill: "black !important",
         },
     }
-    
+
 
 
     const styleBox = {
@@ -217,6 +225,9 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         bgcolor: 'background.paper',
         borderRadius: "6px",
         boxShadow: 24,
+        ":focus-visible": {
+            outline: "none"
+          },
         "@media (max-width: 783px)": {
             width: 330,
             top: '65%',
@@ -432,6 +443,11 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             onChange={handleChangeNameHouse}
                             fullWidth
                             sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
                         />
                         <TextField
                             id="floor"
@@ -441,6 +457,12 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             onChange={handleChangeFloor}
                             fullWidth
                             sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+
                         />
 
 
@@ -567,6 +589,12 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             onChange={handleChangePhone}
                             fullWidth
                             sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+
                         />
                         <TextField
                             id="link"
@@ -576,6 +604,12 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             onChange={handleChangeLink}
                             fullWidth
                             sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
+
                         />
                         <TextField
                             id="map"
@@ -585,6 +619,11 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             onChange={handleChangeLinkMap}
                             fullWidth
                             sx={textfield}
+                            inputProps={{
+                                style: {
+                                    paddingLeft: "30px"
+                                }
+                            }}
                         />
                     </div>
 

@@ -115,6 +115,9 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
+        '.MuiSelect-select' : {
+            paddingLeft: "30px"
+        },
 
         '.MuiInputBase-root': {
             height: "40px"
@@ -221,6 +224,9 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         bgcolor: 'background.paper',
         borderRadius: "6px",
         boxShadow: 24,
+        ":focus-visible": {
+            outline: "none"
+          },
         "@media (max-width: 783px)": {
             width: 330,
             top: '65%',

@@ -1,11 +1,8 @@
 "use client"
 
 import Box from '@mui/material/Box';
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
 import Modal from '@mui/material/Modal';
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -17,7 +14,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import "./page.scss"
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import Link from 'next/link';
+
 interface TableRowData {
     id: string;
     guest: any;
@@ -89,15 +86,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         setDataEdit(event.target.value)
         setEditRentCost(event.target.value)
     }
-    // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //     const { name, value } = event.target;
-    //     setDataEdit(prevState => {
-    //         if (typeof prevState === 'object' && prevState !== null) {
-    //             return { ...prevState, [name]: value };
-    //         }
-    //         return prevState;
-    //     });
-    // }
+    
 
 
     const handleSubmit = () => {
@@ -116,6 +105,9 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         width: 360,
         bgcolor: 'background.paper',
         boxShadow: 24,
+        ":focus-visible": {
+            outline: "none"
+          },
         "@media (max-width: 783px)": {
             width: 330,
         },
@@ -130,7 +122,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             minWidth: "330px",
         },
     }
-    console.log("selected: ", selectedRow);
+    
 
     const textfield = {
 
@@ -161,7 +153,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
 
         marginBottom: "10px"
     };
-    console.log(selectedRow);
+    
 
     return (
         <>

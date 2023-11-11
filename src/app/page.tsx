@@ -167,6 +167,9 @@ export default function Home() {
     bgcolor: 'background.paper',
     borderRadius: "6px",
     boxShadow: 24,
+    ":focus-visible": {
+      outline: "none"
+    },
     "@media (max-width: 783px)": {
       width: "350px"
     }

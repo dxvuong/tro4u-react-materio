@@ -153,9 +153,11 @@
         gap: 20px;
         width: max-content;
         margin: auto;
+
         @media (max-width: 783px) {
             width: 332%;
-          }
+        }
+
         .note-wrapp {
             display: flex;
             gap: 5px;
@@ -163,8 +165,8 @@
 
             .note-color {
                 width: 15px;
-    height: 15px;
-    border: 1px solid;
+                height: 15px;
+                border: 1px solid;
             }
 
 
@@ -206,13 +208,34 @@
             color: #838487;
         }
 
+        .icon-play {
+            color: #804bdf;
+            font-size: 1.875rem;
+            
+
+
+            transition: linear 0.2s;
+
+            &:hover {
+                cursor: pointer;
+                font-size: 25px;
+                border: 1px solid #804bdf;
+                border-radius: 4px;
+            }
+        }
+
         .icon-add {
             color: #804bdf;
-
+            font-size: 40px;
             cursor: pointer;
+            transition: 0.4s;
+            border: 1px solid #804bdf;
+            border-radius: 50%;
 
             &:hover {
                 opacity: 0.7;
+
+
             }
         }
 

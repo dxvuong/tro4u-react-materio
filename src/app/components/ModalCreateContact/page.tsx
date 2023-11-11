@@ -27,7 +27,10 @@ const ModalCreateContact = ({ open, close }: ModalCreateContactProps) => {
         bgcolor: '#fff',
         boxShadow: 24,
         borderRadius: "6px",
-        border: "none",
+        border: "none !important",
+        ":focus-visible": {
+            outline: "none"
+          },
         "@media (max-width: 783px)": {
             width: "350px",
         },
@@ -50,7 +53,7 @@ const ModalCreateContact = ({ open, close }: ModalCreateContactProps) => {
 
     }
     return (
-        <div className='modalCreateContace-container'>
+        
             <Modal open={open} onClose={close} sx={{ border: "none" }}>
                 <Box sx={style}>
                     <DialogTitle sx={{ m: 0, padding: " 10px 11px", color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
@@ -86,9 +89,8 @@ const ModalCreateContact = ({ open, close }: ModalCreateContactProps) => {
                     </DialogContent>
 
                 </Box>
-
             </Modal>
-        </div>
+        
     )
 }
 

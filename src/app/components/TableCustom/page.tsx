@@ -8,12 +8,10 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import React, { useState } from 'react'
 import "./page.scss"
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import ModalCreateContact from '../ModalCreateContact/page'
 import Typography from '@mui/material/Typography'
 import Avatar from '@mui/material/Avatar'
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -21,11 +19,9 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuCustom from '../MenuCustom/page'
 import { deepPurple } from '@mui/material/colors';
-import LogoutIcon from '@mui/icons-material/Logout';
-import LoginIcon from '@mui/icons-material/Login';
-import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+
 interface TableCustomProps {
     types: boolean
 }
@@ -189,7 +185,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                 {item.status === "đang trống" ?
 
                                                     <>
-                                                        <AddCircleOutlineIcon className='icon-add' onClick={handleOpenModalContact} />
+                                                        <AddOutlinedIcon className='icon-add' onClick={handleOpenModalContact} />
                                                     </>
                                                     :
                                                     <><span className='number-people'>{item.guest} <PermIdentityIcon className='icon-user' /></span>
@@ -266,7 +262,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                         row.status.includes("Giữ đến") ? "tc" : "bt"
 
                                                     }`}>
-                                                    {row.status === "đang trống" ? <ControlPointIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}
+                                                    {row.status === "đang trống" ? <AddOutlinedIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}
                                                 </span>
                                             </TableCell>
 
@@ -274,11 +270,11 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                 {row.status === "đang trống" ? "" :
                                                     <div className='term'>
                                                         <div className='item'>
-                                                            <LoginIcon />
+                                                            
                                                             {row.termContractIn}
                                                         </div>
                                                         <div className='item'>
-                                                            <LogoutIcon />
+                                                            
                                                             {row.termContractOut}
                                                         </div>
                                                     </div>
@@ -287,7 +283,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                             <TableCell className='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
-                                            <TableCell className='center'> <span className='cell-item'><SmartDisplayOutlinedIcon sx={{ color: "#804bdf", fontSize: "1.875rem", cursor: "pointer" }} /> </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'><PlayArrowOutlinedIcon className='icon-play' /> </span> </TableCell>
                                             <TableCell className='center' >
                                                 <span className='cell-item icon-container' onClick={handleClick(row)}>
                                                     <ExpandMoreOutlinedIcon className='icon-edit' />
