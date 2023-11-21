@@ -30,11 +30,15 @@
       @media only screen and (min-width: 1442px) and (max-width: 1536px) {
         padding: 50px 62px;
       }
-      @media only screen and (min-width: 1537px) and (max-width: 1600px) {
+      @media only screen and (min-width: 1537px) and (max-width: 1580px) {
         padding: 50px 80px;
       }
-      @media only screen and (min-width: 1601px) and (max-width: 1921px) {
-        padding: 50px 125px;
+      @media only screen and (min-width: 1581px) and (max-width: 1670px) {
+        padding: 50px 123px;
+      }
+      
+      @media only screen and (min-width: 1671px) and (max-width: 1921px) {
+        padding: 50px 252px;
       }
       .footer-top__items1 {
         flex-grow: 6;

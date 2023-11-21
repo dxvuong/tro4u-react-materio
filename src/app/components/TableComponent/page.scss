@@ -1,0 +1,48 @@
+.table-container {
+    text-align: center;
+    background-color: #fff;
+    min-height: 50vh;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1440px;
+
+}
+
+.custom {
+    height: 40px;
+}
+
+.total {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+
+    .totalMoneyRound {
+        background-color: #ffff00;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-around;
+
+        .title {
+            color: #696969;
+            flex: 3;
+        }
+
+        .money {
+            color: #333;
+            font-weight: bold;
+        }
+
+        
+    }
+    .congtiencoc {
+        display: flex;
+        .title {
+            
+        }
+    }
+}

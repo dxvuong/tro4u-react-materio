@@ -9,7 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import styled from "@mui/material/styles/styled";
 import Dialog from "@mui/material/Dialog";
-import TextfiledCustom from '../TextfiledCustom/page';
+import TextfiledCustom from '../TextfiledComponent/page';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -37,7 +37,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
     const styleModal = {
         maxWidth: "360px",
         minWidth: "360px",
-        padding: "10px 0",
+        padding: "0 0 10px 0",
 
 
 
@@ -116,7 +116,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             borderColor: '#804bdf',
         },
         '.MuiSelect-select': {
-            paddingLeft: "30px"
+            paddingLeft: "30px",
+            color: "#804bdf"
         },
 
         '.MuiInputBase-root': {
@@ -133,7 +134,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         },
         "& .MuiFormLabel-root": {
             color: "#cfcfcf",
-            top: "-8px"
+            top: "-4px"
         },
         '.MuiInputLabel-outlined.Mui-focused': {
             color: "#9155fd"
@@ -187,32 +188,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
     //     width: "100%"
     // }
-    const styledSelect = {
-        marginBottom: "10px",
-        '&.Mui-focused': {
-            color: '#804bdf', // Thay đổi màu khi tập trung
-        },
-        '.MuiInputBase-root': {
-            height: "40px"
-        },
-        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
-        '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
-        ".MuiInputLabel-root": {
-            color: "red !important"
-        },
-        backgroundColor: "#fff",
-
-        '&:.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#804bdf',
-        },
-        '.MuiSvgIcon-root ': {
-            fill: "black !important",
-        },
-    }
+    
 
 
 
@@ -240,8 +216,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
     const styleInput = {
         borderRadius: "6px",
-        marginBottom: "-10px",
-
+        marginTop: "10px",
+        
 
     }
     const styleInputBottom = {
@@ -445,7 +421,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
                         />
@@ -459,7 +436,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
 
@@ -591,7 +569,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
 
@@ -606,7 +585,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
 
@@ -621,7 +601,8 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
                         />
@@ -629,6 +610,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
 
                 </DialogContent>
+                
                 {/* <DialogContent sx={styleModalBottom}  >
                         
 

@@ -1,0 +1,219 @@
+.productDeposit-container {
+    display: flex;
+    padding: 20px 10px;
+    background-color: #CCE5FF;
+    border-radius: 6px;
+    margin-top: 40px;
+    gap: 10px;
+
+    .left {
+        flex: 1;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 15px;
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+
+            .title {
+                h3 {
+                    font-weight: 700;
+                    color: #004085;
+                    text-transform: uppercase;
+                }
+            }
+
+            .actions {
+                display: flex;
+                gap: 10px;
+
+                .bg-green {
+                    background-color: #1BB99A;
+                    color: #fff;
+
+                }
+
+                .bg-or {
+                    background-color: #F1B53D;
+                    color: #fff;
+                }
+
+                .bg-red {
+                    background-color: #FF5D48;
+                    color: #fff;
+                }
+
+                .bg-blue {
+                    background-color: #0F9DF7;
+                    color: #fff;
+                }
+            }
+        }
+
+        .info-wrapp {
+            padding: 20px 0 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .info {
+                display: flex;
+                gap: 10px;
+
+                .label {
+                    color: #a9a9a9;
+                    min-width: 110px;
+                    text-align: end;
+                }
+
+                .value {
+                    color: #0000ff;
+                }
+
+                .bold {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .title {
+                h3 {
+                    text-transform: uppercase;
+                }
+            }
+
+            .action {
+                .btn {
+                    background-color: #0F9DF7;
+                }
+            }
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+
+            .price {
+                font-weight: 700;
+                color: #ff0000;
+            }
+
+            .date {
+                color: #808080;
+            }
+
+            .btn {}
+        }
+    }
+
+    .right {
+        flex: 1 1;
+        padding: 15px;
+        background-color: #c3e1ff;
+        border-radius: 6px;
+
+
+        .title {
+            h3 {
+                text-transform: uppercase;
+            }
+        }
+
+        .info-wrapp {
+
+            padding: 20px 0 20px 30px;
+            display: flex;
+
+            .info-left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item {
+                    display: flex;
+                    gap: 10px;
+
+                    .label {
+                        color: #a9a9a9;
+                        min-width: 70px;
+                        text-align: end;
+                    }
+
+                    .value {
+                        color: #0000ff;
+                    }
+
+                    .bold {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .info-right {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item {
+                    display: flex;
+                    gap: 10px;
+
+                    .label {
+                        color: #a9a9a9;
+                        min-width: 70px;
+                        text-align: end;
+                    }
+
+                    .value {
+                        color: #0000ff;
+                    }
+
+                }
+            }
+
+            .item {
+                .label {}
+
+                .value {}
+            }
+        }
+    }
+}
+
+@media (max-width: 783px) {
+    .productDeposit-container {
+        flex-direction: column;
+        .left{
+            .top {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .right {
+            .info-wrapp {
+                padding-left: 0;
+                .info-left {
+                    .item {
+                        .label {
+                            min-width: 76px;
+                        }
+                    }
+                }
+                .info-right {
+
+                }
+            }
+        }
+    }
+}

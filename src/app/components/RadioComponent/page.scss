@@ -1,0 +1,28 @@
+.radio-container {
+    text-align: center;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #fff;
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .radio-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 6px;
+
+        @media (max-width: 783px) {
+            width: 100%;
+        }
+    }
+}

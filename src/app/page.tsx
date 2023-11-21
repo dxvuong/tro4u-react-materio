@@ -7,7 +7,7 @@ import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import "./page.scss";
 import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
 import { useState } from "react";
-import ModalCustom from "./components/ModalCustom/page";
+import ModalCustom from "./components/ModalComponent/page";
 import CloseIcon from "@mui/icons-material/Close";
 import styled from "@mui/material/styles/styled";
 import Dialog from "@mui/material/Dialog";

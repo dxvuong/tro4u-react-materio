@@ -1,5 +1,5 @@
 // File: C:\Users\sangn\Desktop\ADMIN-TEMPLATE\admin-template\src\app\components\TextfiledCustom\page.tsx
-import * as entry from '../../../../../src/app/components/TextfiledCustom/page'
+import * as entry from '../../../../../src/app/components/TextfiledComponent/page'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface'
 
 type TEntry = typeof entry

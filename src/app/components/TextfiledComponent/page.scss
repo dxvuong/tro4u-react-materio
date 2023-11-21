@@ -1,0 +1,31 @@
+.textfiled-container {
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #fff;
+  width: 100%;
+  min-height: 50vh;
+  margin-top: 20px;
+  border-radius: 6px;
+  @media (max-width: 783px) {
+    padding: 0 10px;
+  }
+  .title {
+    color: #804bdf;
+    margin-bottom: 10px;
+  }
+  .input {
+    width: 50%;
+    margin: 0 auto;
+    @media (max-width: 783px) {
+      width: 80%;
+    }
+  }
+  .select {
+    width: 50%;
+    margin: 0 auto;
+    @media (max-width: 783px) {
+      width: 80%;
+    }
+  }
+}

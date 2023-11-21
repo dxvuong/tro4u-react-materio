@@ -1,0 +1,41 @@
+.room-name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #804bdf;
+    height: 81px;
+    margin-top: 24px;
+    border-radius: 6px;
+    align-items: center;
+    padding: 0 20px 0 0;
+
+    .name {
+        display: flex;
+        
+        align-items: center;
+        .icon {
+            .icon-aleft {
+                color: #fff;
+                font-weight: 900;
+                font-size: 50px;
+            }
+        }
+
+        .title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    }
+    .btn-search {
+        width: 111px;
+        .btn {
+            width: 100%;
+            background-color: #0f9df7;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: capitalize;
+            border-radius: 6px;
+        }
+    }
+}

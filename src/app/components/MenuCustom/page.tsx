@@ -103,6 +103,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 360,
+        borderRadius: "6px",
         bgcolor: 'background.paper',
         boxShadow: 24,
         ":focus-visible": {
@@ -202,7 +203,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleBox}>
-                    <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf" }} id="customized-dialog-title">
+                    <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf",borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
                         Cập nhật phòng
                     </DialogTitle>
                     <IconButton

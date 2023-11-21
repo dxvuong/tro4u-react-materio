@@ -9,7 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import styled from "@mui/material/styles/styled";
 import Dialog from "@mui/material/Dialog";
-import TextfiledCustom from '../TextfiledCustom/page';
+import TextfiledCustom from '../TextfiledComponent/page';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -115,8 +115,9 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
-        '.MuiSelect-select' : {
-            paddingLeft: "30px"
+        '.MuiSelect-select': {
+            paddingLeft: "30px",
+            color: "#804bdf"
         },
 
         '.MuiInputBase-root': {
@@ -133,7 +134,7 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         },
         "& .MuiFormLabel-root": {
             color: "#cfcfcf",
-            top: "-8px"
+            top: "-4px"
         },
         '.MuiInputLabel-outlined.Mui-focused': {
             color: "#9155fd"
@@ -143,7 +144,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
             borderColor: '#804bdf !important', // Màu viền khi textfield được focus
         },
         '&.MuiInputBase-input': {
-            paddingLeft: "30px"
+            paddingLeft: "30px",
+            color: "#804bdf !important"
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf !important', // Màu viền khi textfield được hover
@@ -445,7 +447,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
 
@@ -460,7 +463,9 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf",
+                                    
                                 }
                             }}
                         />
@@ -621,7 +626,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
                         />
@@ -635,7 +641,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
                         />
@@ -649,7 +656,8 @@ const DialogEditHouse = ({ open, close }: BootstrapDialogCustomProps) => {
                             sx={textfield}
                             inputProps={{
                                 style: {
-                                    paddingLeft: "30px"
+                                    paddingLeft: "30px",
+                                    color: "#804bdf"
                                 }
                             }}
                         />

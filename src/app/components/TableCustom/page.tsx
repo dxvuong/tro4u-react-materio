@@ -21,6 +21,7 @@ import MenuCustom from '../MenuCustom/page'
 import { deepPurple } from '@mui/material/colors';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ModalCheckin from '../ModalChekin/page'
 
 interface TableCustomProps {
     types: boolean
@@ -42,6 +43,13 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
     const [openModalContact, setOpenModalContact] = useState(false)
     const [openModalEditTable, setOpenModalEditTable] = useState(false)
+    const [openVideo, setOpenVideo] = useState(false)
+    const handleOpenVideo = () => {
+        setOpenVideo(!openVideo)
+    }
+    const handleCloseVideo = () => {
+        setOpenVideo(false)
+    }
     const handleOpenModalEditTable = (row: TableRowData) => {
         setOpenModalEditTable(!openModalEditTable)
         setSelectedRow(row)
@@ -210,14 +218,15 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
                 :
                 <Paper >
-                    <TableContainer >
+                    <TableContainer sx={{ position: "relative" }} >
                         <Table stickyHeader>
                             <TableHead>
                                 <TableRow >
                                     <TableCell align='center' component="th" scope='row' sx={{ fontWeight: "bold", zIndex: 10 }} className="fixed-cell bg-gray">Mã phòng</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Khách  thuê</TableCell>
-                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Xe</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Số  điện  thoại</TableCell>
+                                    <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Xe</TableCell>
+
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Tình  trạng</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Thời  hạn  hợp  đồng</TableCell>
                                     <TableCell className='bg-gray' sx={{ fontWeight: "bold" }} align="center"> Tiền  cọc</TableCell>
@@ -245,16 +254,17 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
                                             <TableCell className='center' >
                                                 <span className='cell-item'>
-                                                    {row.status === "đang trống" ? "" : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
+                                                    {row.status === "đang trống" ? <AddOutlinedIcon onClick={handleOpenModalContact} className='icon-add' /> : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
 
                                                 </span>
                                             </TableCell>
-
+                                            <TableCell className='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
                                             <TableCell className='center' >
                                                 <span className="cell-item">
                                                     {row.status === "đang trống" ? "" : row.bike}{row.status === "đang trống" ? "" : <TwoWheelerIcon className='icon-bike' />}
-                                                </span>  </TableCell>
-                                            <TableCell className='center'> <span className='cell-item'>{row.phone} </span> </TableCell>
+                                                </span>
+                                            </TableCell>
+
 
                                             <TableCell className='center'>
                                                 <span className={`cell-item ct ${row.status === "cho thuê" ? "ct" :
@@ -262,7 +272,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                         row.status.includes("Giữ đến") ? "tc" : "bt"
 
                                                     }`}>
-                                                    {row.status === "đang trống" ? <AddOutlinedIcon onClick={handleOpenModalContact} className='icon-add' /> : row.status}
+                                                    {row.status === "đang trống" ? <p style={{color: "red", fontStyle:"italic"}}>đang trống 12 ngày</p> : row.status}
                                                 </span>
                                             </TableCell>
 
@@ -270,11 +280,11 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                 {row.status === "đang trống" ? "" :
                                                     <div className='term'>
                                                         <div className='item'>
-                                                            
+
                                                             {row.termContractIn}
                                                         </div>
                                                         <div className='item'>
-                                                            
+
                                                             {row.termContractOut}
                                                         </div>
                                                     </div>
@@ -283,7 +293,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                             <TableCell className='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
-                                            <TableCell className='center'> <span className='cell-item'><PlayArrowOutlinedIcon className='icon-play' /> </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.status === "đang trống" ? "" : <PlayArrowOutlinedIcon className='icon-play' onClick={handleOpenVideo}  /> }  </span> </TableCell>
                                             <TableCell className='center' >
                                                 <span className='cell-item icon-container' onClick={handleClick(row)}>
                                                     <ExpandMoreOutlinedIcon className='icon-edit' />
@@ -310,43 +320,46 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                     )
                                 })}
 
-                                {/* <TableRow>
-                                    <TableCell className='fixed-cell bg-gray' align='center' sx={{ height: "100px", backgroundColor: "#f4f5fa" }}>
-                                        <span></span>
-                                    </TableCell>
-
-                                    
-
-                                </TableRow> */}
-
                             </TableBody>
 
                         </Table>
-                        <div className='note-container'>
-                            <div className='note-wrapp'>
-                                <div className='note-color'></div>
-                                <div className='note-content'>Đang trống</div>
-                            </div>
-                            <div className='note-wrapp '>
-                                <div className='note-color bg-rent'></div>
-                                <div className='note-content'>Đang cho thuê </div>
-                            </div>
-                            <div className='note-wrapp'>
-                                <div className='note-color bg-deposit '></div>
-                                <div className='note-content'>Đã cọc giữ chỗ</div>
-                            </div>
-                            <div className='note-wrapp'>
-                                <div className='note-color bg-return'></div>
-                                <div className='note-content'>Khách Báo trả</div>
-                            </div>
-                            <div className='note-wrapp'>
-                                <div className='note-color bg-return-deposit'></div>
-                                <div className='note-content'>Khách Báo trả có người cọc giữ chỗ</div>
-                            </div>
-                        </div>
-                    </TableContainer>
-                </Paper>}
+                        <Table sx={{ position: "sticky", left: 0 }} >
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell>
+                                        <div className='note-container'>
+                                            <div className='note-wrapp'>
+                                                <div className='note-color note-color-border'></div>
+                                                <div className='note-content'>Đang trống</div>
+                                            </div>
+                                            <div className='note-wrapp '>
+                                                <div className='note-color bg-rent'></div>
+                                                <div className='note-content '>Đang cho thuê </div>
+                                            </div>
+                                            <div className='note-wrapp'>
+                                                <div className='note-color bg-deposit '></div>
+                                                <div className='note-content'>Đã cọc giữ chỗ</div>
+                                            </div>
+                                            <div className='note-wrapp'>
+                                                <div className='note-color bg-return'></div>
+                                                <div className='note-content'>Khách Báo trả</div>
+                                            </div>
+                                            <div className='note-wrapp'>
+                                                <div className='note-color bg-return-deposit'></div>
+                                                <div className='note-content'>Khách Báo trả có người cọc giữ chỗ</div>
+                                            </div>
+                                        </div>
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
 
+                        
+
+                    </TableContainer>
+
+                </Paper>}
+            <ModalCheckin open={openVideo} close ={handleCloseVideo} />
             <ModalCreateContact open={openModalContact} close={handleCloseModalContact} />
         </div>
     )

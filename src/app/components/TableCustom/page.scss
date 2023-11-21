@@ -1,12 +1,12 @@
 .center {
     text-align: -webkit-center !important;
+    padding: 9px 16px !important;
+    height: 60px;
 }
 
 .table-container {
 
-    ::-webkit-scrollbar {
-        width: 1px;
-    }
+    
 
     .grid-container {
         .floor-container {
@@ -146,7 +146,7 @@
     }
 
     .note-container {
-        padding: 39px;
+        padding: 30px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
@@ -156,6 +156,16 @@
 
         @media (max-width: 783px) {
             width: 332%;
+            display: block;
+            padding: 0;
+
+            .note-wrapp {
+                margin-bottom: 5px;
+                .note-color {
+
+                }
+            }
+            
         }
 
         .note-wrapp {
@@ -164,9 +174,14 @@
             align-items: center;
 
             .note-color {
-                width: 15px;
-                height: 15px;
-                border: 1px solid;
+                min-width: 20px;
+                height: 20px;
+                border-radius: 4px;
+
+            }
+            .note-color-border {
+                border: 1px solid #ededed;
+                border-radius: 4px;
             }
 
 
@@ -205,37 +220,39 @@
         }
 
         .icon-bike {
-            color: #838487;
+            color: #b7b7b7;
+            font-size: 17px;
         }
 
         .icon-play {
             color: #804bdf;
             font-size: 1.875rem;
-            
 
+            border: 1px solid #804bdf;
+            border-radius: 4px;
 
             transition: linear 0.2s;
 
             &:hover {
                 cursor: pointer;
-                font-size: 25px;
-                border: 1px solid #804bdf;
-                border-radius: 4px;
+                font-size: 24px;
+
             }
         }
 
         .icon-add {
-            color: #804bdf;
-            font-size: 40px;
             cursor: pointer;
+            color: #804bdf;
+            width: 40px;
+            height: 40px;
             transition: 0.4s;
             border: 1px solid #804bdf;
             border-radius: 50%;
 
             &:hover {
-                opacity: 0.7;
-
-
+                
+                height: 30px;
+                width: 30px;
             }
         }
 
@@ -253,6 +270,7 @@
                 display: flex;
                 flex-direction: row;
                 padding: 0;
+                margin: 0;
             }
         }
     }

@@ -1,0 +1,32 @@
+.productEmpty-container {
+    border-radius: 6px;
+    min-height: 50vh;
+    /* margin: 0 auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .productEmpty-wrapp {
+        display: flex;
+        flex-direction: column;
+        background-color: #f1f1f1;
+        padding: 30px;
+        gap: 30px;
+        height: 218px;
+        justify-content: center;
+        width: 355px;
+        border-radius: 6px;
+
+        .productEmpty-item {
+            .btn {
+                background-color: #0F9DF7;
+            }
+            .bg-primary {
+                background-color: #804bdf;
+            }
+
+        }
+
+        
+    }
+}

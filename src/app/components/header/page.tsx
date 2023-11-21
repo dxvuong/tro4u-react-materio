@@ -17,7 +17,7 @@ import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
 
-import logo from "../../../../public/assets/img/logo4u.png";
+import logo from "../../../../public/assets/img/logo 4u-15.png";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -212,7 +212,7 @@ const HeaderComponent = () => {
         </Modal> */}
           {/* Modal menu mobile */}
           <div style={{ width: 90 }} className="logo-container">
-            <Image src={logo} alt="logo" priority={true} className="logo" width={160} height={60} />
+            <Image src={logo} alt="logo" priority={true} className="logo" width={160} height={40} />
           </div>
         </div>
         <div className="menu-container">
@@ -476,90 +476,7 @@ const HeaderComponent = () => {
 
                   </MenuList>
                 </Paper>
-                {/* <Popper
-                  className="popperMenu"
-                  open={true}
-                  anchorEl={anchorRef.current}
-                  role={undefined}
-                  placement="bottom-start"
-                  transition
-                  disablePortal
-                  style={{
-                    position: "absolute",
-                    top: "58px",
-                    left: "-192px",
-                    width: "230px",
-                  }}
-                >
-                  {({ TransitionProps, placement }) => (
-                    <Grow
-                      {...TransitionProps}
-                      style={{
-                        transformOrigin:
-                          placement === "bottom-start"
-                            ? "left top"
-                            : "left bottom",
-                      }}
-                    >
-                      <Paper>
-                        <ClickAwayListener onClickAway={handleCloseUserMenu}>
-                          <MenuList
-                            autoFocusItem={openMenuUser}
-                            id="login"
-                            aria-labelledby="composition-button"
-                            onKeyDown={handleListKeyDown}
-                          >
-                            <MenuItem
-                              onClick={handleCloseUserMenu}
-                              className="menu-items"
-                            >
-                              <div className="profile-container">
-                                <div className="avatar">
-                                  <Avatar>H</Avatar>
-                                </div>
-                                <div className="info">
-                                  <h5 className="name">
-                                    {apiLoginData.user.full_name}
-                                  </h5>
-                                  <span className="role">Admin</span>
-                                </div>
-                              </div>
-                            </MenuItem>
-                            <Divider />
-                            <MenuItem
-                              onClick={handleCloseUserMenu}
-                              className="menu-items bg"
-                            >
-                              <PersonOutlineIcon className="icon" />
-                              <span
-                                style={{
-                                  color: "rgba(58, 53, 65, 0.68)",
-                                }}
-                              >
-                                Thông tin tài khoản
-                              </span>
-                            </MenuItem>
-                            <MenuItem
-                              onClick={handleCloseUserMenu}
-                              className="menu-items"
-                            >
-                              <LogoutIcon className="icon" />
-                              <Link href="/" onClick={handleLogout}>
-                                <span
-                                  style={{
-                                    color: "rgba(58, 53, 65, 0.68)",
-                                  }}
-                                >
-                                  Đăng xuất
-                                </span>
-                              </Link>
-                            </MenuItem>
-                          </MenuList>
-                        </ClickAwayListener>
-                      </Paper>
-                    </Grow>
-                  )}
-                </Popper> */}
+                
               </div>
             ) : (
               <div className="menu-user">
@@ -567,68 +484,7 @@ const HeaderComponent = () => {
                   sx={{ fontSize: "25px", color: "#333", cursor: "pointer" }}
                 // onClick={handleUserMenu}
                 />
-                {/* <Popper
-                  className="popperMenu"
-                  open={true}
-                  anchorEl={anchorRef.current}
-                  role={undefined}
-                  placement="bottom-start"
-                  transition
-                  disablePortal
-                  style={{
-                    position: "absolute",
-                    top: "50px",
-                    right: 0,
-                    width: "200px",
-                    left: "unset",
-                  }}
-                >
-                  {({ TransitionProps, placement }) => (
-                    <Grow {...TransitionProps}>
-                      <Paper>
-                        <ClickAwayListener onClickAway={handleCloseUserMenu}>
-                          <MenuList
-                            autoFocusItem={openMenuUser}
-                            id="login"
-                            aria-labelledby="composition-button"
-                            onKeyDown={handleListKeyDown}
-                          >
-                            <MenuItem
-                              onClick={handleCloseUserMenu}
-                              className="menu-items bg-hover"
-                            >
-                              <LoginIcon className="icon" />
-                              <Link href="/login">
-                                <span
-                                  style={{
-                                    color: "rgba(58, 53, 65, 0.68)",
-                                  }}
-                                >
-                                  Đăng nhập
-                                </span>
-                              </Link>
-                            </MenuItem>
-                            <MenuItem
-                              onClick={handleCloseUserMenu}
-                              className="menu-items bg-hover"
-                            >
-                              <LogoutIcon className="icon" />
-                              <Link href="/register">
-                                <span
-                                  style={{
-                                    color: "rgba(58, 53, 65, 0.68)",
-                                  }}
-                                >
-                                  Đăng ký
-                                </span>
-                              </Link>
-                            </MenuItem>
-                          </MenuList>
-                        </ClickAwayListener>
-                      </Paper>
-                    </Grow>
-                  )}
-                </Popper> */}
+                
                 <Paper className="popperMenu" sx={{ width: 230, maxWidth: '100%' }}>
                   <MenuList className="menu-list">
                     <Link href="/login" className="menu-item">
@@ -652,11 +508,7 @@ const HeaderComponent = () => {
               </div>
             )}
 
-            {/* {!iconSwitch ? (
-              <MenuIcon onClick={handleSwitch} className="menuIcon" />
-            ) : (
-              <CloseIcon onClick={handleSwitch} />
-            )} */}
+            
           </div>
         </div>
       </div>
