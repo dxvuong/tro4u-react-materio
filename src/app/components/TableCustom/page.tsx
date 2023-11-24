@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./page.scss"
 import ModalCreateContact from '../ModalCreateContact/page'
 import Typography from '@mui/material/Typography'
@@ -22,7 +22,16 @@ import { deepPurple } from '@mui/material/colors';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ModalCheckin from '../ModalChekin/page'
-
+import Dialog from '@mui/material/Dialog'
+import Box from '@mui/material/Box'
+import DialogTitle from '@mui/material/DialogTitle'
+import IconButton from '@mui/material/IconButton'
+import DialogContent from '@mui/material/DialogContent'
+import DialogActions from '@mui/material/DialogActions'
+import Button from '@mui/material/Button'
+import CloseIcon from "@mui/icons-material/Close";
+import Link from 'next/link'
+import { redirect } from 'next/dist/server/api-utils'
 interface TableCustomProps {
     types: boolean
 }
@@ -40,7 +49,6 @@ interface TableRowData {
 }
 
 const TableCustom = ({ types }: TableCustomProps) => {
-
     const [openModalContact, setOpenModalContact] = useState(false)
     const [openModalEditTable, setOpenModalEditTable] = useState(false)
     const [openVideo, setOpenVideo] = useState(false)
@@ -65,12 +73,11 @@ const TableCustom = ({ types }: TableCustomProps) => {
     const handleCloseModalContact = () => {
         setOpenModalContact(false)
     }
-    const handleEditRow = (row: TableRowData) => {
-        console.log("Thông tin của row:", row);
-    }
+
 
     const [selectedRow, setSelectedRow] = useState<TableRowData | null>(null);
-    console.log("data:", selectedRow);
+
+    const [selectedRowDropdown, setSelectedRowDropdown] = useState<TableRowData | null>(null);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -79,11 +86,47 @@ const TableCustom = ({ types }: TableCustomProps) => {
         setSelectedRow(row);
         setAnchorEl(event.currentTarget);
         setopenMenu(!openMenu)
+
+
+    };
+    const handleClickDropdown = (row: TableRowData) => (event: React.MouseEvent<HTMLElement>) => {
+        setSelectedRowDropdown(row);
+        setAnchorEl(event.currentTarget);
+        setopenMenu(!openMenu)
+
+
     };
     const handleClose = () => {
         setAnchorEl(null);
         setopenMenu(false)
     };
+
+    const [link, setLink] = useState('')
+
+    useEffect(() => {
+        if (selectedRow?.status === 'cho thuê') {
+
+            window.location.href = '/pages/productHire'
+        }
+        else if (selectedRow?.status.includes('báo trả')) {
+
+            window.location.href = '/pages/productEnd'
+        }
+        else if (selectedRow?.status.includes('giữ đến')) {
+
+            window.location.href = '/pages/productDeposit'
+        }
+        else if (selectedRow?.status === 'đang trống') {
+
+            window.location.href = '/pages/emptyRoom'
+        }
+
+        else if (selectedRow?.status.includes('Báo trả')) {
+
+            window.location.href = '/pages/returnDeposit'
+        }
+
+    }, [selectedRow])
 
     function createData(
         id: string,
@@ -240,6 +283,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
 
                                 </TableRow>
                             </TableHead>
+
                             <TableBody >
                                 {rows.map((row) => {
                                     return (
@@ -249,11 +293,11 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                 row.status === "cho thuê" ? "bg-rent" :
                                                     row.status.includes("giữ đến") ? "bg-deposit" :
                                                         row.status.includes("Giữ đến") ? "bg-return-deposit" : "bg-return"
-                                                }`} > <span className='cell-item'>{row.id} </span>
+                                                }`} > <span className='cell-item bold' onClick={handleClick(row)} >{row.id} </span>
                                             </TableCell>
 
                                             <TableCell className='center' >
-                                                <span className='cell-item'>
+                                                <span className='cell-item ' >
                                                     {row.status === "đang trống" ? <AddOutlinedIcon onClick={handleOpenModalContact} className='icon-add' /> : <Avatar sx={{ bgcolor: deepPurple[400] }} src='https://ad.tro4u.com/images/khachthue/avatar/64dae464867e3_1692066916.jpg' />}
 
                                                 </span>
@@ -272,7 +316,7 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                         row.status.includes("Giữ đến") ? "tc" : "bt"
 
                                                     }`}>
-                                                    {row.status === "đang trống" ? <p style={{color: "red", fontStyle:"italic"}}>đang trống 12 ngày</p> : row.status}
+                                                    {row.status === "đang trống" ? <p style={{ color: "red", fontStyle: "italic" }}>đang trống 12 ngày</p> : row.status}
                                                 </span>
                                             </TableCell>
 
@@ -293,9 +337,9 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                             <TableCell className='center'> <span className='cell-item'>{row.deposit} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.rentcost} </span> </TableCell>
                                             <TableCell className='center'> <span className='cell-item'>{row.date} </span> </TableCell>
-                                            <TableCell className='center'> <span className='cell-item'>{row.status === "đang trống" ? "" : <PlayArrowOutlinedIcon className='icon-play' onClick={handleOpenVideo}  /> }  </span> </TableCell>
+                                            <TableCell className='center'> <span className='cell-item'>{row.status === "đang trống" ? "" : <PlayArrowOutlinedIcon className='icon-play' onClick={handleOpenVideo} />}  </span> </TableCell>
                                             <TableCell className='center' >
-                                                <span className='cell-item icon-container' onClick={handleClick(row)}>
+                                                <span className='cell-item icon-container' onMouseEnter={handleClickDropdown(row)} >
                                                     <ExpandMoreOutlinedIcon className='icon-edit' />
 
                                                     {/* <div className='menuEdit-container'>
@@ -307,12 +351,60 @@ const TableCustom = ({ types }: TableCustomProps) => {
                                                                 Xóa
                                                             </div>
                                                             <div className="menu-item">
-                                                                Chi tiết
+                                                                <Link href={`${row?.status === 'cho thuê' ? '/pages/productHire' : row?.status.includes('giữ đến')? '/pages/productDeposit' : row?.status.includes('báo trả')? '/pages/productEnd' : ''}`}>Chi tiết</Link>
                                                             </div>
                                                         </div>
-                                                       
+
                                                     </div> */}
-                                                    <MenuCustom open={openModalEditTable} close={handleCloseModalEditTable} selectedRow={selectedRow} />
+                                                    <MenuCustom open={openModalEditTable} close={handleCloseModalEditTable} selectedRow={selectedRowDropdown} />
+                                                    {/* <Dialog
+                                                        open={openModalEditTable}
+
+
+                                                        onClose={handleCloseModalEditTable}
+                                                        aria-describedby="alert-dialog-slide-description"
+
+                                                    >
+                                                        <Box sx={styleBox}>
+                                                            <DialogTitle sx={{ m: 0, padding: " 10px 11px", color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
+                                                                Modal Basic
+                                                            </DialogTitle>
+                                                            <IconButton
+                                                                aria-label="close"
+                                                                onClick={handleCloseModalEditTable}
+                                                                sx={{
+                                                                    position: "absolute",
+                                                                    right: 8,
+                                                                    top: 8,
+                                                                    color: (theme) => theme.palette.grey[500],
+                                                                }}
+                                                            >
+                                                                <CloseIcon />
+                                                            </IconButton>
+
+                                                            <DialogContent dividers sx={styleModal} >
+
+                                                                Let Google help apps determine location. This means sending anonymous
+                                                                location data to Google, even when no apps are running.
+
+                                                            </DialogContent>
+
+                                                            <DialogActions>
+
+                                                                <Button style={{
+                                                                    color: "#9155fd",
+                                                                    border: "1px solid #9155fd",
+                                                                    display: "flex",
+                                                                    alignItems: "center",
+                                                                    gap: "5px"
+                                                                }} variant="outlined" autoFocus onClick={handleClose}>
+                                                                    Button
+
+                                                                </Button>
+                                                            </DialogActions>
+                                                        </Box>
+
+                                                    </Dialog> */}
 
                                                 </span>
                                             </TableCell>
@@ -354,12 +446,12 @@ const TableCustom = ({ types }: TableCustomProps) => {
                             </TableBody>
                         </Table>
 
-                        
+
 
                     </TableContainer>
 
                 </Paper>}
-            <ModalCheckin open={openVideo} close ={handleCloseVideo} />
+            <ModalCheckin open={openVideo} close={handleCloseVideo} />
             <ModalCreateContact open={openModalContact} close={handleCloseModalContact} />
         </div>
     )

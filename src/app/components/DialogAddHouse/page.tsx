@@ -132,12 +132,24 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
             color: "#ccc",
         },
+        '.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
+            fontSize: "0.8rem !important",
+            top: '1px !important'
+        },
+        '.css-1ald77x' : {
+            fontSize: "0.8rem !important",
+            top: '1px !important' 
+        },
+
         "& .MuiFormLabel-root": {
             color: "#cfcfcf",
             top: "-4px"
+
         },
         '.MuiInputLabel-outlined.Mui-focused': {
-            color: "#9155fd"
+            color: "#9155fd",
+            fontSize: '0.8rem',
+            top: '1px',
         },
         '&.Mui-focused': {
             color: '#804bdf', // Màu khi textfield được focus
@@ -188,7 +200,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
     //     width: "100%"
     // }
-    
+
 
 
 
@@ -203,7 +215,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
         boxShadow: 24,
         ":focus-visible": {
             outline: "none"
-          },
+        },
         "@media (max-width: 783px)": {
             width: 330,
             top: '65%',
@@ -217,7 +229,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
     const styleInput = {
         borderRadius: "6px",
         marginTop: "10px",
-        
+
 
     }
     const styleInputBottom = {
@@ -610,7 +622,7 @@ const DialogAddHouse = ({ open, close }: BootstrapDialogCustomProps) => {
 
 
                 </DialogContent>
-                
+
                 {/* <DialogContent sx={styleModalBottom}  >
                         
 

@@ -12,12 +12,19 @@
 
 }
 
+.fixed-cell {
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: #f0f6fd;
+}
+
 .custom {
     height: 40px;
 }
 
 .total {
-    padding: 10px 0;
     display: flex;
     flex-direction: column;
 
@@ -26,10 +33,14 @@
         padding: 10px 20px;
         display: flex;
         justify-content: space-around;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-top: 2px solid #333;
 
         .title {
             color: #696969;
             flex: 3;
+            text-align: center;
         }
 
         .money {
@@ -37,12 +48,51 @@
             font-weight: bold;
         }
 
-        
+
     }
+
+    .divider {
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
+
+        color: white;
+        background: white;
+    }
+
     .congtiencoc {
         display: flex;
+        align-items: baseline;
+        gap: 20px;
+
         .title {
-            
+            flex: 3 1;
+            min-width: 71%;
+            text-align: end;
         }
+    }
+
+    .totalMoneyPay {
+        background-color: #ffff00;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-around;
+
+        margin-top: -15px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-top: 2px solid #333;
+
+        .title {
+            color: #696969;
+            flex: 3;
+            text-align: center;
+        }
+
+        .money {
+            color: #333;
+            font-weight: bold;
+        }
+
+
     }
 }

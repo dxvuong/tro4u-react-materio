@@ -2,6 +2,9 @@
 import TextField from '@mui/material/TextField'
 import React, { useState } from 'react'
 
+
+type TextAlign = "left" | "center" | "right" | "justify";
+
 interface InputComponentProps {
     label: string
     data?: number | string | []
@@ -9,9 +12,10 @@ interface InputComponentProps {
     variant: "outlined" | "standard" | "filled"
     size?: "small" | "medium"
     multiline?: boolean
+    align?: TextAlign
     
 }
-const InputComponent = ({ data, label, onchange, variant, size, multiline }: InputComponentProps) => {
+const InputComponent = ({ data, label, onchange, variant, size, multiline,align }: InputComponentProps) => {
 
     const textfield = {
         // maxHeight: "30px",
@@ -87,7 +91,7 @@ const InputComponent = ({ data, label, onchange, variant, size, multiline }: Inp
                     style: {
                         paddingLeft: "30px",
                         color: "#804bdf",
-                        
+                        textAlign: align || undefined
                     }
                 }}
 

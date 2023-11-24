@@ -14,6 +14,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import "./page.scss"
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import Link from 'next/link';
 
 interface TableRowData {
     id: string;
@@ -48,6 +49,28 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
     const [editTerm, setEditTerm] = useState(selectedRow?.termContract)
     const [editDeposit, setEditDeposit] = useState(selectedRow?.deposit)
     const [editRentCost, setEditRentCost] = useState(selectedRow?.rentcost)
+    const [link, setLink] = useState('')
+
+    useEffect(() => {
+        if (selectedRow?.status === 'cho thuê') {
+            setLink('/pages/productHire')
+        }
+        else if (selectedRow?.status.includes('báo trả')) {
+            setLink('/pages/productEnd')
+        }
+        else if (selectedRow?.status.includes('giữ đến')) {
+            setLink('/pages/productDeposit')
+        }
+        else if (selectedRow?.status === 'đang trống') {
+            setLink('/pages/emptyRoom')
+        }
+        else if (selectedRow?.status.includes('Báo trả')) {
+            setLink('/pages/returnDeposit')
+        }
+        else {
+            setLink('')
+        }
+    }, [selectedRow])
 
     useEffect(() => {
         // Set initial state for dataEdit after the component is mounted
@@ -86,7 +109,10 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         setDataEdit(event.target.value)
         setEditRentCost(event.target.value)
     }
-    
+
+    console.log("data row", selectedRow);
+
+
 
 
     const handleSubmit = () => {
@@ -108,7 +134,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
         boxShadow: 24,
         ":focus-visible": {
             outline: "none"
-          },
+        },
         "@media (max-width: 783px)": {
             width: 330,
         },
@@ -123,7 +149,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             minWidth: "330px",
         },
     }
-    
+
 
     const textfield = {
 
@@ -154,7 +180,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
 
         marginBottom: "10px"
     };
-    
+
 
     return (
         <>
@@ -175,22 +201,24 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
             <div className='menuEdit-container'>
                 <div className="menu-list">
                     <div className="menu-item" onClick={handleOpenModal}>
-                        <EditOutlinedIcon sx={{color: "#17a2b8"}} />
-                        <span style={{color: "#333"}}>Sửa</span>
+                        <EditOutlinedIcon sx={{ color: "#17a2b8" }} />
+                        <span style={{ color: "#333" }}>Sửa</span>
                     </div>
                     <div className="menu-item">
-                        
-                            <DeleteOutlinedIcon sx={{color: "#dc3545"}} />
-                            <span style={{color: "#333"}}>Xóa</span>
-                        
+
+                        <DeleteOutlinedIcon sx={{ color: "#dc3545" }} />
+                        <span style={{ color: "#333" }}>Xóa</span>
+
 
                     </div>
-                    <div className="menu-item">
-                        
-                            <InfoOutlinedIcon sx={{color: "#804bdf"}} />
-                            <span style={{color: "#333"}}>Chi tiết</span>
-                        
-                    </div>
+                    <Link href={link} className="menu-item">
+
+                        <InfoOutlinedIcon sx={{ color: "#804bdf" }} />
+                        <span style={{ color: "#333" }}>
+                            Chi tiết
+                        </span>
+
+                    </Link>
                 </div>
 
             </div>
@@ -203,7 +231,7 @@ const MenuCustom = ({ open, close, selectedRow }: MenuCustomProps) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleBox}>
-                    <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf",borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
+                    <DialogTitle sx={{ m: 0, color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
                         Cập nhật phòng
                     </DialogTitle>
                     <IconButton

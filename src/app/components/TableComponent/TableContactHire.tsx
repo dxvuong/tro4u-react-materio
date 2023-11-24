@@ -11,12 +11,16 @@ import InputComponent from '../TextfiledComponent/InputComponent';
 import "./page.scss"
 import InputComponentForTable from '../TextfiledComponent/InputComponentForTable';
 import { useEffect, useState } from 'react';
+import Divider from '@mui/material/Divider';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: "#f0f6fd",
         color: "#333",
+        "@media (max-width: 783px)": {
+            minWidth: '100px'
+        },
     },
     padding: "5px 10px"
 }))
@@ -155,140 +159,139 @@ export default function TableContactHire() {
         <>
             <TableContainer component={Paper}>
                 <Table aria-label="customized table">
-                    <TableHead>
+                    <TableHead  >
                         <TableRow>
-                            <StyledTableCell align="center" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Dịch vụ</StyledTableCell>
-                            <StyledTableCell align="center" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Đơn giá</StyledTableCell>
-                            <StyledTableCell align="center" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Số lượng</StyledTableCell>
-                            <StyledTableCell align="center" sx={{ Width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Tiền</StyledTableCell>
-
+                            <StyledTableCell className='fixed-cell' align="center" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Dịch vụ</StyledTableCell>
+                            <StyledTableCell align="right" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Đơn giá</StyledTableCell>
+                            <StyledTableCell align="right" sx={{ width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Số lượng</StyledTableCell>
+                            <StyledTableCell align="right" sx={{ Width: "100px", textTransform: "uppercase", fontSize: "14px", color: "#656468 !important", fontWeight: "600" }}>Tiền</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Thuê
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceHire} onchange={handleChanePrice} />
+                                <InputComponentForTable label='' variant='standard' data={priceHire} onchange={handleChanePrice} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityHire} onchange={handleChaneQuantity} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityHire} onchange={handleChaneQuantity} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyHire} />
+                                <InputComponentForTable label='' variant='standard' data={moneyHire} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Điện
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceElectric} onchange={handleChanePriceElectric} />
+                                <InputComponentForTable label='' variant='standard' data={priceElectric} onchange={handleChanePriceElectric} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityElectric} onchange={handleChaneQuantityElectric} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityElectric} onchange={handleChaneQuantityElectric} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyElectric} />
+                                <InputComponentForTable label='' variant='standard' data={moneyElectric} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Nước
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceWater} onchange={handleChanePriceWater} />
+                                <InputComponentForTable label='' variant='standard' data={priceWater} onchange={handleChanePriceWater} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityWater} onchange={handleChaneQuantityWater} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityWater} onchange={handleChaneQuantityWater} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyWater} />
+                                <InputComponentForTable label='' variant='standard' data={moneyWater} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Net
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceNet} onchange={handleChanePriceNet} />
+                                <InputComponentForTable label='' variant='standard' data={priceNet} onchange={handleChanePriceNet} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityNet} onchange={handleChaneQuantityNet} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityNet} onchange={handleChaneQuantityNet} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyNet} />
+                                <InputComponentForTable label='' variant='standard' data={moneyNet} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Xe
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceBic} onchange={handleChanePriceBic} />
+                                <InputComponentForTable label='' variant='standard' data={priceBic} onchange={handleChanePriceBic} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityBic} onchange={handleChaneQuantityBic} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityBic} onchange={handleChaneQuantityBic} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyBic} />
+                                <InputComponentForTable label='' variant='standard' data={moneyBic} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Rác
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceRac} onchange={handleChanePriceRac} />
+                                <InputComponentForTable label='' variant='standard' data={priceRac} onchange={handleChanePriceRac} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityRac} onchange={handleChaneQuantityRac} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityRac} onchange={handleChaneQuantityRac} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyRac} />
+                                <InputComponentForTable label='' variant='standard' data={moneyRac} />
                             </StyledTableCell>
                         </TableRow>
 
                         <TableRow className='custom'>
-                            <StyledTableCell component="th" scope="row" align='center' sx={{ width: "100px" }} >
+                            <StyledTableCell className='fixed-cell' component="th" scope="row" align='center' sx={{ width: "100px" }} >
                                 $ Khác
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='outlined' data={priceOther} onchange={handleChanePriceOther} />
+                                <InputComponentForTable label='' variant='standard' data={priceOther} onchange={handleChanePriceOther} />
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <InputComponentForTable label='' variant='outlined' data={quantityOther} onchange={handleChaneQuantityOther} type='number' />
+                                <InputComponentForTable label='' variant='standard' data={quantityOther} onchange={handleChaneQuantityOther} type='number' />
                             </StyledTableCell>
 
                             <StyledTableCell align="center" sx={{ width: "150px" }}>
-                                <InputComponentForTable label='' variant='filled' data={moneyOther} />
+                                <InputComponentForTable label='' variant='standard' data={moneyOther} />
                             </StyledTableCell>
                         </TableRow>
 
@@ -302,9 +305,20 @@ export default function TableContactHire() {
                 </div>
                 <div className="congtiencoc">
                     <span className='title'>Cộng tiền cọc:</span>
-                    <InputComponent label='' variant='outlined' />
+                    <InputComponent label='' variant='outlined' align='right' />
                 </div>
+                <Divider style={{ margin: "2px" }} className='divider' />
+                <div className="congtiencoc">
+                    <span className='title'>Trừ tiền đã đưa:</span>
+                    <InputComponent label='' variant='outlined' align='right' />
+                </div>
+                <div className="totalMoneyPay">
+                    <span className='title'>Tổng phải thanh toán: </span>
+                    <span className='money'>0</span>
+                </div>
+
             </div>
+
 
         </>
 

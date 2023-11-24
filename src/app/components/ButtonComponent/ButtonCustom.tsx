@@ -8,8 +8,8 @@ interface ButtonCustomProps {
     text?: any
     startIcon?: any
     endIcon?: any
-    children: string
-    sx: any
+    children: any
+    sx?: any
 }
 const ButtonCustom = ({ variants,sx, disabled, color, size, children, startIcon, endIcon }: ButtonCustomProps) => {
     return (

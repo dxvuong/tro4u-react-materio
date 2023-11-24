@@ -17,7 +17,7 @@ import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
 
-import logo from "../../../../public/assets/img/logo 4u-15.png";
+import logo from "../../../../public/assets/img/logo 4u new-15.png";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -54,6 +54,7 @@ import Tab from "@mui/material/Tab";
 import TabPanel from "@mui/lab/TabPanel";
 import KeyIcon from '@mui/icons-material/Key';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 type ApiProps = {
   user_token: string;
@@ -476,7 +477,7 @@ const HeaderComponent = () => {
 
                   </MenuList>
                 </Paper>
-                
+
               </div>
             ) : (
               <div className="menu-user">
@@ -484,7 +485,7 @@ const HeaderComponent = () => {
                   sx={{ fontSize: "25px", color: "#333", cursor: "pointer" }}
                 // onClick={handleUserMenu}
                 />
-                
+
                 <Paper className="popperMenu" sx={{ width: 230, maxWidth: '100%' }}>
                   <MenuList className="menu-list">
                     <Link href="/login" className="menu-item">
@@ -508,7 +509,7 @@ const HeaderComponent = () => {
               </div>
             )}
 
-            
+
           </div>
         </div>
       </div>
@@ -701,6 +702,7 @@ const HeaderComponent = () => {
             <HomeIcon />
             <span>Home</span>
           </Link>
+
           <Link
             href="/guest"
             className={`menuMobile-items ${pathname === "/guest/" ? "activeMobieMenu" : ""
@@ -709,6 +711,7 @@ const HeaderComponent = () => {
             <GroupsIcon />
             <span>Khách</span>
           </Link>
+
           <Link
             href="/money"
             className={`menuMobile-items ${pathname === "/money/" ? "activeMobieMenu" : ""
@@ -717,22 +720,39 @@ const HeaderComponent = () => {
             <MonetizationOnIcon />
             <span>Tiền</span>
           </Link>
-          <Link
-            href="/report"
+
+          <div
+
             className={`menuMobile-items ${pathname === "/report" ? "activeMobieMenu" : ""
               } `}
           >
+
             <BarChartIcon />
-            <span>Báo cáo</span>
-          </Link>
-          <Link
-            href="/manage"
+
+            <span className="title">
+              Báo cáo
+              <ArrowDropUpIcon className="arrowTop" />
+            </span>
+
+            <div className="subMenuMobile">
+              <SubMenu />
+            </div>
+
+
+          </div>
+
+          <div
+
             className={`menuMobile-items ${pathname === "/quanly" ? "activeMobieMenu" : ""
               } `}
           >
             <AssignmentOutlinedIcon />
-            <span>Quản lý</span>
-          </Link>
+            <span className="title">Quản lý
+              <ArrowDropUpIcon className="arrowTop" /></span>
+            <div className="subMenuMobile">
+              <SubMenu2 />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -57,6 +57,9 @@ const Register = () => {
   //   // Do something with the checked value if needed
   // };
   const [checked, setChecked] = useState<boolean>(false);
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
   const [openModalPolicy, setOpenModalPolicy] = useState(false)
   const handleOpenModalPolicy = () => {
     setOpenModalPolicy(!openModalPolicy)
@@ -64,9 +67,7 @@ const Register = () => {
   const handleCloseModalPolicy = () => {
     setOpenModalPolicy(false)
   }
-  const handleCheck = () => {
-    setChecked(!checked);
-  };
+  
 
   const [erroCheck, setErrorCheck] = useState("");
 

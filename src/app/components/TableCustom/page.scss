@@ -6,7 +6,7 @@
 
 .table-container {
 
-    
+
 
     .grid-container {
         .floor-container {
@@ -161,11 +161,10 @@
 
             .note-wrapp {
                 margin-bottom: 5px;
-                .note-color {
 
-                }
+                .note-color {}
             }
-            
+
         }
 
         .note-wrapp {
@@ -179,6 +178,7 @@
                 border-radius: 4px;
 
             }
+
             .note-color-border {
                 border: 1px solid #ededed;
                 border-radius: 4px;
@@ -250,7 +250,7 @@
             border-radius: 50%;
 
             &:hover {
-                
+
                 height: 30px;
                 width: 30px;
             }
@@ -272,6 +272,15 @@
                 padding: 0;
                 margin: 0;
             }
+        }
+    }
+
+    .bold {
+        font-weight: 600;
+
+        &:hover {
+            color: #804bdf;
+            cursor: pointer;
         }
     }
 

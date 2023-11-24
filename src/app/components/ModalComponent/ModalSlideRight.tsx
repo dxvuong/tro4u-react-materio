@@ -23,8 +23,41 @@ const Transition = React.forwardRef(function Transition(
 export default function ModalSlideRight() {
     const styleModal = {
         maxWidth: "360px",
-        minWidth: "360px",
+        
         padding: "10px 15px",
+    }
+    const dialogCustom = {
+         //for production
+         '.css-uhb5lp': {
+            backgroundColor: "unset !important",
+            boxShadow: "unset !important",
+            margin: "10px !important",
+            overflow: 'hidden !important'
+        },
+        //for production
+        '.css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
+            backgroundColor: "unset !important",
+            boxShadow: "unset !important",
+            margin: "10px !important",
+            overflow: 'hidden !important'
+        },
+
+    }
+    const styleDialogAction = {
+
+
+        "@media (max-width: 783px)": {
+            padding: "8px 20px"
+        }
+
+    };
+    const btnText = {
+        border: 'none',
+        color: "#333",
+        '&:hover': {
+            backgroundColor: "unset",
+            color: "#804bdf"
+        }
     }
     const styleBox = {
 
@@ -54,13 +87,14 @@ export default function ModalSlideRight() {
     return (
         <React.Fragment>
             <Button style={{
-                            color: "#9155fd",
-                            border: "1px solid #9155fd",
-                            
-                        }} variant="outlined" onClick={handleClickOpen}>
+                color: "#9155fd",
+                border: "1px solid #9155fd",
+
+            }} variant="outlined" onClick={handleClickOpen}>
                 Modal Slide Right
             </Button>
             <Dialog
+                sx={dialogCustom}
                 open={open}
                 TransitionComponent={Transition}
                 keepMounted
@@ -92,17 +126,19 @@ export default function ModalSlideRight() {
 
                     </DialogContent>
 
-                    <DialogActions>
+                    <DialogActions  sx={styleDialogAction}>
+                        <Button
 
-                        <Button style={{
-                            color: "#9155fd",
-                            border: "1px solid #9155fd",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "5px"
-                        }} variant="outlined" autoFocus onClick={handleClose}>
-                            Button
+                            sx={btnText}
+                            variant="text" autoFocus onClick={handleClose}>
+                            Đóng
+                        </Button>
 
+                        <Button
+                            style={{
+                                background: "#9155fd"
+                            }} variant="contained" autoFocus onClick={handleClose}>
+                            Thêm
                         </Button>
                     </DialogActions>
                 </Box>

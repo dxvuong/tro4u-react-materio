@@ -6,6 +6,10 @@
     border-radius: 6px;
     gap: 20px;
 
+    @media (max-width: 783px) {
+        flex-direction: column;
+    }
+
     .left {
         flex: 1;
 
@@ -17,6 +21,7 @@
             background-color: #d4edda;
             padding: 20px;
             border-radius: 6px;
+            gap: 5px;
         }
 
         .content {
@@ -93,7 +98,9 @@
 
     .right {
         flex: 1;
-
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
         .contact-container {
             background-color: #ededed;
@@ -117,6 +124,7 @@
                     justify-content: center;
                     gap: 15px;
                     margin-bottom: 10px;
+
                     .sumday-text {
                         font-size: 14px;
                         width: 100%;
@@ -152,11 +160,39 @@
                     }
                 }
             }
+
             .tableContactHire {
                 padding: 12px;
             }
 
         }
+
+        .commission {
+            padding: 12px;
+            background-color: #ededed;
+            border-radius: 6px;
+
+
+            .commission-item {
+                display: flex;
+                margin-top: 10px;
+                align-items: baseline;
+                margin-bottom: -15px;
+
+                .commission-label {
+                    width: 30%;
+                    text-align: end;
+                    margin-right: 20px;
+                    font-size: 14px;
+                    color: darkgray;
+
+                    @media (max-width: 783px) {
+                        width: 40%;
+                    }
+                }
+            }
+        }
+
 
     }
 }

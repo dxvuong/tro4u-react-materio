@@ -4,49 +4,37 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
 import CloseIcon from "@mui/icons-material/Close";
-import { TransitionProps } from '@mui/material/transitions';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-        children: React.ReactElement<any, any>;
-    },
-    ref: React.Ref<unknown>,
-) {
-    return <Slide direction="down" ref={ref} {...props} />;
-});
+import Stack from '@mui/material/Stack';
 
-export default function ModalSlideDown() {
+
+export default function ModalLarge() {
     const styleModal = {
-        maxWidth: "360px",
-        
+
         padding: "10px 15px",
     }
     const dialogCustom = {
-         //for production
-         '.css-uhb5lp': {
+        //for production
+        '.css-uhb5lp': {
             backgroundColor: "unset !important",
             boxShadow: "unset !important",
-            margin: "10px !important",
-            overflow: 'hidden !important'
+            margin: "10px !important"
         },
         //for production
         '.css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
             backgroundColor: "unset !important",
             boxShadow: "unset !important",
-            margin: "10px !important",
-            overflow: 'hidden !important'
+            margin: "10px !important"
         },
 
     }
-    const styleBox = {
+    const styleBoxLarge = {
 
 
-        width: 360,
+
         bgcolor: 'background.paper',
         borderRadius: "6px",
         boxShadow: 24,
@@ -54,18 +42,11 @@ export default function ModalSlideDown() {
             outline: "none"
         },
         "@media (max-width: 783px)": {
-            width: "350px"
+
         }
 
     };
-    const styleDialogAction = {
 
-
-        "@media (max-width: 783px)": {
-            padding: "8px 20px"
-        }
-
-    };
     const btnText = {
         border: 'none',
         color: "#333",
@@ -91,20 +72,19 @@ export default function ModalSlideDown() {
                 border: "1px solid #9155fd",
 
             }} variant="outlined" onClick={handleClickOpen}>
-                Modal Slide Down
+                Modal Large
             </Button>
             <Dialog
-                sx={dialogCustom}
                 open={open}
-                TransitionComponent={Transition}
-                keepMounted
+                sx={dialogCustom}
+
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
 
             >
-                <Box sx={styleBox}>
+                <Box sx={styleBoxLarge}>
                     <DialogTitle sx={{ m: 0, padding: " 10px 11px", color: "#fff", background: "#804bdf", borderRadius: "6px 6px 0 0" }} id="customized-dialog-title">
-                        Modal Slide Down
+                        Modal Large
                     </DialogTitle>
                     <IconButton
                         aria-label="close"
@@ -120,14 +100,22 @@ export default function ModalSlideDown() {
                     </IconButton>
 
                     <DialogContent dividers sx={styleModal} >
+                        <Stack direction={{ xs: 'column', lg: 'row' }} spacing={2} >
+                            <Stack sx={{ background: "#f4f5fa", padding: "10px", borderRadius: "6px" }}>
+                                Let Google help apps determine location. This means sending anonymous
+                                location data to Google, even when no apps are running.
+                            </Stack>
+                            <Stack sx={{ background: "#f4f5fa", padding: "10px", borderRadius: "6px" }}>
+                                Rioght Google help apps determine location. This means sending anonymous
+                                location data to Google, even when no apps are running.
+                            </Stack>
+                        </Stack>
 
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
-                        
+
 
                     </DialogContent>
 
-                    <DialogActions sx={styleDialogAction}>
+                    <DialogActions>
                         <Button
 
                             sx={btnText}

@@ -17,7 +17,7 @@ import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
 
-import logo from "../../../../public/assets/img/logo4u.png";
+import logo from "../../../../public/assets/img/logo 4u.png";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import GroupsIcon from "@mui/icons-material/Groups";

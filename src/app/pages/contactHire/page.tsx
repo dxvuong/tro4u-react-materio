@@ -21,11 +21,26 @@ import RadioCustom from '@/app/components/RadioComponent/RadioCustom'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Radio from '@mui/material/Radio'
 import TableContactHire from '@/app/components/TableComponent/TableContactHire'
+import ButtonCustom from '@/app/components/ButtonComponent/ButtonCustom'
 const ContactHire = () => {
     const [hanhopdong, setHanhopdong] = useState<number | string | undefined>(1);
 
     const handleChangeHanhopdong = (event: React.ChangeEvent<{ value: unknown }>) => {
         setHanhopdong(event.target.value as number | string | undefined)
+
+    }
+
+    const [nvsale, setnvsale] = useState<number | string | undefined>('');
+
+    const handleChangeNhanvienSale = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setnvsale(event.target.value as number | string | undefined)
+
+    }
+
+    const [nvguild, setnvguild] = useState<number | string | undefined>('');
+
+    const handleChangeNhanvienGuild = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setnvguild(event.target.value as number | string | undefined)
 
     }
 
@@ -72,6 +87,14 @@ const ContactHire = () => {
         },
 
         width: "100%"
+    }
+    const styleSubmitBtn = {
+        width: "100%",
+        backgroundColor: "#1bb99a",
+        color: "#fff",
+        '&:hover': {
+            backgroundColor: '#16957c'
+        }
     }
     return (
 
@@ -174,9 +197,38 @@ const ContactHire = () => {
                             </div>
                             <div className="tableContactHire">
                                 <TableContactHire />
-                                
+
                             </div>
 
+
+                        </div>
+                        <div className="commission">
+                            <Typography sx={{ fontSize: "18px", color: "#656668", position: "relative" }}>Thông tin tính hoa hồng</Typography>
+                            <div className="commission-item">
+                                <label className='commission-label'>Người Sale</label>
+                                <SelectComponent label='Chọn nhân viên' variant='outlined' onchange={handleChangeNhanvienSale} value={nvsale}>
+                                    <MenuItem value={'nv1'}>Nhân viên 1</MenuItem>
+                                    <MenuItem value={'nv2'}>Nhân viên 2</MenuItem>
+                                    <MenuItem value={'nv3'}>Nhân viên 3</MenuItem>
+                                    <MenuItem value={'nv4'}>Nhân viên 4</MenuItem>
+                                </SelectComponent>
+                            </div>
+
+                            <div className="commission-item">
+                                <label className='commission-label'>Dẫn khách</label>
+                                <SelectComponent label='Chọn nhân viên' variant='outlined' onchange={handleChangeNhanvienGuild} value={nvguild}>
+                                    <MenuItem value={'nv1'}>Nhân viên 1</MenuItem>
+                                    <MenuItem value={'nv2'}>Nhân viên 2</MenuItem>
+                                    <MenuItem value={'nv3'}>Nhân viên 3</MenuItem>
+                                    <MenuItem value={'nv4'}>Nhân viên 4</MenuItem>
+                                </SelectComponent>
+                            </div>
+
+                        </div>
+                        <div className='submit-btn'>
+                            <ButtonCustom variants='contained' sx={styleSubmitBtn}>
+                                Tạo hợp đồng thuê
+                            </ButtonCustom>
                         </div>
                     </div>
                 </div>

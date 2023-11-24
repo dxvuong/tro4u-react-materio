@@ -11,13 +11,31 @@ interface InputComponentProps {
     multiline?: boolean
     type?: 'number'
 }
-const InputComponentForTable = ({ data, label, onchange, variant, size, multiline,type }: InputComponentProps) => {
+const InputComponentForTable = ({ data, label, onchange, variant, size, multiline, type }: InputComponentProps) => {
 
     const textfield = {
         // maxHeight: "30px",
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#804bdf',
         },
+        '.css-l4u8b9-MuiInputBase-root-MuiInput-root:before': {
+            borderBottom: 'unset'
+        },
+        '.css-l4u8b9-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before': {
+            borderBottom: 'unset'
+        },
+
+        //for production
+
+        '.css-12rx5qu:before': {
+            borderBottom: 'unset'
+        },
+
+        '.css-12rx5qu:hover:not(.Mui-disabled, .Mui-error):before': {
+            borderBottom: 'unset'
+        },
+
+        //for production
         '.css-1jg2gny:after': {
             borderBottom: "2px solid #804bdf"
         },
@@ -30,7 +48,6 @@ const InputComponentForTable = ({ data, label, onchange, variant, size, multilin
         '.MuiInputBase-root': {
             marginTop: 0,
             height: "20px",
-            padding: "10px"
         },
         '.MuiSvgIcon-root ': {
             fill: "black !important",
@@ -64,7 +81,7 @@ const InputComponentForTable = ({ data, label, onchange, variant, size, multilin
 
 
         background: "#fff",
-        
+
     };
     return (
         <>
@@ -73,7 +90,7 @@ const InputComponentForTable = ({ data, label, onchange, variant, size, multilin
                 id="input basic"
                 label={label}
                 size={size}
-                type= {type}
+                type={type}
                 multiline={multiline}
                 value={data}
                 variant={variant}
